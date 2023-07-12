@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: Data
+  m_Name: 1
   m_EditorClassIdentifier: 
-  prefabName: 
-  numberOfPrefabsToCreate: 0
-  spawnPoints: []
+  cardName: Broken Leg
+  cardDescription: You broke your leg
+  cardCost: 0
+  cardImage: {fileID: 0}
