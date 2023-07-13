@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerDeck : MonoBehaviour
 {
     public List<CardData> deck = new List<CardData>();
+    public static List<CardData> staticDeck = new List<CardData>();
     public List<CardData> existingCards = new List<CardData>();
-    public List<CardData> container = new List<CardData>();
-    public int deckSize;
+    public static int deckSize;
     int randomInt;
     int cardTypeAmount = 10;
 
@@ -27,11 +27,32 @@ public class PlayerDeck : MonoBehaviour
             }
             
         }
+        deckSize = deck.Count;
+        Shuffle();
     }
     void Update()
     {
-        deckSize = deck.Count;
-        if(deckSize)
+        if (Input.GetKeyDown("space"))
+        {
+            CountOccurrences(existingCards[0]);
+        }
+        staticDeck = deck;
+        if (deckSize <= 30)
+        {
+            cardInDeck4.SetActive(false);
+        }
+        if (deckSize <= 20)
+        {
+            cardInDeck3.SetActive(false);
+        }
+        if (deckSize <= 10)
+        {
+            cardInDeck2.SetActive(false);
+        }
+        if (deckSize <= 0)
+        {
+            cardInDeck1.SetActive(false);
+        }
     }
 
     // Fisher-Yates Shuffle Algorithm
@@ -41,19 +62,28 @@ public class PlayerDeck : MonoBehaviour
         for (int i = 0; i < deck.Count; i++)
         {
             int r = (int)(Random.value * (deck.Count - i));
-            Debug.Log(i+":"+r);
+            //Debug.Log(i+":"+r);
             //Debug.Log(deck.Count - i);
             CardData temp = deck[r];
             deck[r] = deck[i];
             deck[i] = temp;
         }
-         //CountOccurrences(existingCards[2]);
     }
 
+    // Check if all cards are there
     public int CountOccurrences(CardData item)
     {
         List<CardData> occurrences = deck.FindAll(i => i == item);
         Debug.Log(occurrences.Count);
         return occurrences.Count;
+    }
+
+    public static void ReduceDeck()
+    {
+        staticDeck.RemoveAt(deckSize - 1);
+        deckSize -= 1;
+
+        Debug.Log(deckSize);
+
     }
 }

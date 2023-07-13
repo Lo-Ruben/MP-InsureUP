@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 958335067596968435}
   - component: {fileID: 9164432046613776741}
   m_Layer: 5
-  m_Name: TestCard
-  m_TagString: Untagged
+  m_Name: TestCard(Player)
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
