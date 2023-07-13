@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
+    public List<CardData> displayCard = new List<CardData>();
     [SerializeField]
-    private CardData card;
+    private CardData cardInfo;
 
     [SerializeField]
     Text cardNameText;
@@ -21,17 +22,18 @@ public class CardDisplay : MonoBehaviour
     bool staticCardBack = false;
 
     public GameObject cardBack;
+    [SerializeField]
+    static int numberOfCardsInDeck;
 
     private void Start()
     {
-        cardNameText.text = card.cardName;
-        cardDescriptionText.text = card.cardDescription;
-        cardCostText.text = card.cardCost.ToString();
-        cardImage.sprite = card.cardImage;
+        numberOfCardsInDeck = PlayerDeck.deckSize;
+        
     }
 
     private void Update()
     {
+
         if (staticCardBack == true)
         {
             cardBack.SetActive(true);
@@ -39,6 +41,25 @@ public class CardDisplay : MonoBehaviour
         else
         {
             cardBack.SetActive(false);
+        }
+
+        // If card appears in player's hand, reduce PlayerDeck
+        if (this.tag == "Clone")
+        {
+            cardInfo = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
+
+            cardNameText.text = cardInfo.cardName;
+            cardDescriptionText.text = cardInfo.cardDescription;
+            cardCostText.text = cardInfo.cardCost.ToString();
+            cardImage.sprite = cardInfo.cardImage;
+
+            //numberOfCardsInDeck -= 1;
+            //PlayerDeck.deckSize -= 1;
+
+            PlayerDeck.ReduceDeck();
+
+            staticCardBack = false;
+            this.tag = "Untagged";
         }
     }
 }

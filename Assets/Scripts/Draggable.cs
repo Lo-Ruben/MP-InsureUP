@@ -14,6 +14,9 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     private void Awake()
     {
+        // Manually reference canvas, check if there is a performance issue
+        GameObject canvasObject = GameObject.Find("Canvas");
+        canvas = canvasObject.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
