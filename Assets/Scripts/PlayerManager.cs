@@ -26,6 +26,9 @@ public class PlayerManager : MonoBehaviour
     public Text familyLevelText;
     public Text personalLevelText;
 
+    [SerializeField]
+    DropArea discardArea;
+
 
     void Start()
     {
@@ -38,17 +41,17 @@ public class PlayerManager : MonoBehaviour
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
-
     }
 
     void Update()
     {
         GameOver();
-        EndTurn();
+        //EndTurn();
     }
 
-    void EndTurn()
+    public void EndTurn()
     {
+        UpdateStats(discardArea.cardDisplay);
         jobLevelText.text = "LEVEL " + jobLevel.ToString();
         familyLevelText.text = "LEVEL " + familyLevel.ToString();
         personalLevelText.text = "LEVEL " + personalLevel.ToString();
@@ -59,8 +62,14 @@ public class PlayerManager : MonoBehaviour
 
         if(personalLevel >= 5)
         {
-
+            // Gain health
         }
+        if (personalLevel < 5)
+        {
+            // Lose health
+        }
+
+
     }
 
     void CalculateIncome(int income)
@@ -69,7 +78,14 @@ public class PlayerManager : MonoBehaviour
         money += proffit;
     }
 
-    
+    public void UpdateStats(CardDisplay cardDisplay)
+    {
+        jobLevel += cardDisplay.cardInfo.jobIncrease;
+        familyLevel += cardDisplay.cardInfo.familyIncrease;
+        personalLevel += cardDisplay.cardInfo.personalIncrease;
+    }
+
+
     void GameOver()
     {
         if(health<=0 || money <= 0)

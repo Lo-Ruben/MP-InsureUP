@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler{
     // Cards are stored in the canvas instead of the game scene
-
+    
+    public Transform parentToReturnTo { get; set; }
     private RectTransform rectTransform;
 
     [SerializeField]private Canvas canvas;
@@ -31,18 +32,23 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("PointerDown");
+        //Debug.Log(parentToReturnTo.name);
+        parentToReturnTo = this.transform.parent;
+        this.transform.SetParent(this.transform.parent.parent);
+        
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("DragEnd");
+        this.transform.SetParent(parentToReturnTo);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
     public void OnDrop(PointerEventData eventData)
     {
+        this.transform.SetParent(parentToReturnTo);
         throw new System.NotImplementedException();
     }
 }

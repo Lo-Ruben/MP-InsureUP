@@ -29,6 +29,8 @@ public class PlayerDeck : MonoBehaviour
         }
         deckSize = deck.Count;
         Shuffle();
+
+        staticDeck = deck;
     }
     void Update()
     {
@@ -36,7 +38,6 @@ public class PlayerDeck : MonoBehaviour
         {
             CountOccurrences(existingCards[0]);
         }
-        staticDeck = deck;
         if (deckSize <= 30)
         {
             cardInDeck4.SetActive(false);
@@ -80,10 +81,10 @@ public class PlayerDeck : MonoBehaviour
 
     public static void ReduceDeck()
     {
-        staticDeck.RemoveAt(deckSize - 1);
+        staticDeck.RemoveAt(staticDeck.Count - 1);
         deckSize -= 1;
 
-        Debug.Log(deckSize);
+        //Debug.Log(deckSize);
 
     }
 }
