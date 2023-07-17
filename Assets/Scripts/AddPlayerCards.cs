@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AddPlayerCards : MonoBehaviour
 {
+    // Add player cards adds cards onto the player's hand in the scene
+    // Press w to instantiate a card
+    // Player's hand limit may change
+
     public GameObject card;
 
     [SerializeField]

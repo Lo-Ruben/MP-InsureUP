@@ -34,7 +34,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         //Debug.Log(parentToReturnTo.name);
         parentToReturnTo = this.transform.parent;
-        this.transform.SetParent(this.transform.parent.parent);
+        this.transform.SetParent(canvas.transform);
         
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;

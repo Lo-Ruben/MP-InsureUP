@@ -80,9 +80,17 @@ public class PlayerManager : MonoBehaviour
 
     public void UpdateStats(CardDisplay cardDisplay)
     {
-        jobLevel += cardDisplay.cardInfo.jobIncrease;
-        familyLevel += cardDisplay.cardInfo.familyIncrease;
-        personalLevel += cardDisplay.cardInfo.personalIncrease;
+        if (cardDisplay != null)
+        {
+            jobLevel += cardDisplay.CardInfo.jobIncrease;
+            familyLevel += cardDisplay.CardInfo.familyIncrease;
+            personalLevel += cardDisplay.CardInfo.personalIncrease;
+        }
+        else
+        {
+            Debug.Log("No cardDisplay");
+        }
+        
     }
 
 

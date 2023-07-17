@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public class InsuranceDisplay : MonoBehaviour
 {
+
+    //public InsuranceData insuranceInfo { get; set; }
     [SerializeField]
-    private CardData cardInfo;
+    private InsuranceData insuranceInfo;
     
-    public CardData CardInfo
+    public InsuranceData InsuranceInfo
     {
-        get { return cardInfo; }
-        set { cardInfo = value; }
+        get { return insuranceInfo; }
+        set { insuranceInfo = value; }
     }
 
     [SerializeField]
@@ -33,6 +35,7 @@ public class CardDisplay : MonoBehaviour
     private void Start()
     {
         numberOfCardsInDeck = PlayerDeck.deckSize;
+        DisplayInfo();
     }
 
     private void Update()
@@ -46,23 +49,14 @@ public class CardDisplay : MonoBehaviour
         {
             cardBack.SetActive(false);
         }
+    }
 
-        // If card appears in player's hand, reduce PlayerDeck
-        if (this.tag == "Clone")
-        {
-            CardInfo = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
-            //Debug.Log(numberOfCardsInDeck - 1);
-
-            cardNameText.text = CardInfo.cardName;
-            cardDescriptionText.text = CardInfo.cardDescription;
-            cardCostText.text = CardInfo.cardCost.ToString();
-            cardImage.sprite = CardInfo.cardImage;
-
-            staticCardBack = false;
-            this.tag = "Untagged";
-
-            PlayerDeck.ReduceDeck();
-
-        }
+    void DisplayInfo()
+    {
+        cardNameText.text = InsuranceInfo.cardName;
+        cardDescriptionText.text = InsuranceInfo.cardDescription;
+        cardCostText.text = InsuranceInfo.cardCost.ToString();
+        cardImage.sprite = InsuranceInfo.cardImage;
+        staticCardBack = false;
     }
 }

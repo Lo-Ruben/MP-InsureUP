@@ -6,14 +6,24 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CardDisplay cardDisplay { get; set; }
+    [SerializeField]
+    PlayerManager playerManager;
     public void OnDrop(PointerEventData eventData)
     {
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if (draggable != null)
+        if (draggable != null && playerManager != null)
         {
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
-            //Debug.Log(cardDisplay.cardInfo);
+            playerManager.EndTurn();
+        }
+        if(draggable == null)
+        {
+            Debug.Log("Please put a card in the discard pile");
+        }
+        if(playerManager == null)
+        {
+            Debug.Log("PlayerManager is not referened in DropArea");
         }
     }
 

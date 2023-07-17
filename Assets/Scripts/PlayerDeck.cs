@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
 {
+    // Script is attached to PlayerDeckManager
+    // Script handles the generation of card data and order
+    // Has a shuffle feature and shows the size of the deck w the 4 GameObjects
     public List<CardData> deck = new List<CardData>();
     public static List<CardData> staticDeck = new List<CardData>();
     public List<CardData> existingCards = new List<CardData>();
