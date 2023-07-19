@@ -20,8 +20,6 @@ public class CardDisplay : MonoBehaviour
     Text cardDescriptionText;
     [SerializeField]
     Text cardCostText;
-    [SerializeField]
-    Image cardImage;
 
     [SerializeField]
     bool staticCardBack = false;
@@ -29,10 +27,17 @@ public class CardDisplay : MonoBehaviour
     public GameObject cardBack;
     [SerializeField]
     static int numberOfCardsInDeck;
+    private void Awake()
+    {
+        cardNameText.text = null;
+        cardDescriptionText.text = null;
+        cardCostText.text = null;
+    }
 
     private void Start()
     {
         numberOfCardsInDeck = PlayerDeck.deckSize;
+        StartCoroutine(TextAfterAnimation());
     }
 
     private void Update()
@@ -53,10 +58,7 @@ public class CardDisplay : MonoBehaviour
             CardInfo = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
             //Debug.Log(numberOfCardsInDeck - 1);
 
-            cardNameText.text = CardInfo.cardName;
-            cardDescriptionText.text = CardInfo.cardDescription;
-            cardCostText.text = CardInfo.cardCost.ToString();
-            cardImage.sprite = CardInfo.cardImage;
+            //DisplayInfo();
 
             staticCardBack = false;
             this.tag = "Untagged";
@@ -64,5 +66,18 @@ public class CardDisplay : MonoBehaviour
             PlayerDeck.ReduceDeck();
 
         }
+    }
+
+    void DisplayInfo()
+    {
+        cardNameText.text = CardInfo.cardName;
+        cardDescriptionText.text = CardInfo.cardDescription;
+        cardCostText.text = CardInfo.cardCost.ToString();
+    }
+
+        IEnumerator TextAfterAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DisplayInfo();
     }
 }

@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class InsuranceDisplay : MonoBehaviour
 {
-
-    //public InsuranceData insuranceInfo { get; set; }
     [SerializeField]
-    private InsuranceData insuranceInfo;
+    private InsuranceData insuranceData;
     
-    public InsuranceData InsuranceInfo
+    public InsuranceData InsuranceData
     {
-        get { return insuranceInfo; }
-        set { insuranceInfo = value; }
+        get { return insuranceData; }
+        set { insuranceData = value; }
     }
 
     [SerializeField]
@@ -22,8 +20,6 @@ public class InsuranceDisplay : MonoBehaviour
     Text cardDescriptionText;
     [SerializeField]
     Text cardCostText;
-    [SerializeField]
-    Image cardImage;
 
     [SerializeField]
     bool staticCardBack = false;
@@ -53,10 +49,9 @@ public class InsuranceDisplay : MonoBehaviour
 
     void DisplayInfo()
     {
-        cardNameText.text = InsuranceInfo.cardName;
-        cardDescriptionText.text = InsuranceInfo.cardDescription;
-        cardCostText.text = InsuranceInfo.cardCost.ToString();
-        cardImage.sprite = InsuranceInfo.cardImage;
+        cardNameText.text = InsuranceData.cardName;
+        cardDescriptionText.text = InsuranceData.cardDescription;
+        cardCostText.text = InsuranceData.cardCost.ToString();
         staticCardBack = false;
     }
 }

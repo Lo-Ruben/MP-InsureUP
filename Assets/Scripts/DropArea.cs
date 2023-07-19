@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CardDisplay cardDisplay { get; set; }
+
+    [Header("Insert GameManagers Here")]
     [SerializeField]
     PlayerManager playerManager;
+
     public void OnDrop(PointerEventData eventData)
     {
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
@@ -15,7 +18,7 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         {
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
-            playerManager.EndTurn();
+            playerManager.PlayCard();
         }
         if(draggable == null)
         {

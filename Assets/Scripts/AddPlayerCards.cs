@@ -8,10 +8,15 @@ public class AddPlayerCards : MonoBehaviour
     // Press w to instantiate a card
     // Player's hand limit may change
 
+    [Header("Insert Card Prefab Here")]
     public GameObject card;
 
+    [Header("Insert GameManagers Here")]
     [SerializeField]
-    int maxPlayerHand;
+    PlayerManager m_playerManager;
+
+    [SerializeField]
+    CrisisDeck m_crisisDeck;
 
     void Start()
     {
@@ -19,31 +24,30 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown("w") && PlayerDeck.deckSize > 0)
+        // If draw phase and deck got cards and "W" is pressed
+        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
         {
-            if (this.transform.childCount < maxPlayerHand)
+            // If there are less decks in the 
+            if (this.transform.childCount < m_playerManager.MaxPlayerHand)
             {
                 SpawnCard();
+
+                //Debug.Log(m_crisisDeck.disasterCounter);
             }
             else
             {
                 Debug.Log("Player's hand is full");
+                m_playerManager.PhaseInt += 1;
             }
         }
     }
-    IEnumerator StartGame()
-    {
-        for(int i = 0; i<5; i++)
-        {
-            yield return new WaitForSeconds(1);
 
-            SpawnCard();
-        }
-    }
-
+    // Instantiate a card in PlayerHand
     void SpawnCard()
     {
+        //DECREASE MONEY
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
+        m_crisisDeck.disasterCounter -= 1;
     }
 }

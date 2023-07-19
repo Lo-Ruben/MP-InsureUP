@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5903927749636392865}
   - component: {fileID: 5252632398579402936}
   - component: {fileID: 4751066534058639301}
-  - component: {fileID: 6313552931040466114}
   - component: {fileID: 958335067596968435}
   - component: {fileID: 8929542110636636468}
+  - component: {fileID: 3079113446860803440}
   m_Layer: 5
   m_Name: InsuranceCard
   m_TagString: Untagged
@@ -84,19 +84,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6313552931040466114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085360275541385765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28f3f2e578d52b4fb01983ddec4e9e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!225 &958335067596968435
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -121,12 +108,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751eaba2fa3cf6640bf2bebb5b5c1a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  insuranceInfo: {fileID: 0}
   cardNameText: {fileID: 3043145264725351417}
   cardDescriptionText: {fileID: 451909757765349313}
   cardCostText: {fileID: 7270137105213575616}
-  cardImage: {fileID: 4838014479819343277}
   staticCardBack: 0
   cardBack: {fileID: 6280285375628363931}
+--- !u!114 &3079113446860803440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085360275541385765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e5777aa232c91488a79b357b15a28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2539421315740212972
 GameObject:
   m_ObjectHideFlags: 0

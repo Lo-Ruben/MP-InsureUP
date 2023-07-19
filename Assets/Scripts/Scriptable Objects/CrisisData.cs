@@ -10,9 +10,6 @@ public class CrisisData : ScriptableObject
     public string cardName;
     public string cardDescription;
 
-    // Card Image
-    public Sprite cardImage;
-
     // Family, Job and Personal aspects decrease
     public int familyDecrease;
     public int jobDecrease;
@@ -22,4 +19,7 @@ public class CrisisData : ScriptableObject
 
     // Card Duration
     public int cardEffectDuration;
+
+    // Insurance counter
+    public string insuranceCounter;
 }

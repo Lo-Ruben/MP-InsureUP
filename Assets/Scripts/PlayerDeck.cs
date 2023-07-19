@@ -11,9 +11,9 @@ public class PlayerDeck : MonoBehaviour
     public static List<CardData> staticDeck = new List<CardData>();
     public List<CardData> existingCards = new List<CardData>();
     public static int deckSize;
-    int randomInt;
     int cardTypeAmount = 10;
 
+    [Header("Display Deck size for player")]
     public GameObject cardInDeck1;
     public GameObject cardInDeck2;
     public GameObject cardInDeck3;
@@ -21,7 +21,6 @@ public class PlayerDeck : MonoBehaviour
 
     void Start()
     {
-        randomInt = 0;
         for (int i = 0; i < cardTypeAmount; i++)
         {
             for(int x =0; x< existingCards.Count; x++)
