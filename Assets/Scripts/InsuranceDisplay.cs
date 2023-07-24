@@ -25,16 +25,12 @@ public class InsuranceDisplay : MonoBehaviour
     [SerializeField]
     Image cardImage;
 
-    [SerializeField]
-    bool staticCardBack = false;
+    public bool staticCardBack = false;
 
     public GameObject cardBack;
-    [SerializeField]
-    static int numberOfCardsInDeck;
 
     private void Start()
     {
-        numberOfCardsInDeck = PlayerDeck.deckSize;
         DisplayInfo();
     }
 

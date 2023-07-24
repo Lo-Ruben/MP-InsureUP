@@ -17,4 +17,8 @@ public class InsuranceData : ScriptableObject
 
     // Card Return
     public int returnMoney;
+
+    public bool isActive;
+
+    public string insuranceCategory;
 }

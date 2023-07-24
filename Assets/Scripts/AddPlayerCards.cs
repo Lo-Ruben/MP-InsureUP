@@ -11,7 +11,14 @@ public class AddPlayerCards : MonoBehaviour
     public GameObject card;
 
     [SerializeField]
+<<<<<<< Updated upstream
     int maxPlayerHand;
+=======
+    GameManager m_GameManager;
+
+    [SerializeField]
+    CrisisDeck m_crisisDeck;
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -19,15 +26,28 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
+<<<<<<< Updated upstream
         if (Input.GetKeyDown("w") && PlayerDeck.deckSize > 0)
         {
             if (this.transform.childCount < maxPlayerHand)
+=======
+        // If draw phase and deck got cards
+        if (m_GameManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 )
+        {
+            // When "W" is pressed
+            if (Input.GetKeyDown("w"))
+>>>>>>> Stashed changes
             {
                 SpawnCard();
             }
-            else
+            // If player has the max amount of cards held 
+            if (this.transform.childCount >= m_GameManager.MaxPlayerHand)
             {
                 Debug.Log("Player's hand is full");
+<<<<<<< Updated upstream
+=======
+                m_GameManager.PhaseInt += 1;
+>>>>>>> Stashed changes
             }
         }
     }
@@ -45,5 +65,12 @@ public class AddPlayerCards : MonoBehaviour
     {
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
+<<<<<<< Updated upstream
+=======
+        if(m_crisisDeck.crisisDeck.Count > 0)
+        {
+            m_crisisDeck.disasterCounter -= 1;
+        }
+>>>>>>> Stashed changes
     }
 }

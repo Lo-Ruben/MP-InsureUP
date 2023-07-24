@@ -7,21 +7,30 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 {
     public CardDisplay cardDisplay { get; set; }
     [SerializeField]
+<<<<<<< Updated upstream
     PlayerManager playerManager;
+=======
+    GameManager m_GameManager;
+
+>>>>>>> Stashed changes
     public void OnDrop(PointerEventData eventData)
     {
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if (draggable != null && playerManager != null)
+        if (draggable != null && m_GameManager != null)
         {
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
+<<<<<<< Updated upstream
             playerManager.EndTurn();
+=======
+            m_GameManager.PlayCard();
+>>>>>>> Stashed changes
         }
         if(draggable == null)
         {
             Debug.Log("Please put a card in the discard pile");
         }
-        if(playerManager == null)
+        if(m_GameManager == null)
         {
             Debug.Log("PlayerManager is not referened in DropArea");
         }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CrisisDeck : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public List<CardData> crisisDeck = new List<CardData>();
     public static List<CardData> staticDeck = new List<CardData>();
     public List<CardData> existingCards = new List<CardData>();
     public static int deckSize;
+=======
+>>>>>>> Stashed changes
     int randomInt;
     int cardTypeAmount = 10;
 
@@ -22,18 +25,41 @@ public class CrisisDeck : MonoBehaviour
             }
 
         }
+<<<<<<< Updated upstream
         deckSize = crisisDeck.Count;
         //Shuffle();
+=======
+        Shuffle();
+        RandomChance();
+>>>>>>> Stashed changes
 
         staticDeck = crisisDeck;
     }
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (staticDeck.Count > 0)
         {
+<<<<<<< Updated upstream
             CountOccurrences(existingCards[0]);
         }
         
+=======
+            if (randomInt == disasterCounter)
+            {
+                Debug.Log(staticDeck.Count);
+                ReduceDeck();
+                disasterCounter = 10;
+                RandomChance();
+
+            }
+            if (randomInt >= disasterCounter)
+            {
+                Debug.Log("Gone out of something wrong with disasterCounter");
+            }
+        }
+            
+
+>>>>>>> Stashed changes
     }
 
     // Fisher-Yates Shuffle Algorithm
@@ -61,10 +87,26 @@ public class CrisisDeck : MonoBehaviour
 
     public static void ReduceDeck()
     {
+<<<<<<< Updated upstream
         staticDeck.RemoveAt(staticDeck.Count - 1);
         deckSize -= 1;
 
         //Debug.Log(deckSize);
 
+=======
+        randomInt = Random.Range(minDisasterCardChance,maxDisasterCardChance);
+        Debug.Log("RandomInt:"+randomInt);
+        
+    }
+
+    public void ReduceDeck()
+    {
+        //if(staticDeck.Count > 0)
+        //{
+            crisisDisplay.CrisisInfo = staticDeck[staticDeck.Count - 1];
+            staticDeck.RemoveAt(staticDeck.Count - 1);
+        //}
+        
+>>>>>>> Stashed changes
     }
 }
