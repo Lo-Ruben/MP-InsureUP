@@ -9,7 +9,7 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 
     [Header("Insert GameManagers Here")]
     [SerializeField]
-    PlayerManager playerManager;
+    GameManager playerManager;
 
     public void OnDrop(PointerEventData eventData)
     {

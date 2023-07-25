@@ -13,14 +13,14 @@ public class AddPlayerCards : MonoBehaviour
 
     [Header("Insert GameManagers Here")]
     [SerializeField]
-    PlayerManager m_playerManager;
+    GameManager m_playerManager;
 
     [SerializeField]
     CrisisDeck m_crisisDeck;
 
     void Start()
     {
-        //StartCoroutine(StartGame());
+        m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {

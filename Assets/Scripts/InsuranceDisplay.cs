@@ -21,8 +21,7 @@ public class InsuranceDisplay : MonoBehaviour
     [SerializeField]
     Text cardCostText;
 
-    [SerializeField]
-    bool staticCardBack = false;
+    public bool staticCardBack = false;
 
     public GameObject cardBack;
     [SerializeField]

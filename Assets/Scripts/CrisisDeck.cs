@@ -93,8 +93,16 @@ public class CrisisDeck : MonoBehaviour
 
     public void ReduceDeck()
     {
-        crisisDisplay.CrisisInfo = staticDeck[staticDeck.Count - 1];
-        staticDeck.RemoveAt(staticDeck.Count - 1);
-        deckSize -= 1;
+        if(crisisDeck.Count > 0)
+        {
+            crisisDisplay.CrisisInfo = staticDeck[staticDeck.Count - 1];
+            staticDeck.RemoveAt(staticDeck.Count - 1);
+            deckSize -= 1;
+        }
+        else
+        {
+            Debug.Log("No More Crisis Cards");
+        }
+        
     }
 }
