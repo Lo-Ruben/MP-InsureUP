@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: 3
+  m_Name: Overtime
   m_EditorClassIdentifier: 
-  cardName: Kitchen Raid
-  cardDescription: Eat all the food
-  cardCost: 10
-  cardImage: {fileID: 21300000, guid: 1b9bbc2b00894a34cbe4cbc09983cc16, type: 3}
-  familyIncrease: 1
-  jobIncrease: 0
-  personalIncrease: 1
+  cardName: Overtime
+  cardDescription: Personal Needs -1 Work need +1
+  cardCost: 0
+  cardImage: {fileID: -198872988, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
+  familyIncrease: -1
+  jobIncrease: 1
+  personalIncrease: 0
   cardEffectDuration: 0
   testBool: 0

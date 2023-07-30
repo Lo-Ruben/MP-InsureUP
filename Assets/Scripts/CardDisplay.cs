@@ -20,7 +20,8 @@ public class CardDisplay : MonoBehaviour
     Text cardDescriptionText;
     [SerializeField]
     Text cardCostText;
-
+    [SerializeField]
+    Image cardImage;
     [SerializeField]
     bool staticCardBack = false;
 
@@ -32,6 +33,7 @@ public class CardDisplay : MonoBehaviour
         cardNameText.text = null;
         cardDescriptionText.text = null;
         cardCostText.text = null;
+        cardImage.sprite = null;
     }
 
     private void Start()
@@ -59,7 +61,6 @@ public class CardDisplay : MonoBehaviour
             //Debug.Log(numberOfCardsInDeck - 1);
 
             //DisplayInfo();
-
             staticCardBack = false;
             this.tag = "Untagged";
 
@@ -73,11 +74,12 @@ public class CardDisplay : MonoBehaviour
         cardNameText.text = CardInfo.cardName;
         cardDescriptionText.text = CardInfo.cardDescription;
         cardCostText.text = CardInfo.cardCost.ToString();
+        cardImage.sprite = cardInfo.cardImage;
     }
 
         IEnumerator TextAfterAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         DisplayInfo();
     }
 }

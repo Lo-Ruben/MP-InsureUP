@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: 2
+  m_Name: Family Exercise
   m_EditorClassIdentifier: 
-  cardName: Cancer
-  cardDescription: Im sorry
+  cardName: Family Exercise
+  cardDescription: Personal -1 Family Needs +1
   cardCost: 0
-  cardImage: {fileID: 0}
-  familyIncrease: 0
-  jobIncrease: 1
-  personalIncrease: 2
+  cardImage: {fileID: 1699776926, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
+  familyIncrease: 1
+  jobIncrease: 0
+  personalIncrease: -1
   cardEffectDuration: 0
   testBool: 0
