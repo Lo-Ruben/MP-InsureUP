@@ -366,14 +366,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa87347a8ef2c14e988065ca1c3564b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobLevel: 0
-  familyLevel: 0
-  personalLevel: 0
+  InsuraceShop: {fileID: 0}
+  baseIncome: 500
+  maxPlayerHand: 0
   healthText: {fileID: 423401125}
   moneyText: {fileID: 875656499}
   jobLevelText: {fileID: 308599326}
   familyLevelText: {fileID: 1362637080}
   personalLevelText: {fileID: 1285777223}
+  phaseText: {fileID: 0}
+  jobLevel: 0
+  familyLevel: 0
+  personalLevel: 0
+  phaseInt: 0
+  phaseString: 
+  discardArea: {fileID: 0}
+  crisisDisplay: {fileID: 0}
+  CrisisCardArea: {fileID: 0}
 --- !u!4 &317188343
 Transform:
   m_ObjectHideFlags: 0
