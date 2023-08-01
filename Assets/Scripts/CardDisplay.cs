@@ -74,12 +74,17 @@ public class CardDisplay : MonoBehaviour
         cardNameText.text = CardInfo.cardName;
         cardDescriptionText.text = CardInfo.cardDescription;
         cardCostText.text = CardInfo.cardCost.ToString();
-        cardImage.sprite = cardInfo.cardImage;
+        
     }
 
         IEnumerator TextAfterAnimation()
     {
         yield return new WaitForSeconds(0.2f);
         DisplayInfo();
+    }
+
+    void DisplayImage()
+    {
+        cardImage.sprite = cardInfo.cardImage;
     }
 }
