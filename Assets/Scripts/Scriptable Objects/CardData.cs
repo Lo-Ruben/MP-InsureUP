@@ -12,6 +12,9 @@ public class CardData : ScriptableObject
     // Card Cost (If any)
     public int cardCost;
 
+    // Card Image
+    public Sprite cardImage;
+
     // Family, Job and Personal aspects increase and decrease
     public int familyIncrease;
     public int jobIncrease;

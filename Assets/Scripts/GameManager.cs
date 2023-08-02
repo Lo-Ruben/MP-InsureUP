@@ -37,16 +37,32 @@ public class GameManager : MonoBehaviour
     public Text jobLevelText;
     public Text familyLevelText;
     public Text personalLevelText;
+
+    public Text goal1;
+    public Text goal2;
+    public Text goal3;
+
     //Debugging
     public Text phaseText;
 
     [Header("Game Life Aspect Levels")]
-    [SerializeField]
-    private int jobLevel;
-    [SerializeField]
-    private int familyLevel;
-    [SerializeField]
-    private int personalLevel;
+    private int JobLevel;
+    public int jobLevel
+    {
+        get { return JobLevel; }
+    }
+
+    private int FamilyLevel;
+    public int familyLevel
+    {
+        get { return FamilyLevel; }
+    }
+    private int PersonalLevel;
+    public int personalLevel
+    {
+        get { return PersonalLevel; }
+    }
+
     [Header("Phase Debug")]
     [SerializeField]
     private int phaseInt;
@@ -70,15 +86,17 @@ public class GameManager : MonoBehaviour
 
     public bool switchBool = false;
 
+    // Organize goals into an Array
+    GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
     void Start()
     {
         money = 500;
         health = 3;
 
-        jobLevel = 5;
-        familyLevel = 5;
-        personalLevel = 5;
+        JobLevel = 5;
+        FamilyLevel = 5;
+        PersonalLevel = 5;
         phaseInt = 1;
 
         healthText.text = "Health: " + health;
@@ -87,12 +105,25 @@ public class GameManager : MonoBehaviour
         familyLevelText.text = "LEVEL " + familyLevel.ToString();
         personalLevelText.text = "LEVEL " + personalLevel.ToString();
         ShopGameObject.SetActive(false);
+
+        // Display game goal's
+        // Need to find a way to display goal name description on UI
+
+        goal1.text = PlayerGoals.goalDataSaved1.goalName;
+        goal2.text = PlayerGoals.goalDataSaved2.goalName;
+        goal3.text = PlayerGoals.goalDataSaved3.goalName;
     }
 
     void Update()
     {
         GameOver();
         PhaseCheck();
+
+        if (goalDataArray[1] == null)
+        {
+            Debug.LogError("No Goals Found");
+        }
+
         //EndTurn();
     }
 
@@ -206,9 +237,9 @@ public class GameManager : MonoBehaviour
     {
         if (cardDisplay != null)
         {
-            jobLevel += cardDisplay.CardInfo.jobIncrease;
-            familyLevel += cardDisplay.CardInfo.familyIncrease;
-            personalLevel += cardDisplay.CardInfo.personalIncrease;
+            JobLevel += cardDisplay.CardInfo.jobIncrease;
+            FamilyLevel += cardDisplay.CardInfo.familyIncrease;
+            PersonalLevel += cardDisplay.CardInfo.personalIncrease;
         }
         else
         {

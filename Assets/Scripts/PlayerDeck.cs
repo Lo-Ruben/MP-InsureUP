@@ -40,15 +40,15 @@ public class PlayerDeck : MonoBehaviour
         {
             CountOccurrences(existingCards[0]);
         }
-        if (deckSize <= 30)
+        if (deckSize <= 75)
         {
             cardInDeck4.SetActive(false);
         }
-        if (deckSize <= 20)
+        if (deckSize <= 50)
         {
             cardInDeck3.SetActive(false);
         }
-        if (deckSize <= 10)
+        if (deckSize <= 25)
         {
             cardInDeck2.SetActive(false);
         }

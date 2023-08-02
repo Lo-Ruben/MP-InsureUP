@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1e80942a20926924997a53784b1ec325
+  - enabled: 1
     path: Assets/Scenes/TableScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: cbc70bca880db194b874286bc2bb8af1
+  - enabled: 1
+    path: Assets/Scenes/ChooseLifeGoals.unity
+    guid: b27b904cf4b3a4647b0f2ffe6b1aef5e
   m_configObjects: {}
