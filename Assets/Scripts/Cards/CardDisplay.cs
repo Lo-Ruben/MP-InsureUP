@@ -39,6 +39,7 @@ public class CardDisplay : MonoBehaviour
     private void Start()
     {
         numberOfCardsInDeck = PlayerDeck.deckSize;
+        StartCoroutine(TextAfterAnimation());
     }
 
     private void Update()
@@ -57,22 +58,28 @@ public class CardDisplay : MonoBehaviour
         if (this.tag == "Clone")
         {
             CardInfo = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
-            
+            //Debug.Log(numberOfCardsInDeck - 1);
+
+            //DisplayInfo();
             staticCardBack = false;
             this.tag = "Untagged";
 
             PlayerDeck.ReduceDeck();
-            DisplayInfo();
 
         }
     }
 
     void DisplayInfo()
     {
-        cardImage.sprite = cardInfo.cardImage;
         cardNameText.text = CardInfo.cardName;
         cardDescriptionText.text = CardInfo.cardDescription;
         cardCostText.text = CardInfo.cardCost.ToString();
-        
+        cardImage.sprite = cardInfo.cardImage;
+    }
+
+        IEnumerator TextAfterAnimation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        DisplayInfo();
     }
 }
