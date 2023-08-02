@@ -7,6 +7,7 @@ public class AddPlayerCards : MonoBehaviour
     // Add player cards adds cards onto the player's hand in the scene
     // Press w to instantiate a card
     // Player's hand limit may change
+    public PauseMenu pauseMenu;
 
     [Header("Insert Card Prefab Here")]
     public GameObject card;
@@ -24,22 +25,30 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
-        // If draw phase and deck got cards and "W" is pressed
-        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
+        if (pauseMenu.paused == false)
         {
-            // If there are less decks in the 
-            if (this.transform.childCount < m_playerManager.MaxPlayerHand)
-            {
-                SpawnCard();
 
-                //Debug.Log(m_crisisDeck.disasterCounter);
-            }
-            else
+            if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
             {
-                Debug.Log("Player's hand is full");
-                m_playerManager.PhaseInt += 1;
+
+                if (this.transform.childCount < m_playerManager.MaxPlayerHand)
+                {
+                    SpawnCard();
+
+                    //Debug.Log(m_crisisDeck.disasterCounter);
+                }
+                else
+                {
+                    Debug.Log("Player's hand is full");
+                    m_playerManager.PhaseInt += 1;
+                }
+
+                // If there are less decks in the 
+
             }
         }
+            // If draw phase and deck got cards and "W" is pressed
+       
     }
 
     // Instantiate a card in PlayerHand

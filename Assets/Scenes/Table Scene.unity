@@ -1855,6 +1855,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 276940872}
   buttons: {fileID: 15385453}
   animator: {fileID: 328161341}
+  paused: 0
 --- !u!1 &296654250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: {fileID: 15385453}
+  menu: {fileID: 276940877}
 --- !u!1 &359316853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,6 +4122,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 276940872}
   buttons: {fileID: 15385453}
   animator: {fileID: 328161341}
+  paused: 0
 --- !u!114 &819967114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7494,6 +7497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9fb23a1c9336240b14a4aeae6bf5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 276940877}
   card: {fileID: 5810304387013886296, guid: 4ea2fe1cb7305f848911aa2d4883a532, type: 3}
   m_playerManager: {fileID: 827282913}
   m_crisisDeck: {fileID: 1613521332}
