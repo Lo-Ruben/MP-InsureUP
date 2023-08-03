@@ -33,7 +33,7 @@ public class CardDisplay : MonoBehaviour
         cardNameText.text = null;
         cardDescriptionText.text = null;
         cardCostText.text = null;
-        cardImage.sprite = null;
+        cardImage.enabled = false;
     }
 
     private void Start()
@@ -69,17 +69,28 @@ public class CardDisplay : MonoBehaviour
         }
     }
 
-    void DisplayInfo()
+    void DisplayInfoTop() //name and cost of card
     {
         cardNameText.text = CardInfo.cardName;
-        cardDescriptionText.text = CardInfo.cardDescription;
         cardCostText.text = CardInfo.cardCost.ToString();
+    }
+    void DisplayInfoMid() //image of card
+    {
         cardImage.sprite = cardInfo.cardImage;
+        cardImage.enabled = true;
+    }
+    void DisplayInfoBot() //description of card
+    {
+        cardDescriptionText.text = CardInfo.cardDescription;
     }
 
         IEnumerator TextAfterAnimation()
     {
-        yield return new WaitForSeconds(0.2f);
-        DisplayInfo();
+        yield return new WaitForSeconds(0.1f);
+        DisplayInfoTop();
+        yield return new WaitForSeconds(0.1f);
+        DisplayInfoMid();
+        yield return new WaitForSeconds(0.1f);
+        DisplayInfoBot();
     }
 }
