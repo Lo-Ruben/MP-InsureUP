@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
+    public DontDestroyAudio audio;
 
     public void FadeToGame ()
     {
         animator.SetTrigger("FadeOut");     
+    }
+
+    public void ChangeMusic()
+    {
+        audio.mainMenuMusic.Stop();
+        audio.gameMusic.Play();
     }
 
     public void LoadGame()
@@ -21,4 +28,6 @@ public class SceneLoader : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }

@@ -2096,6 +2096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 359316860}
+  audio: {fileID: 0}
 --- !u!114 &359316856
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1434803949}
+  audio: {fileID: 0}
 --- !u!1 &636991738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1434803949}
+  audio: {fileID: 0}
 --- !u!1 &1466188264
 GameObject:
   m_ObjectHideFlags: 0
