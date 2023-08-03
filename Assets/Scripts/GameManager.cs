@@ -86,6 +86,9 @@ public class GameManager : MonoBehaviour
 
     public bool switchBool = false;
 
+    public LifeAspectUI JobLifeAspect;
+    public LifeAspectUI FamilyLifeAspect;
+    public LifeAspectUI PersonalLifeAspect;
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
@@ -101,9 +104,9 @@ public class GameManager : MonoBehaviour
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
         ShopGameObject.SetActive(false);
 
         // Display game goal's
@@ -177,10 +180,12 @@ public class GameManager : MonoBehaviour
     public void PlayCard()
     {
         UpdateStats(discardArea.cardDisplay);
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
-
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
+        JobLifeAspect.UpdateJobImage();
+        FamilyLifeAspect.UpdateFamilyImage();
+        PersonalLifeAspect.UpdatePersonalImage();
         CalculateIncome(baseIncome);
 
         maxCardsHeld = familyLevel;
