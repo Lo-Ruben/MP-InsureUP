@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
-    public DontDestroyAudio audio;
-
+    public DontDestroyAudio backgroundMusic;
     public void FadeToGame ()
     {
         animator.SetTrigger("FadeOut");     
@@ -15,8 +14,9 @@ public class SceneLoader : MonoBehaviour
 
     public void ChangeMusic()
     {
-        audio.mainMenuMusic.Stop();
-        audio.gameMusic.Play();
+        backgroundMusic.mainMenuMusic.Stop();
+        backgroundMusic.gameMusic.Play();
+        
     }
 
     public void LoadGame()
