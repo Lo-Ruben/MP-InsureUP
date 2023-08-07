@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // Player stats
-    private int health;
-    private int money;
-    private int maxCardsHeld;
+    // Kid: Set all 3 to public
+    public int health;
+    public int money;
+    public int maxCardsHeld;
 
     [Header("Test Insurance fields")]
     // Insurance
@@ -71,6 +72,8 @@ public class GameManager : MonoBehaviour
     public bool switchBool = false;
 
 
+    bool turnBool;
+
     void Start()
     {
         money = 500;
@@ -87,13 +90,48 @@ public class GameManager : MonoBehaviour
         familyLevelText.text = "LEVEL " + familyLevel.ToString();
         personalLevelText.text = "LEVEL " + personalLevel.ToString();
         ShopGameObject.SetActive(false);
+<<<<<<< Updated upstream
+=======
+
+        turnBool = true;
+
+        // Display game goal's
+        // Need to find a way to display goal name description on UI
+
+        goal1.text = PlayerGoals.goalDataSaved1.goalName;
+        goal2.text = PlayerGoals.goalDataSaved2.goalName;
+        goal3.text = PlayerGoals.goalDataSaved3.goalName;
+>>>>>>> Stashed changes
     }
 
     void Update()
     {
+<<<<<<< Updated upstream
         GameOver();
         PhaseCheck();
+=======
+        lifeAspectCheck();
+        GameOver();
+        PhaseCheck();
+        TextUpdate();
+
+        if (goalDataArray[1] == null)
+        {
+            Debug.LogError("No Goals Found");
+        }
+
+>>>>>>> Stashed changes
         //EndTurn();
+    }
+
+    public void TextUpdate()
+    {
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
+
+        healthText.text = "Health: " + health;
+        moneyText.text = "Money: " + money + "K";
     }
 
     // Updates the phase name based on the number
@@ -105,6 +143,11 @@ public class GameManager : MonoBehaviour
             case 1:
                 phaseText.text = "Draw";
                 discardArea.enabled = false;
+                if (turnBool == true)
+                {
+                    turnBool = false;
+                    money += 2;
+                }
                 break;
             case 2:
                 phaseText.text = "Action";
@@ -131,6 +174,7 @@ public class GameManager : MonoBehaviour
                 phaseInt = 1;
                 CrisisCardArea.SetActive(false);
                 insuranceBoughtDictionary.Clear();
+                turnBool = true;
                 if (crisisDisplay.CrisisInfo != null)
                 {
                     crisisDisplay.CrisisInfo = null;

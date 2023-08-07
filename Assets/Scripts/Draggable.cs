@@ -12,6 +12,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     [SerializeField]private Canvas canvas;
 
     private CanvasGroup canvasGroup;
+    public bool IsDraggingStop = false;
 
     private void Awake()
     {
@@ -24,15 +25,27 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnPointerDown(PointerEventData eventData)
     {
         //Debug.Log("PointerDown");
+        if (IsDraggingStop)
+        {
+            return;
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
+        if (IsDraggingStop)
+        {
+            return;
+        }
         rectTransform.anchoredPosition += eventData.delta/ canvas.scaleFactor;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log(parentToReturnTo.name);
+        if (IsDraggingStop)
+        {
+            return;
+        }
         parentToReturnTo = this.transform.parent;
         this.transform.SetParent(canvas.transform);
         
@@ -42,12 +55,22 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("DragEnd");
+        if (IsDraggingStop)
+        {
+            this.transform.SetParent(parentToReturnTo);
+            canvasGroup.alpha = 1f;
+            return;
+        }
         this.transform.SetParent(parentToReturnTo);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
     public void OnDrop(PointerEventData eventData)
     {
+        if (IsDraggingStop)
+        {
+            return;
+        }
         this.transform.SetParent(parentToReturnTo);
         throw new System.NotImplementedException();
     }
