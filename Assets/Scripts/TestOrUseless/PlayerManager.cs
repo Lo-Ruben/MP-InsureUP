@@ -70,7 +70,6 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject CrisisCardArea;
 
-
     void Start()
     {
         money = 500;
@@ -83,9 +82,9 @@ public class PlayerManager : MonoBehaviour
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
         InsuraceShop.SetActive(false);
     }
 
@@ -136,9 +135,9 @@ public class PlayerManager : MonoBehaviour
     public void PlayCard()
     {
         UpdateStats(discardArea.cardDisplay);
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
+        jobLevelText.text =jobLevel.ToString();
+        familyLevelText.text =familyLevel.ToString();
+        personalLevelText.text =personalLevel.ToString();
 
         CalculateIncome(baseIncome);
 

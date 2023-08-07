@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
-
     public void FadeToGame ()
     {
         animator.SetTrigger("FadeOut");     
@@ -21,4 +20,6 @@ public class SceneLoader : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }
