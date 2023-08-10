@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class BGMSingleton : GenericSingleton<BGMSingleton>
 {
-
-    public AudioSource mainMenuMusic;
-    public AudioSource gameMusic;
+    public AudioClip mainMenuMusic;
+    public AudioClip gameMusic;
+    public AudioSource BGMAudioSournce;
 
     public void PlayMainMenuMusic()
     {
-        mainMenuMusic.Play();
-        gameMusic.Stop();
+        if (BGMAudioSournce.clip != mainMenuMusic)
+        {
+            BGMAudioSournce.clip = mainMenuMusic;
+            BGMAudioSournce.Play();
+        }
     }
     public void PlayGameMusic()
     {
-        gameMusic.Play();
-        mainMenuMusic.Stop();
+        if (BGMAudioSournce.clip != gameMusic)
+        {
+            BGMAudioSournce.clip = gameMusic;
+            BGMAudioSournce.Play();
+        }
     }
 
 }

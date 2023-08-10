@@ -3259,15 +3259,18 @@ MonoBehaviour:
   jobLevelText: {fileID: 488604482}
   familyLevelText: {fileID: 210268056}
   personalLevelText: {fileID: 65793207}
+  goal1: {fileID: 0}
+  goal2: {fileID: 0}
+  goal3: {fileID: 0}
   phaseText: {fileID: 1357580059}
-  jobLevel: 5
-  familyLevel: 5
-  personalLevel: 5
   phaseInt: 0
   discardArea: {fileID: 1165469892}
   crisisDisplay: {fileID: 1036552986}
   CrisisCardArea: {fileID: 623603999}
   switchBool: 0
+  JobLifeAspect: {fileID: 0}
+  FamilyLifeAspect: {fileID: 0}
+  PersonalLifeAspect: {fileID: 0}
 --- !u!1 &827871641
 GameObject:
   m_ObjectHideFlags: 0

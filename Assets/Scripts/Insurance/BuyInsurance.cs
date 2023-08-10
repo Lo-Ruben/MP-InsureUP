@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems; // Required when using Event data.
+using UnityEngine.EventSystems;
 public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 {
 
@@ -13,6 +13,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     // NEED TO MANUALLY SET THIS 
     // If i can refactor it it would be great
     // So I dont have to go crazy setting every individual insurance gameobject
+
     [SerializeField]
     BuyInsurance otherInsurance1;
     [SerializeField]
@@ -23,7 +24,19 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         GameObject ActionDeckManagerGameObject = GameObject.Find("GameManager");
         m_GameManager = ActionDeckManagerGameObject.GetComponent<GameManager>();
         getInsuranceInfo = gameObject.GetComponent<InsuranceDisplay>();
+
+        
     }
+
+    private void OnEnable()
+    {
+        if(getInsuranceInfo!= null && getInsuranceInfo.staticCardBack == true)
+        {
+            getInsuranceInfo.staticCardBack = false;
+        }
+        
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
 
@@ -103,22 +116,45 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         // On click, cause other cards to show backs
         if (otherInsurance1.getInsuranceInfo.staticCardBack == false && otherInsurance2.getInsuranceInfo.staticCardBack == false)
         {
-            Debug.Log("Toggle other cards");
-            this.getInsuranceInfo.staticCardBack = false;
-            otherInsurance1.getInsuranceInfo.staticCardBack = !otherInsurance1.getInsuranceInfo.staticCardBack;
-            otherInsurance2.getInsuranceInfo.staticCardBack = !otherInsurance2.getInsuranceInfo.staticCardBack;
-            m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
-            Debug.Log("Category: " + getInsuranceInfo.InsuranceData.insuranceCategory + " Money: " + getInsuranceInfo.InsuranceData.returnMoney);
+            if (m_GameManager.money - getInsuranceInfo.InsuranceData.cardCost <= 0)
+            {
+                Debug.Log("Not Enough Money" + (m_GameManager.money - getInsuranceInfo.InsuranceData.cardCost));
+            }
+            else
+            {
+                Debug.Log("Toggle other cards");
+                getInsuranceInfo.staticCardBack = false;
+                otherInsurance1.getInsuranceInfo.staticCardBack = !otherInsurance1.getInsuranceInfo.staticCardBack;
+                otherInsurance2.getInsuranceInfo.staticCardBack = !otherInsurance2.getInsuranceInfo.staticCardBack;
+                m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
+                Debug.Log("Category: " + getInsuranceInfo.InsuranceData.insuranceCategory + " Money: " + getInsuranceInfo.InsuranceData.returnMoney);
+
+                Debug.Log("Buy");
+                m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
+            }
+            
+            
         }
         // Reset card backs
         else if (otherInsurance1.getInsuranceInfo.staticCardBack == true && otherInsurance2.getInsuranceInfo.staticCardBack == true)
         {
             Debug.Log("Reset");
-            this.getInsuranceInfo.staticCardBack = false;
+            getInsuranceInfo.staticCardBack = false;
             otherInsurance1.getInsuranceInfo.staticCardBack = false;
             otherInsurance2.getInsuranceInfo.staticCardBack = false;
             m_GameManager.insuranceBoughtDictionary.Remove(getInsuranceInfo.InsuranceData.insuranceCategory);
             Debug.Log("Removed " + getInsuranceInfo.InsuranceData.insuranceCategory + " from dictionary");
+
+            Debug.Log("Refund");
+            m_GameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+        }
+    }
+
+    public void ResetCardBack()
+    {
+        if(getInsuranceInfo.staticCardBack == true)
+        {
+            getInsuranceInfo.staticCardBack = false;
         }
     }
 }

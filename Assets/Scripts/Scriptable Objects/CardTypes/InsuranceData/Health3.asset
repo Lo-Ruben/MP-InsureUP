@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Health3
   cardDescription: Gives some health
-  cardCost: 2
-  returnMoney: 5
+  cardCost: 500
+  returnMoney: 250
   insuranceCategory: Health

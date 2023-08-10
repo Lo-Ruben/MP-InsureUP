@@ -17,19 +17,21 @@ public class MusicHandler : MonoBehaviour
         switch (currentSceneIndex)
         {
             case 0:
-                Debug.Log("MainMenu");
                 BGMSingleton.instance.PlayMainMenuMusic();
                 break;
             case 1:
+                BGMSingleton.instance.PlayMainMenuMusic();
                 break;
             case 2:
-                Debug.Log("TableScene");
                 BGMSingleton.instance.PlayGameMusic();
                 break;
-            default: 
+            case 3:
+                break;
+            default:
+                Debug.Log(currentSceneIndex);
                 break;
         }
 
-        
+
     }
 }

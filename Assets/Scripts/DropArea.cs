@@ -19,6 +19,7 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
             playerManager.PlayCard();
+            draggable.isDraggingStop = true;
         }
         if(draggable == null)
         {
