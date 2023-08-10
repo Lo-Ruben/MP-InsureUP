@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
+    public GameObject settings;
     public void FadeToGame ()
     {
         animator.SetTrigger("FadeOut");     
@@ -16,6 +17,16 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("ChooseLifeGoals");
     }
 
+    public void Settings()
+    {
+        settings.SetActive(true);
+    }
+
+    public void Back()
+    {
+        settings.SetActive(false);
+    }
+ 
     public void QuitGame()
     {
         Application.Quit();

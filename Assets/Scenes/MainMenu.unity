@@ -229,7 +229,7 @@ Transform:
   m_Children:
   - {fileID: 2020574198}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &456177425
 GameObject:
@@ -311,6 +311,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456177425}
   m_CullTransparentMesh: 1
+--- !u!1 &475562642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1701605520434806917, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+  m_PrefabInstance: {fileID: 3246572654757774955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &480599841
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +416,7 @@ RectTransform:
   - {fileID: 1217981668}
   - {fileID: 971693320}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -431,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 818047511}
+  settings: {fileID: 475562642}
 --- !u!1 &636991738
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +503,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749814800
 GameObject:
@@ -545,7 +551,7 @@ Transform:
   - {fileID: 789328915}
   - {fileID: 1773504705}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789328913
 GameObject:
@@ -573,7 +579,7 @@ AudioSource:
   m_GameObject: {fileID: 789328913}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3f3506a80433b494da47c7fc3258bfc8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1ae2410f053ac014bb37ef5a260f7e81, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -730,6 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 818047511}
+  settings: {fileID: 475562642}
 --- !u!114 &818047513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +814,7 @@ RectTransform:
   m_Children:
   - {fileID: 116721257}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1279,7 +1286,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1217981670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 480599846}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1217981670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,7 +1579,7 @@ AudioSource:
   m_GameObject: {fileID: 1773504703}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3f3506a80433b494da47c7fc3258bfc8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8fd6e52ededbe2d4eb7f60568ad848ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1706,3 +1725,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb1a6e50a3bd8c45955ecc71e130cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3246572654757774955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1701605520434806917, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_Name
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776327021845761370, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640550544256960639, guid: ab18b767378217240aad30dab1926ef5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 480599846}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab18b767378217240aad30dab1926ef5, type: 3}
