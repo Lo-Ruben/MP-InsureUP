@@ -9,6 +9,8 @@ public class SettingsMenu : MonoBehaviour
 {
     float volumeFloat;
     public Slider SliderUI;
+    public GameObject muteBGMButtonEnabled;
+    public GameObject muteBGMButtonDisabled;
     public AudioMixer musicVolume;
 
     public void SetVolume(float volume)
@@ -20,6 +22,21 @@ public class SettingsMenu : MonoBehaviour
     {
         musicVolume.GetFloat("volume", out volumeFloat);
         SliderUI.value = volumeFloat;
+    }
+
+    public void MuteMusic()
+    {
+        musicVolume.SetFloat("volume", -40);
+        muteBGMButtonEnabled.SetActive(true);
+        muteBGMButtonDisabled.SetActive(false);
+
+    }
+
+    public void UnmuteMusic()
+    {
+        musicVolume.SetFloat("volume", 0);
+        muteBGMButtonEnabled.SetActive(false);
+        muteBGMButtonDisabled.SetActive(true);
     }
 
 
