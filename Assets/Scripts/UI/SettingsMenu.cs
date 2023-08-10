@@ -22,14 +22,26 @@ public class SettingsMenu : MonoBehaviour
     {
         musicVolume.GetFloat("volume", out volumeFloat);
         SliderUI.value = volumeFloat;
+
+        if (volumeFloat <= -80)
+        {
+            muteBGMButtonEnabled.SetActive(true);
+            muteBGMButtonDisabled.SetActive(false);
+
+        }else if(volumeFloat > -80)
+        {
+            muteBGMButtonEnabled.SetActive(false);
+            muteBGMButtonDisabled.SetActive(true);
+        }
+          
     }
 
     public void MuteMusic()
     {
-        musicVolume.SetFloat("volume", -40);
+        musicVolume.SetFloat("volume", -80);
         muteBGMButtonEnabled.SetActive(true);
         muteBGMButtonDisabled.SetActive(false);
-
+        
     }
 
     public void UnmuteMusic()
