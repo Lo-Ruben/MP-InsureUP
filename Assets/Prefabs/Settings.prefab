@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4196070931712244208}
   - component: {fileID: 197294218394589932}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: SettingsPannel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2776327021845761370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a56763cade5c842a8777ac54f2b599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeFloat: 0
+  SliderUI: {fileID: 3829578238008047796}
   musicVolume: {fileID: 24100000, guid: 3f3506a80433b494da47c7fc3258bfc8, type: 2}
 --- !u!1 &2818623020927569865
 GameObject:
@@ -649,8 +651,8 @@ RectTransform:
   m_Father: {fileID: 8535542422618254004}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -776,8 +778,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 5727505389630669791}
   m_HandleRect: {fileID: 3049987998434326947}
   m_Direction: 0
-  m_MinValue: -40
-  m_MaxValue: 0
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -808,7 +810,7 @@ GameObject:
   - component: {fileID: 9095624734927607434}
   - component: {fileID: 8640550544256960639}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -940,7 +942,7 @@ GameObject:
   - component: {fileID: 3947573103010209367}
   - component: {fileID: 1919860017206616421}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
