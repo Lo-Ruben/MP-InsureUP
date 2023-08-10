@@ -10,25 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
-<<<<<<<< Updated upstream:Assets/Scripts/Scriptable Objects/CardTypes/CrisisData/Cancer2.0.asset
   m_Name: Cancer2.0
   m_EditorClassIdentifier: 
   cardName: Cancer2.0
   cardDescription: Im soooo sorry
   cardImage: {fileID: 0}
-========
-  m_Name: Permanent Disability
-  m_EditorClassIdentifier: 
-  cardName: Permanent Disability
-  cardDescription: Im sooooo sorry
->>>>>>>> Stashed changes:Assets/Scripts/Scriptable Objects/CardTypes/CrisisData/Permanent Disability.asset
   familyDecrease: 0
   jobDecrease: 0
   personalDecrease: 0
   healthDecrease: 0
   moneyDecrease: 0
   cardEffectDuration: 0
-<<<<<<<< Updated upstream:Assets/Scripts/Scriptable Objects/CardTypes/CrisisData/Cancer2.0.asset
-========
-  insuranceCounter: Life
->>>>>>>> Stashed changes:Assets/Scripts/Scriptable Objects/CardTypes/CrisisData/Permanent Disability.asset

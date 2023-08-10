@@ -16,5 +16,4 @@ MonoBehaviour:
   cardDescription: 
   cardCost: 0
   returnMoney: 0
-  isActive: 0
   insuranceCategory: Endownment

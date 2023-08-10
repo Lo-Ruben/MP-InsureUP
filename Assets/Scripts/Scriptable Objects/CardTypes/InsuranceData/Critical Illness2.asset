@@ -15,6 +15,5 @@ MonoBehaviour:
   cardName: Critical Illness2
   cardDescription: 
   cardCost: 0
-  returnMoney: 10
-  isActive: 0
+  returnMoney: 0
   insuranceCategory: Critical Illness

@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d3a015ff4a0f74ebd54f1e9e8e6840, type: 3}
   m_Name: Health1
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream:Assets/Scripts/Scriptable Objects/CardTypes/InsuranceData/InsuranceData1.asset
-  cardName: HealthInsurance
-=======
   cardName: Health1
->>>>>>> Stashed changes:Assets/Scripts/Scriptable Objects/CardTypes/InsuranceData/Health1.asset
   cardDescription: Gives some health
   cardCost: 2
-  cardImage: {fileID: 0}
   returnMoney: 5
-  isActive: 0
   insuranceCategory: Health

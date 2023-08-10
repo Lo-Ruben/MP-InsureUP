@@ -46,6 +46,7 @@ public class AddPlayerCards : MonoBehaviour
     void SpawnCard()
     {
         //DECREASE MONEY
+        Debug.Log(card);
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
         m_crisisDeck.disasterCounter -= 1;

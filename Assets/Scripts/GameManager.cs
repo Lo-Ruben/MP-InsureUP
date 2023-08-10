@@ -38,16 +38,35 @@ public class GameManager : MonoBehaviour
     public Text jobLevelText;
     public Text familyLevelText;
     public Text personalLevelText;
+
+    public Text goal1;
+    public Text goal2;
+    public Text goal3;
+
     //Debugging
     public Text phaseText;
 
     [Header("Game Life Aspect Levels")]
-    [SerializeField]
-    private int jobLevel;
-    [SerializeField]
-    private int familyLevel;
-    [SerializeField]
-    private int personalLevel;
+    private int JobLevel;
+    public int jobLevel
+    {
+        get { return JobLevel; }
+        set { JobLevel = value; }
+    }
+
+    private int FamilyLevel;
+    public int familyLevel
+    {
+        get { return FamilyLevel; }
+        set { FamilyLevel = value; }
+    }
+    private int PersonalLevel;
+    public int personalLevel
+    {
+        get { return PersonalLevel; }
+        set { PersonalLevel = value; }
+    }
+
     [Header("Phase Debug")]
     [SerializeField]
     private int phaseInt;
@@ -71,27 +90,33 @@ public class GameManager : MonoBehaviour
 
     public bool switchBool = false;
 
+    public LifeAspectUI JobLifeAspect;
+    public LifeAspectUI FamilyLifeAspect;
+    public LifeAspectUI PersonalLifeAspect;
+    // Organize goals into an Array
+    GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
     bool turnBool;
+
+    [SerializeField]
+    List<GameObject> allInsrCards = new List<GameObject>();
 
     void Start()
     {
         money = 500;
         health = 3;
 
-        jobLevel = 5;
-        familyLevel = 5;
-        personalLevel = 5;
+        JobLevel = 5;
+        FamilyLevel = 5;
+        PersonalLevel = 5;
         phaseInt = 1;
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
         ShopGameObject.SetActive(false);
-<<<<<<< Updated upstream
-=======
 
         turnBool = true;
 
@@ -101,30 +126,24 @@ public class GameManager : MonoBehaviour
         goal1.text = PlayerGoals.goalDataSaved1.goalName;
         goal2.text = PlayerGoals.goalDataSaved2.goalName;
         goal3.text = PlayerGoals.goalDataSaved3.goalName;
->>>>>>> Stashed changes
     }
 
     void Update()
     {
-<<<<<<< Updated upstream
-        GameOver();
-        PhaseCheck();
-=======
         lifeAspectCheck();
         GameOver();
         PhaseCheck();
-        TextUpdate();
+        UIUpdate();
 
         if (goalDataArray[1] == null)
         {
             Debug.LogError("No Goals Found");
         }
 
->>>>>>> Stashed changes
         //EndTurn();
     }
 
-    public void TextUpdate()
+    public void UIUpdate()
     {
         jobLevelText.text = jobLevel.ToString();
         familyLevelText.text = familyLevel.ToString();
@@ -132,6 +151,10 @@ public class GameManager : MonoBehaviour
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
+
+        JobLifeAspect.UpdateJobImage();
+        FamilyLifeAspect.UpdateFamilyImage();
+        PersonalLifeAspect.UpdatePersonalImage();
     }
 
     // Updates the phase name based on the number
@@ -152,6 +175,7 @@ public class GameManager : MonoBehaviour
             case 2:
                 phaseText.text = "Action";
                 discardArea.enabled = true;
+                ClearInventory();
                 break;
             case 3:
                 phaseText.text = "Buy";
@@ -182,23 +206,32 @@ public class GameManager : MonoBehaviour
                 break;
             default:
                 Debug.Log("Out of phaseInt size");
-                break;  
+                break;
         }
     }
 
-    
+    void ClearInventory()
+    {
+        Inventory inventory = GameObject.Find("Canvas").GetComponent<Inventory>();
+        Debug.Log(inventory);
+        insuranceBoughtDictionary.Clear();
+        inventory.boughtInsrData.Clear();
+
+        foreach (GameObject insrObj in allInsrCards)
+        {
+            insrObj.GetComponent<InsuranceDisplay>().staticCardBack = false;
+        }
+    }
+
     public void PlayCard()
     {
         UpdateStats(discardArea.cardDisplay);
-        jobLevelText.text = "LEVEL " + jobLevel.ToString();
-        familyLevelText.text = "LEVEL " + familyLevel.ToString();
-        personalLevelText.text = "LEVEL " + personalLevel.ToString();
 
         CalculateIncome(baseIncome);
 
         maxCardsHeld = familyLevel;
 
-        if(personalLevel >= 5)
+        if (personalLevel >= 5)
         {
             // Gain health
         }
@@ -218,7 +251,7 @@ public class GameManager : MonoBehaviour
 
     void CheckInsurance()
     {
-        if(crisisDisplay.CrisisInfo != null)
+        if (crisisDisplay.CrisisInfo != null)
         {
             // If player bought insurance
             // Check if player is encountering the same crisis as the insurance bought
@@ -244,21 +277,21 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Accident Insurance money");
             }
         }
-        
+
     }
     public void UpdateStats(CardDisplay cardDisplay)
     {
         if (cardDisplay != null)
         {
-            jobLevel += cardDisplay.CardInfo.jobIncrease;
-            familyLevel += cardDisplay.CardInfo.familyIncrease;
-            personalLevel += cardDisplay.CardInfo.personalIncrease;
+            JobLevel += cardDisplay.CardInfo.jobIncrease;
+            FamilyLevel += cardDisplay.CardInfo.familyIncrease;
+            PersonalLevel += cardDisplay.CardInfo.personalIncrease;
         }
         else
         {
             Debug.Log("No cardDisplay");
         }
-        
+
     }
 
     // On button press function
@@ -279,13 +312,41 @@ public class GameManager : MonoBehaviour
             CrisisCardArea.SetActive(false);
         }
     }
-    
+
 
     void GameOver()
     {
-        if(health<=0 || money <= 0)
+        if (health <= 0 || money <= 0)
         {
             Debug.Log("GameOver");
+        }
+    }
+
+    void lifeAspectCheck()
+    {
+        if (jobLevel > 10)
+        {
+            jobLevel = 10;
+        }
+        if (familyLevel > 10)
+        {
+            familyLevel = 10;
+        }
+        if (personalLevel > 10)
+        {
+            personalLevel = 10;
+        }
+        if (jobLevel < 0)
+        {
+            jobLevel = 0;
+        }
+        if (familyLevel < 0)
+        {
+            familyLevel = 0;
+        }
+        if (personalLevel < 0)
+        {
+            personalLevel = 0;
         }
     }
 }

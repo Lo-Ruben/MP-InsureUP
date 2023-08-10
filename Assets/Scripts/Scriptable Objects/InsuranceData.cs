@@ -12,13 +12,8 @@ public class InsuranceData : ScriptableObject
     // Card Cost
     public int cardCost;
 
-    // Card Image
-    public Sprite cardImage;
-
     // Card Return
     public int returnMoney;
-
-    public bool isActive;
 
     public string insuranceCategory;
 }

@@ -6,36 +6,26 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CardDisplay cardDisplay { get; set; }
-    [SerializeField]
-<<<<<<< Updated upstream
-    PlayerManager playerManager;
-=======
-    GameManager m_GameManager;
 
->>>>>>> Stashed changes
+    [Header("Insert GameManagers Here")]
+    [SerializeField]
+    GameManager playerManager;
+
     public void OnDrop(PointerEventData eventData)
     {
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if (draggable != null && m_GameManager != null)
+        if (draggable != null && playerManager != null)
         {
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            playerManager.EndTurn();
-=======
-            m_GameManager.PlayCard();
->>>>>>> Stashed changes
-=======
             playerManager.PlayCard();
             draggable.IsDraggingStop = true;
->>>>>>> Stashed changes
         }
         if(draggable == null)
         {
             Debug.Log("Please put a card in the discard pile");
         }
-        if(m_GameManager == null)
+        if(playerManager == null)
         {
             Debug.Log("PlayerManager is not referened in DropArea");
         }
