@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    
     public GameObject pauseMenu;
     public GameObject buttons;
     public Animator animator;
@@ -22,12 +23,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
+        animator.SetTrigger("close");  
         buttons.SetActive(false);
         Time.timeScale = 1f;
     }
  
-
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
