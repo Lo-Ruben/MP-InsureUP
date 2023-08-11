@@ -1171,6 +1171,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030948178}
   m_CullTransparentMesh: 1
+--- !u!114 &1159098740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3829578238008047796, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
+  m_PrefabInstance: {fileID: 3246572654757774955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217981667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1696,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6650576550073382401, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
+      propertyPath: mainSliderUI
+      value: 
+      objectReference: {fileID: 1159098740}
     - target: {fileID: 8640550544256960639, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

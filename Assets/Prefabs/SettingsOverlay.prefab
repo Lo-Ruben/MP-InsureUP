@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a56763cade5c842a8777ac54f2b599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SliderUI: {fileID: 3829578238008047796}
+  mainSliderUI: {fileID: 3829578238008047796}
   muteBGMButtonEnabled: {fileID: 8838214732581902264}
   muteBGMButtonDisabled: {fileID: 2902561521078230339}
   musicVolume: {fileID: 24100000, guid: 3f3506a80433b494da47c7fc3258bfc8, type: 2}

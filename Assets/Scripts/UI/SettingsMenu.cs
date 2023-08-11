@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     float volumeFloat;
-    public Slider SliderUI;
+    public Slider mainSliderUI;
+
     public GameObject muteBGMButtonEnabled;
     public GameObject muteBGMButtonDisabled;
     public AudioMixer musicVolume;
@@ -18,23 +19,40 @@ public class SettingsMenu : MonoBehaviour
         musicVolume.SetFloat("volume", volume);
     }
 
-    private void OnEnable()
+    private void Update()
     {
         musicVolume.GetFloat("volume", out volumeFloat);
-        SliderUI.value = volumeFloat;
+        mainSliderUI.value = volumeFloat;
 
         if (volumeFloat <= -80)
         {
             muteBGMButtonEnabled.SetActive(true);
             muteBGMButtonDisabled.SetActive(false);
 
-        }else if(volumeFloat > -80)
+        }
+        else if (volumeFloat > -80)
         {
             muteBGMButtonEnabled.SetActive(false);
             muteBGMButtonDisabled.SetActive(true);
         }
-          
     }
+    //private void OnEnable()
+    //{
+    //    musicVolume.GetFloat("volume", out volumeFloat);
+    //    mainSliderUI.value = volumeFloat;
+
+    //    if (volumeFloat <= -80)
+    //    {
+    //        muteBGMButtonEnabled.SetActive(true);
+    //        muteBGMButtonDisabled.SetActive(false);
+
+    //    }else if(volumeFloat > -80)
+    //    {
+    //        muteBGMButtonEnabled.SetActive(false);
+    //        muteBGMButtonDisabled.SetActive(true);
+    //    }
+          
+    //}
 
     public void MuteMusic()
     {
