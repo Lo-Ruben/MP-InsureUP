@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Life1
   cardDescription: 
+  cardImage: {fileID: 421171569, guid: ddb2a2b54b933164faf246b7e45a824b, type: 3}
   cardCost: 0
   returnMoney: 0
   insuranceCategory: Life
