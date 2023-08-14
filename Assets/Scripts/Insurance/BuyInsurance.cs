@@ -17,12 +17,15 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     BuyInsurance otherInsurance1;
     [SerializeField]
     BuyInsurance otherInsurance2;
+    [SerializeField]
+    Inventory inventory;
 
     private void Start()
     {
         GameObject ActionDeckManagerGameObject = GameObject.Find("GameManager");
         m_GameManager = ActionDeckManagerGameObject.GetComponent<GameManager>();
         getInsuranceInfo = gameObject.GetComponent<InsuranceDisplay>();
+        inventory = GameObject.Find("Canvas").GetComponent<Inventory>();
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -109,6 +112,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             otherInsurance2.getInsuranceInfo.staticCardBack = !otherInsurance2.getInsuranceInfo.staticCardBack;
             m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
             Debug.Log("Category: " + getInsuranceInfo.InsuranceData.insuranceCategory + " Money: " + getInsuranceInfo.InsuranceData.returnMoney);
+            inventory.boughtInsrData.Add(getInsuranceInfo.InsuranceData);
         }
         // Reset card backs
         else if (otherInsurance1.getInsuranceInfo.staticCardBack == true && otherInsurance2.getInsuranceInfo.staticCardBack == true)
@@ -119,6 +123,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             otherInsurance2.getInsuranceInfo.staticCardBack = false;
             m_GameManager.insuranceBoughtDictionary.Remove(getInsuranceInfo.InsuranceData.insuranceCategory);
             Debug.Log("Removed " + getInsuranceInfo.InsuranceData.insuranceCategory + " from dictionary");
+            inventory.boughtInsrData.Remove(getInsuranceInfo.InsuranceData);
         }
     }
 }

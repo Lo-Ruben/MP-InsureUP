@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     // Player stats
     private int health;
-    private int money;
+    public float money;
     private int maxCardsHeld;
 
     [Header("Test Insurance fields")]
@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
+    bool newTurn;
+
     void Start()
     {
         money = 500;
@@ -104,6 +106,8 @@ public class GameManager : MonoBehaviour
         FamilyLevel = 5;
         PersonalLevel = 5;
         phaseInt = 1;
+
+        newTurn = true;
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money + "K";
@@ -122,9 +126,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        jobLevelText.text = jobLevel.ToString();
-        familyLevelText.text = familyLevel.ToString();
-        personalLevelText.text = personalLevel.ToString();
+        UpdateInfo();
         lifeAspectCheck();
         GameOver();
         PhaseCheck();
@@ -137,6 +139,15 @@ public class GameManager : MonoBehaviour
         //EndTurn();
     }
 
+    void UpdateInfo()
+    {
+        healthText.text = "Health: " + health;
+        moneyText.text = "Money: " + money + "K";
+        jobLevelText.text = jobLevel.ToString();
+        familyLevelText.text = familyLevel.ToString();
+        personalLevelText.text = personalLevel.ToString();
+    }
+
     // Updates the phase name based on the number
     // We have it this way so we can just have the integer increase instead of change the string
     public void PhaseCheck()
@@ -145,6 +156,11 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 phaseText.text = "Draw";
+                if (newTurn == true)
+                {
+                    CalculateIncome(0.5f);
+                    newTurn = false;
+                }
                 discardArea.enabled = false;
                 break;
             case 2:
@@ -166,6 +182,7 @@ public class GameManager : MonoBehaviour
                     CheckInsurance();
                     switchBool = false;
                 }
+                newTurn = true;
                 break;
             // Reset
             case 5:
@@ -206,9 +223,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void CalculateIncome(int income)
+    void CalculateIncome(float income)
     {
-        int proffit = income * jobLevel;
+        float proffit = income * jobLevel;
         money += proffit;
     }
 
