@@ -9,9 +9,6 @@ public class InsuranceData : ScriptableObject
     public string cardName;
     public string cardDescription;
 
-    // Card Image
-    public Sprite cardImage;
-
     // Card Cost
     public int cardCost;
 

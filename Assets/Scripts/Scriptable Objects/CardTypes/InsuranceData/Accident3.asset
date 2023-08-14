@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Accident3
   cardDescription: 
-  cardImage: {fileID: 1812823542, guid: ddb2a2b54b933164faf246b7e45a824b, type: 3}
   cardCost: 0
   returnMoney: 0
   insuranceCategory: Accident

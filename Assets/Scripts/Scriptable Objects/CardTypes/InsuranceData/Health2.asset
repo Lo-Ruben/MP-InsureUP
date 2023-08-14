@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Health2
   cardDescription: Gives some health
-  cardImage: {fileID: -158047514, guid: ddb2a2b54b933164faf246b7e45a824b, type: 3}
   cardCost: 2
   returnMoney: 5
   insuranceCategory: Health

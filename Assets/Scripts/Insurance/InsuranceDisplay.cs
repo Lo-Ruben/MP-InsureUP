@@ -20,8 +20,6 @@ public class InsuranceDisplay : MonoBehaviour
     Text cardDescriptionText;
     [SerializeField]
     Text cardCostText;
-    [SerializeField]
-    Image cardImage;
 
     public bool staticCardBack = false;
 
@@ -53,7 +51,6 @@ public class InsuranceDisplay : MonoBehaviour
         cardNameText.text = InsuranceData.cardName;
         cardDescriptionText.text = InsuranceData.cardDescription;
         cardCostText.text = InsuranceData.cardCost.ToString();
-        cardImage.sprite = insuranceData.cardImage;
         staticCardBack = false;
     }
 }

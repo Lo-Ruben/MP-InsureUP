@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4d3a015ff4a0f74ebd54f1e9e8e6840, type: 3}
-  m_Name: Health3
+  m_Name: Endownment3
   m_EditorClassIdentifier: 
-  cardName: Health3
-  cardDescription: Gives some health
-  cardCost: 2
-  returnMoney: 5
-  insuranceCategory: Health
+  cardName: Endownment3
+  cardDescription: 
+  cardCost: 0
+  returnMoney: 0
+  insuranceCategory: Endownment
