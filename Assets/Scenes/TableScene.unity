@@ -4432,7 +4432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c1c3765c0745d4190d16f02698dc00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedHealth: 0
   money: 0
+  spentMoney: 0
+  timesProtected: 0
   ShopGameObject: {fileID: 1991985548}
   baseIncome: 50
   maxPlayerHand: 100
@@ -4687,6 +4690,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_gameManager: {fileID: 827282913}
+  m_addPlayerCards: {fileID: 1635265978}
+  m_dropArea: {fileID: 1165469892}
+  buyInsuranceHealth: {fileID: 1510363322}
+  buyInsuranceAccident: {fileID: 179870680}
+  buyInsuranceCritical: {fileID: 1920177566}
+  buyInsuranceLife: {fileID: 1017044627}
 --- !u!1001 &953399061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6121,6 +6130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6c36bb16eae214fa4deda2ecdeeffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droppedCardInt: 0
   playerManager: {fileID: 827282913}
 --- !u!1 &1165506758 stripped
 GameObject:
@@ -7826,6 +7836,7 @@ MonoBehaviour:
   card: {fileID: 5810304387013886296, guid: 4ea2fe1cb7305f848911aa2d4883a532, type: 3}
   m_playerManager: {fileID: 827282913}
   m_crisisDeck: {fileID: 1613521332}
+  spawnCardCounter: 0
 --- !u!1 &1670651026
 GameObject:
   m_ObjectHideFlags: 0

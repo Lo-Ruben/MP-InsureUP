@@ -29,7 +29,6 @@ public class HighScoreManager : MonoBehaviour
 
         if (m_gameManager != null)
         {
-            Debug.Log("FUUUUUU");
             HighScoreSingleton.instance.UpdateScore(m_gameManager.money, m_gameManager.roundCounter);
         }
         else

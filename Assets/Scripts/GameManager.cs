@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
 {
     // Player stats
     private int health;
+    public int increasedHealth;
     public int money;
+    public int spentMoney;
     private int maxCardsHeld;
+
+    public int timesProtected;
 
     [Header("Test Insurance fields")]
     // Insurance
@@ -176,13 +180,19 @@ public class GameManager : MonoBehaviour
                 {
                     if (personalLevel > 5)
                     {
-                        health += 1;
+                        if (health < 5)
+                        {
+                            health += 1;
+                            increasedHealth++;
+                        }
+                        
                         HighScoreSingleton.instance.AddScore(100);
 
                     }
                     if (personalLevel < 5)
                     {
                         health -= 1;
+                        
                         HighScoreSingleton.instance.DeductScore(100);
                     }
                     CheckInsurance();
@@ -193,6 +203,13 @@ public class GameManager : MonoBehaviour
             case 5:
                 phaseInt = 1;
                 CrisisCardArea.SetActive(false);
+
+
+                if (insuranceBoughtDictionary != null)
+                {
+
+                }
+
                 insuranceBoughtDictionary.Clear();
                 if (crisisDisplay.CrisisInfo != null)
                 {
@@ -226,41 +243,26 @@ public class GameManager : MonoBehaviour
         money += proffit;
     }
 
+    // If player bought insurance
+    // Check if player is encountering the same crisis as the insurance bought
+    // Since its in update, adding of money may need to be tweaked
     void CheckInsurance()
     {
         if (crisisDisplay.CrisisInfo != null)
         {
-            // If player bought insurance
-            // Check if player is encountering the same crisis as the insurance bought
-            // Since its in update, adding of money may need to be tweaked
-            if (insuranceBoughtDictionary.ContainsKey("Health") && crisisDisplay.CrisisInfo.insuranceCounter == "Health")
+            string insuranceType = crisisDisplay.CrisisInfo.insuranceCounter;
+
+            if (insuranceBoughtDictionary.ContainsKey(insuranceType))
             {
-                Debug.Log("Health Insurance money");
-                int insuranceBenefit = insuranceBoughtDictionary["Health"];
-                Debug.Log("Insurance Proffit: " + insuranceBenefit);
+                int insuranceBenefit = insuranceBoughtDictionary[insuranceType];
+                Debug.Log(insuranceType + " Insurance money");
+                Debug.Log("Insurance Profit: " + insuranceBenefit);
                 money += insuranceBenefit;
-            }
-            if (insuranceBoughtDictionary.ContainsKey("Critical Illness") && crisisDisplay.CrisisInfo.insuranceCounter == "Critical Illness")
-            {
-                Debug.Log("Critical Insurance money");
-                int insuranceBenefit = insuranceBoughtDictionary["Critical Illness"];
-                money += insuranceBenefit;
-            }
-            if (insuranceBoughtDictionary.ContainsKey("Life") && crisisDisplay.CrisisInfo.insuranceCounter == "Life")
-            {
-                Debug.Log("Life Insurance money");
-                int insuranceBenefit = insuranceBoughtDictionary["Life"];
-                money += insuranceBenefit;
-            }
-            if (insuranceBoughtDictionary.ContainsKey("Accident") && crisisDisplay.CrisisInfo.insuranceCounter == "Accident")
-            {
-                Debug.Log("Accident Insurance money");
-                int insuranceBenefit = insuranceBoughtDictionary["Accident"];
-                money += insuranceBenefit;
+                timesProtected++;
             }
         }
-
     }
+
     public void UpdateStats(CardDisplay cardDisplay)
     {
         if (cardDisplay != null)
@@ -307,30 +309,9 @@ public class GameManager : MonoBehaviour
 
     void TextUpdate()
     {
-        if (jobLevel > 10)
-        {
-            jobLevel = 10;
-        }
-        if (familyLevel > 10)
-        {
-            familyLevel = 10;
-        }
-        if (personalLevel > 10)
-        {
-            personalLevel = 10;
-        }
-        if (jobLevel < 0)
-        {
-            jobLevel = 0;
-        }
-        if (familyLevel < 0)
-        {
-            familyLevel = 0;
-        }
-        if (personalLevel < 0)
-        {
-            personalLevel = 0;
-        }
+        jobLevel = Mathf.Clamp(jobLevel, 0, 10);
+        familyLevel = Mathf.Clamp(familyLevel, 0, 10);
+        personalLevel = Mathf.Clamp(personalLevel, 0, 10);
 
         jobLevelText.text = jobLevel.ToString();
         familyLevelText.text = familyLevel.ToString();

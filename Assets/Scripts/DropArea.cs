@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public int droppedCardInt; 
     public CardDisplay cardDisplay { get; set; }
 
     [Header("Insert GameManagers Here")]
@@ -38,5 +39,9 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+    }
+    private void OnDisable()
+    {
+        droppedCardInt = 0;
     }
 }
