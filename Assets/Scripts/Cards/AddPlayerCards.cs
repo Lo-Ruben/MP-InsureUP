@@ -31,7 +31,6 @@ public class AddPlayerCards : MonoBehaviour
             if (this.transform.childCount < m_playerManager.MaxPlayerHand)
             {
                 SpawnCard();
-
                 //Debug.Log(m_crisisDeck.disasterCounter);
             }
             else

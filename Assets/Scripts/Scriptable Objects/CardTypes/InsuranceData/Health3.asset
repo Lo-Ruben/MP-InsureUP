@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d3a015ff4a0f74ebd54f1e9e8e6840, type: 3}
   m_Name: Health3
   m_EditorClassIdentifier: 
-  cardName: Health3
+  cardName: Health Insurance T3
   cardDescription: Gives some health
   cardCost: 2
+  cardImage: {fileID: 938412201, guid: a0e03ba234dd0d244931839180cfb2aa, type: 3}
   returnMoney: 5
   insuranceCategory: Health

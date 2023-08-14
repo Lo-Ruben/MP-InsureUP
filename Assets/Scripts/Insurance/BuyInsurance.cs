@@ -38,58 +38,47 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         switch (getInsuranceInfo.InsuranceData.cardName)
         {
             // Health
-            case "Health1":
+            case "Health Insurance T1":
                 ToggleCards();
                 break;
-            case "Health2":
+            case "Health Insurance T2":
                 ToggleCards();
                 break;
-            case "Health3":
+            case "Health Insurance T3":
                 ToggleCards();
                 break;
 
             // Critical Illness
-            case "Critical Illness1":
+            case "Critical Illness Insurance T1":
                 ToggleCards();
                 break;
-            case "Critical Illness2":
+            case "Critical Illness Insurance T2":
                 ToggleCards();
                 break;
-            case "Critical Illness3":
+            case "Critical Illness Insurance T3":
                 ToggleCards();
                 break;
 
             // Life
-            case "Life1":
+            case "Life Insurance T1":
                 ToggleCards();
                 break;
-            case "Life2":
+            case "Life Insurance T2":
                 ToggleCards();
                 break;
-            case "Life3":
-                ToggleCards();
-                break;
-
-            // Endownment
-            case "Endownment1":
-                ToggleCards();
-                break;
-            case "Endownment2":
-                ToggleCards();
-                break;
-            case "Endownment3":
+            case "Life Insurance T3":
                 ToggleCards();
                 break;
 
             //Have not created card yet
             //Accident
-            case "Accident1":
+            case "Accident Insurance T1":
                 ToggleCards();
                 break;
-            case "Accident2":
+            case "Accident Insurance T2":
                 ToggleCards();
                 break;
-            case "Accident3":
+            case "Accident Insurance T3":
                 ToggleCards();
                 break;
 

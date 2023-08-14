@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d3a015ff4a0f74ebd54f1e9e8e6840, type: 3}
   m_Name: Critical Illness1
   m_EditorClassIdentifier: 
-  cardName: Critical Illness1
+  cardName: Critical Illness Insurance T1
   cardDescription: 
   cardCost: 0
+  cardImage: {fileID: -856770248, guid: a0e03ba234dd0d244931839180cfb2aa, type: 3}
   returnMoney: 0
   insuranceCategory: Critical Illness
