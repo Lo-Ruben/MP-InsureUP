@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler{
+public class Draggable : MonoBehaviour, /*IPointerDownHandler, */IBeginDragHandler, IEndDragHandler, IDragHandler
+{
     // Cards are stored in the canvas instead of the game scene
-    
+
     public Transform parentToReturnTo { get; set; }
     private RectTransform rectTransform;
 
-    [SerializeField]private Canvas canvas;
+    [SerializeField] private Canvas canvas;
 
     private CanvasGroup canvasGroup;
+
+    public bool isDraggingStop = false;
 
     private void Awake()
     {
@@ -21,33 +24,52 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        //Debug.Log("PointerDown");
-    }
+    //public void OnPointerDown(PointerEventData eventData)
+    //{
+    //    //Debug.Log("PointerDown");
+    //}
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta/ canvas.scaleFactor;
+        if (isDraggingStop)
+        {
+
+            return;
+        }
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log(parentToReturnTo.name);
+        if (isDraggingStop)
+        {
+
+            return;
+        }
         parentToReturnTo = this.transform.parent;
         this.transform.SetParent(canvas.transform);
-        
+
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("DragEnd");
+        if (isDraggingStop)
+        {
+
+            this.transform.SetParent(parentToReturnTo);
+            canvasGroup.alpha = 1f;
+            return;
+        }
         this.transform.SetParent(parentToReturnTo);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
     public void OnDrop(PointerEventData eventData)
     {
+        if (isDraggingStop)
+        {
+
+            return;
+        }
         this.transform.SetParent(parentToReturnTo);
         throw new System.NotImplementedException();
     }

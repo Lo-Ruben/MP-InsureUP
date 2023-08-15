@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class DropArea : MonoBehaviour, IDropHandler
 {
+    public int droppedCardInt;
     public CardDisplay cardDisplay { get; set; }
 
     [Header("Insert GameManagers Here")]
@@ -19,23 +20,19 @@ public class DropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
             draggable.parentToReturnTo = this.transform;
             cardDisplay = draggable.GetComponent<CardDisplay>();
             playerManager.PlayCard();
+            draggable.isDraggingStop = true;
         }
-        if(draggable == null)
+        if (draggable == null)
         {
             Debug.Log("Please put a card in the discard pile");
         }
-        if(playerManager == null)
+        if (playerManager == null)
         {
             Debug.Log("PlayerManager is not referened in DropArea");
         }
     }
-
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnDisable()
     {
-        
-
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
+        droppedCardInt = 0;
     }
 }

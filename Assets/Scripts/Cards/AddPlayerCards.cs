@@ -18,6 +18,8 @@ public class AddPlayerCards : MonoBehaviour
     [SerializeField]
     CrisisDeck m_crisisDeck;
 
+    public int spawnCardCounter;
+
     void Start()
     {
         m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -48,5 +50,6 @@ public class AddPlayerCards : MonoBehaviour
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
         m_crisisDeck.disasterCounter -= 1;
+        spawnCardCounter++;
     }
 }

@@ -6,8 +6,21 @@ public class GoalEvent : MonoBehaviour
 {
     [SerializeField]
     GameManager m_gameManager;
+    [SerializeField]
+    AddPlayerCards m_addPlayerCards;
+    [SerializeField]
+    DropArea m_dropArea;
 
     EventUpdate m_eventUpdate;
+
+    [SerializeField]
+    BuyInsurance buyInsuranceHealth;
+    [SerializeField]
+    BuyInsurance buyInsuranceAccident;
+    [SerializeField]
+    BuyInsurance buyInsuranceCritical;
+    [SerializeField]
+    BuyInsurance buyInsuranceLife;
 
     private void Start()
     {
@@ -19,202 +32,64 @@ public class GoalEvent : MonoBehaviour
 
     private void GoalCheck1_Conditions(object sender, System.EventArgs e)
     {
-        switch (PlayerGoals.goalDataSaved1.name)
+        string goalName = PlayerGoals.goalDataSaved1.name;
+
+        if (CheckGoal(goalName))
         {
-            case "Goal1":
-                if(Goal1()== true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal2":
-                if (Goal2() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal3":
-                if (Goal3() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal4":
-                if (Goal4() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal5":
-                if (Goal5() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal6":
-                if (Goal6() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal7":
-                if (Goal7() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal8":
-                if (Goal8() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal9":
-                if (Goal9() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-            case "Goal10":
-                if (Goal10() == true)
-                {
-                    UnsubscribeGoalCheck1();
-                }
-                break;
-        } 
+            UnsubscribeGoalCheck1();
+        }
     }
+
     private void GoalCheck2_Conditions(object sender, System.EventArgs e)
     {
-        switch (PlayerGoals.goalDataSaved2.name)
+        string goalName = PlayerGoals.goalDataSaved2.name;
+
+        if (CheckGoal(goalName))
         {
-            case "Goal1":
-                if (Goal1() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal2":
-                if (Goal2() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal3":
-                if (Goal3() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal4":
-                if (Goal4() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal5":
-                if (Goal5() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal6":
-                if (Goal6() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal7":
-                if (Goal7() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal8":
-                if (Goal8() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal9":
-                if (Goal9() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-            case "Goal10":
-                if (Goal10() == true)
-                {
-                    UnsubscribeGoalCheck2();
-                }
-                break;
-        } 
+            UnsubscribeGoalCheck2();
+        }
     }
+
     private void GoalCheck3_Conditions(object sender, System.EventArgs e)
     {
+        string goalName = PlayerGoals.goalDataSaved3.name;
 
-        switch (PlayerGoals.goalDataSaved3.name)
+        if (CheckGoal(goalName))
         {
-            case "Goal1":
-                if (Goal1() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal2":
-                if (Goal2() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal3":
-                if (Goal3() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal4":
-                if (Goal4() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal5":
-                if (Goal5() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal6":
-                if (Goal6() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal7":
-                if (Goal7() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal8":
-                if (Goal8() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal9":
-                if (Goal9() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
-            case "Goal10":
-                if (Goal10() == true)
-                {
-                    UnsubscribeGoalCheck3();
-                }
-                break;
+            UnsubscribeGoalCheck3();
         }
+    }
+
+    private bool CheckGoal(string goalName)
+    {
+        switch (goalName)
+        {
+            case "Goal1": return Goal1();
+            case "Goal2": return Goal2();
+            case "Goal3": return Goal3();
+            case "Goal4": return Goal4();
+            case "Goal5": return Goal5();
+            case "Goal6": return Goal6();
+            case "Goal7": return Goal7();
+            case "Goal8": return Goal8();
+            case "Goal9": return Goal9();
+            case "Goal10": return Goal10();
+            default: return false;
+        }
+    }
+
+    // Functions to prevent further checks once goals have been accomplished
+    void UnsubscribeGoalCheck1()
+    {
+        m_eventUpdate.CheckGoals -= GoalCheck1_Conditions;
+    }
+    void UnsubscribeGoalCheck2()
+    {
+        m_eventUpdate.CheckGoals -= GoalCheck2_Conditions;
+    }
+    void UnsubscribeGoalCheck3()
+    {
+        m_eventUpdate.CheckGoals -= GoalCheck3_Conditions;
     }
 
     // Goal Logic
@@ -253,109 +128,83 @@ public class GoalEvent : MonoBehaviour
     }
     bool Goal4()
     {
-        //Hold onto an insurance card for 10 consecutive turns
-        //if()
-        //{
+        // Checks if player has bought the same insurance type for 10 rounds straight
+        bool reachedGoal = buyInsuranceHealth.continuousInsuranceTurnInt >= 10 ||
+                   buyInsuranceAccident.continuousInsuranceTurnInt >= 10 ||
+                   buyInsuranceCritical.continuousInsuranceTurnInt >= 10 ||
+                   buyInsuranceLife.continuousInsuranceTurnInt >= 10;
 
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal4 Got");
-        return true;
-         
+        if (reachedGoal && m_gameManager.PhaseInt == 5)
+        {
+            Debug.Log("Goal4 Got");
+            return true;
+        }
+        else { return false; }
+
     }
     bool Goal5()
     {
-        //Hold every type of insurance card possible for 3 consecutive turns
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal5 Got");
-        return true;
-         
+        // Hold every type of insurance card possible for 3 consecutive turns
+        bool reachedGoal = buyInsuranceHealth.continuousInsuranceTurnInt >= 3 &&
+                   buyInsuranceAccident.continuousInsuranceTurnInt >= 3 &&
+                   buyInsuranceCritical.continuousInsuranceTurnInt >= 3 &&
+                   buyInsuranceLife.continuousInsuranceTurnInt >= 3;
+        if (reachedGoal && m_gameManager.PhaseInt == 5)
+        {
+            Debug.Log("Goal5 Got");
+            return true;
+        }
+        else { return false; }
     }
+
     bool Goal6()
     {
         //Restore a total of 5 Health Points
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal6 Got");
-        return true;
-         
+        if (m_gameManager.increasedHealth >= 5)
+        {
+            Debug.Log("Goal6 Got");
+            return true;
+        }
+        else { return false; }
     }
     bool Goal7()
     {
-        //Spend $50k on insurance
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal7 Got");
-        return true;
-         
+        //Spend $ on insurance
+        if (m_gameManager.spentMoney >= 50)
+        {
+            Debug.Log("Goal7 Got");
+            return true;
+        }
+        else { return false; }
     }
     bool Goal8()
     {
         //Be insured against 5 crises
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal8 Got");
-        return true;
-         
+        if (m_gameManager.timesProtected >= 5)
+        {
+            Debug.Log("Goal8 Got");
+            return true;
+        }
+        else { return false; }
     }
     bool Goal9()
     {
         //Play 5 cards in a turn
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal9 Got");
-        return true;
-
-
+        if (m_dropArea.droppedCardInt >= 5)
+        {
+            Debug.Log("Goal9 Got");
+            return true;
+        }
+        else { return false; }
     }
     bool Goal10()
     {
         //Draw 5 cards in a turn
-        //if()
-        //{
-
-        //return true;
-        //}
-        //else { return false; }
-        Debug.Log("Goal10 Got");
-        return true;
+        if (m_addPlayerCards.spawnCardCounter >= 5)
+        {
+            Debug.Log("Goal10 Got");
+            return true;
+        }
+        else { return false; }
     }
-
-    // Functions to prevent further checks once goals have been accomplished
-    void UnsubscribeGoalCheck1()
-    {
-        m_eventUpdate.CheckGoals -= GoalCheck1_Conditions;
-    }
-    void UnsubscribeGoalCheck2()
-    {
-        m_eventUpdate.CheckGoals -= GoalCheck2_Conditions;
-    }
-    void UnsubscribeGoalCheck3()
-    {
-        m_eventUpdate.CheckGoals -= GoalCheck3_Conditions;
-    }
-
-
 }
