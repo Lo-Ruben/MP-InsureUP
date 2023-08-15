@@ -1683,6 +1683,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197294218394589932, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 197294218394589932, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ebcdebbb35afb0419fe2d56cbefdf59, type: 3}
     - target: {fileID: 1701605520434806917, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
       propertyPath: m_Name
       value: SettingsOverlay

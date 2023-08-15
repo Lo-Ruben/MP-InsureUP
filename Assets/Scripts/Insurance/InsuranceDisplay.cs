@@ -35,6 +35,11 @@ public class InsuranceDisplay : MonoBehaviour
         DisplayInfo();
     }
 
+    private void OnEnable()
+    {
+        DisplayInfo();
+    }
+
     private void Update()
     {
 

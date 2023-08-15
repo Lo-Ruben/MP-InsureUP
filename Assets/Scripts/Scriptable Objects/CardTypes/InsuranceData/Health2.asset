@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: Health Insurance T2
   cardDescription: Gives some health
   cardCost: 2
-  cardImage: {fileID: 31027847, guid: a0e03ba234dd0d244931839180cfb2aa, type: 3}
+  cardImage: {fileID: -1400537114, guid: f133b96bf535b9045ac8402bfeb9c222, type: 3}
   returnMoney: 5
   insuranceCategory: Health
