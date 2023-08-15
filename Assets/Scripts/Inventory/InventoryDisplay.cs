@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InsuranceInfoDisplay : MonoBehaviour
+public class InventoryDisplay : MonoBehaviour
 {
     [SerializeField]
-    private InsuranceInfo insruanceInfo;
+    private InventoryData inventoryData;
 
-    public InsuranceInfo insuranceInfo
+    public InventoryData InventoryData
     {
-        get { return insruanceInfo; }
-        set { insruanceInfo = value; }
+        get { return inventoryData; }
+        set { inventoryData = value; }
     }
 
     [SerializeField]
@@ -34,8 +34,8 @@ public class InsuranceInfoDisplay : MonoBehaviour
 
     void DisplayInfo()
     {
-        cardNameText.text = insuranceInfo.cardName;
-        cardDescriptionText.text = insuranceInfo.cardCounter;
-        cardImage.sprite = insuranceInfo.cardImage;
+        cardNameText.text = inventoryData.cardName;
+        cardDescriptionText.text = inventoryData.cardCounter;
+        cardImage.sprite = inventoryData.cardImage;
     }
 }

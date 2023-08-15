@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems; // Required when using Event data.
-public class ShowInsurance : MonoBehaviour, IPointerDownHandler
+public class ShowInventory : MonoBehaviour, IPointerDownHandler
 {
     InsuranceDisplay getInsuranceDisplay;
     public GameObject insuranceInfoPrefab;
-    public InsuranceInfo healthInsurance;
-    public InsuranceInfo accidentInsurance;
-    public InsuranceInfo criticalInsurance;
-    public InsuranceInfo lifeInsurance;
+    public InventoryData healthInsurance;
+    public InventoryData accidentInsurance;
+    public InventoryData criticalInsurance;
+    public InventoryData lifeInsurance;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +26,20 @@ public class ShowInsurance : MonoBehaviour, IPointerDownHandler
         switch (getInsuranceDisplay.InsuranceData.insuranceCategory)
         {
             case "Health":
-                InsuranceInfoDisplay health = insuranceInfoPrefab.GetComponent<InsuranceInfoDisplay>();
-                health.insuranceInfo = healthInsurance;
+                InventoryDisplay health = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
+                health.InventoryData = healthInsurance;
                 break;
             case "Accident":
-                InsuranceInfoDisplay accident = insuranceInfoPrefab.GetComponent<InsuranceInfoDisplay>();
-                accident.insuranceInfo = accidentInsurance;
+                InventoryDisplay accident = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
+                accident.InventoryData = accidentInsurance;
                 break;
             case "Life":
-                InsuranceInfoDisplay life = insuranceInfoPrefab.GetComponent<InsuranceInfoDisplay>();
-                life.insuranceInfo = lifeInsurance;
+                InventoryDisplay life = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
+                life.InventoryData = lifeInsurance;
                 break;
             case "Critical Illness":
-                InsuranceInfoDisplay critical = insuranceInfoPrefab.GetComponent<InsuranceInfoDisplay>();
-                critical.insuranceInfo = criticalInsurance;
+                InventoryDisplay critical = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
+                critical.InventoryData = criticalInsurance;
                 break;
         }
     }

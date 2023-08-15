@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InsuranceInfo", menuName = "ScriptableObjects/InsuranceInfoData")]
-public class InsuranceInfo : ScriptableObject
+[CreateAssetMenu(fileName = "InventoryData", menuName = "ScriptableObjects/InventoryData")]
+public class InventoryData : ScriptableObject
 {
     // Text Info
     public string cardCounter;
