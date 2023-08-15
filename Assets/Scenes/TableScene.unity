@@ -11317,7 +11317,7 @@ PrefabInstance:
     - target: {fileID: 5034474396259956671, guid: beea9534f62c82849979bd1c5a87f35b, type: 3}
       propertyPath: insruanceInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 4fe8797c65be3af428529fb52d443cfa, type: 2}
+      objectReference: {fileID: 11400000, guid: 8b92563b2b2fe3e4f906858c486cee71, type: 2}
     - target: {fileID: 5373462916512253427, guid: beea9534f62c82849979bd1c5a87f35b, type: 3}
       propertyPath: m_Name
       value: Insurance Info
