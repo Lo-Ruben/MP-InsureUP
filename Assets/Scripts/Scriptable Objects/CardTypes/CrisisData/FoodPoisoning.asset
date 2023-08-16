@@ -21,3 +21,4 @@ MonoBehaviour:
   moneyDecrease: -1
   cardEffectDuration: 0
   insuranceCounter: Health
+  animatorController: {fileID: 9100000, guid: 6811329a869ac49469f29ff47dfff989, type: 2}

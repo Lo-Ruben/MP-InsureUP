@@ -18,7 +18,8 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     BuyInsurance otherInsurance1;
     [SerializeField]
     BuyInsurance otherInsurance2;
-
+    [SerializeField]
+    Inventory inventory;
     public bool resetInt;
     public int continuousInsuranceTurnInt;
 
@@ -63,21 +64,21 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
         switch (cardName)
         {
-            case "Health1":
-            case "Health2":
-            case "Health3":
+            case "Health Insurance T1": //The name of the card are these dont change
+            case "Health Insurance T2":
+            case "Health Insurance T3":
 
-            case "Critical Illness1":
-            case "Critical Illness2":
-            case "Critical Illness3":
+            case "Critical Illness Insurance T1":
+            case "Critical Illness Insurance T2":
+            case "Critical Illness Insurance T3":
 
-            case "Life1":
-            case "Life2":
-            case "Life3":
+            case "Life Insurance T1":
+            case "Life Insurance T2":
+            case "Life Insurance T3":
 
-            case "Accident1":
-            case "Accident2":
-            case "Accident3":
+            case "Accident Insurance T1":
+            case "Accident Insurance T2":
+            case "Accident Insurance T3":
                 ToggleCards();
                 break;
 
@@ -108,6 +109,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 otherInsurance2.getInsuranceInfo.staticCardBack = true;
 
                 m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
+                inventory.boughtInsrData.Add(getInsuranceInfo.InsuranceData);
                 continuousInsuranceTurnInt++;
                 resetInt = false;
             }

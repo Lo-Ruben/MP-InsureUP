@@ -7,6 +7,8 @@ public class CrisisDisplay : MonoBehaviour
 {
     [SerializeField]
     private CrisisData crisisInfo;
+    [SerializeField]
+    private Animator animator;
     
     public CrisisData CrisisInfo
     {
@@ -37,5 +39,6 @@ public class CrisisDisplay : MonoBehaviour
     {
         cardNameText.text = CrisisInfo.cardName;
         cardDescriptionText.text = CrisisInfo.cardDescription;
+        animator.runtimeAnimatorController = crisisInfo.animatorController;
     }
 }

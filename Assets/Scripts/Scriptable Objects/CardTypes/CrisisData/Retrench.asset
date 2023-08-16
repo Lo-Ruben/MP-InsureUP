@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
-  m_Name: Cancer
+  m_Name: Retrench
   m_EditorClassIdentifier: 
-  cardName: Cancer
-  cardDescription: Im soooo sorry
+  cardName: Retrenchment
+  cardDescription: noooooooooo
   familyDecrease: 0
   jobDecrease: 0
   personalDecrease: 0
@@ -21,4 +21,4 @@ MonoBehaviour:
   moneyDecrease: 0
   cardEffectDuration: 0
   insuranceCounter: 
-  animatorController: {fileID: 9100000, guid: 1540a3e71e320544082758e2e86e3840, type: 2}
+  animatorController: {fileID: 9100000, guid: 865e570a5f140e24d887f8877507044c, type: 2}

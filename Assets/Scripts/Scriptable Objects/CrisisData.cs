@@ -22,4 +22,6 @@ public class CrisisData : ScriptableObject
 
     // Insurance counter
     public string insuranceCounter;
+
+    public RuntimeAnimatorController animatorController;
 }

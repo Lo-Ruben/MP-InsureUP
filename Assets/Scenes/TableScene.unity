@@ -2127,9 +2127,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2055574351408377010, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 390038042}
+    - target: {fileID: 2055574351408377010, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
       propertyPath: crisisInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 96d569967ebd98c4eb0cc3c068dff336, type: 2}
+      objectReference: {fileID: 11400000, guid: 32e728e44ff2a9d46a2462fa483de892, type: 2}
     - target: {fileID: 5903927749636392865, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2217,7 +2221,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1085360275541385765, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 390038042}
   m_SourcePrefab: {fileID: 100100000, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
 --- !u!224 &390038039 stripped
 RectTransform:
@@ -2229,12 +2236,38 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2055574351408377010, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
   m_PrefabInstance: {fileID: 390038038}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 390038041}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fd277097dd624942affbdd297899d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &390038041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1085360275541385765, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
+  m_PrefabInstance: {fileID: 390038038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &390038042
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390038041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e04fe2312687d64ba5e7640c5fe8e77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &398794644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4634,9 +4667,9 @@ RectTransform:
   - {fileID: 2117780648}
   - {fileID: 316379921}
   - {fileID: 1670651027}
+  - {fileID: 623604000}
   - {fileID: 1991985549}
   - {fileID: 2021740380}
-  - {fileID: 623604000}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5597,6 +5630,7 @@ MonoBehaviour:
   contentText: {fileID: 2057697781}
   layoutElement: {fileID: 1023271518}
   characterWrapLimit: 80
+  rectTransform: {fileID: 0}
 --- !u!114 &1023271518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8310,7 +8344,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crisisDeck: []
   existingCards:
+  - {fileID: 11400000, guid: 32e728e44ff2a9d46a2462fa483de892, type: 2}
+  - {fileID: 11400000, guid: 8d6ebcf8875eb7942a62ef6ce3483c38, type: 2}
+  - {fileID: 11400000, guid: 96d569967ebd98c4eb0cc3c068dff336, type: 2}
+  - {fileID: 11400000, guid: a7c7bd1c9942cc44897ead5731aeba69, type: 2}
+  - {fileID: 11400000, guid: 1f9c752f5790faa45aa6ff7781cde40e, type: 2}
+  - {fileID: 11400000, guid: 93b7681d4f838f54992b26d2f4c1d8a8, type: 2}
   - {fileID: 11400000, guid: 8e1d01e32c2f062488c290e22cd58502, type: 2}
+  - {fileID: 11400000, guid: 9afd7a1680f1bd94c8198a1c86135d52, type: 2}
+  - {fileID: 11400000, guid: 628e32abf1639704c84625d111136e29, type: 2}
+  - {fileID: 11400000, guid: a55cebcc2e64bcd45b533bda1bd7abc0, type: 2}
+  - {fileID: 11400000, guid: 82d4eec0247729841815d299956caba5, type: 2}
   disasterCounter: 10
   minDisasterCardChance: 0
   maxDisasterCardChance: 5
@@ -11896,7 +11940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1299928357, guid: 6a6e968c8b1176843a4849fd7ec7a498, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a195dc27ce2a8042913c9fe4e594193, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
