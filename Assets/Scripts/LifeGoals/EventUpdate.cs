@@ -15,12 +15,6 @@ public class EventUpdate : MonoBehaviour
     // Call event if conditions has been met
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    CheckGoals?.Invoke(this, EventArgs.Empty);
-        //}
-
         CheckGoals?.Invoke(this, EventArgs.Empty);
-
     }
 }
