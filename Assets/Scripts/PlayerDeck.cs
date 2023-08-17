@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDeck : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerDeck : MonoBehaviour
     public List<CardData> existingCards = new List<CardData>();
     public static int deckSize;
     int cardTypeAmount = 10;
+
+    //public Text cardLeft;
 
     [Header("Display Deck size for player")]
     public GameObject cardInDeck1;
@@ -36,6 +39,7 @@ public class PlayerDeck : MonoBehaviour
     }
     void Update()
     {
+        //cardLeft.text = "Cards Left : " + deckSize;
         if (Input.GetKeyDown("space"))
         {
             CountOccurrences(existingCards[0]);

@@ -35,9 +35,10 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, int> insuranceBoughtDictionary = new Dictionary<string, int>();
 
     // Game UI Text
-    [Header("Game UI Text")]
+    [Header("Game UI")]
     public Text healthText;
     public Text moneyText;
+
 
     public Text jobLevelText;
     public Text familyLevelText;
@@ -46,6 +47,14 @@ public class GameManager : MonoBehaviour
     public Text goal1;
     public Text goal2;
     public Text goal3;
+
+    public Text progress1;
+    public Text progress2;
+    public Text progress3;
+
+    public Slider slider1;
+    public Slider slider2;
+    public Slider slider3;
 
     //Debugging
     public Text phaseText;
@@ -120,9 +129,9 @@ public class GameManager : MonoBehaviour
     {
         ShopGameObject.SetActive(false);
     }
-
     void Update()
     {
+        setGoalTargetSlider();
         UpdateTextInfo();
         GameOver();
         PhaseCheck();
@@ -152,9 +161,27 @@ public class GameManager : MonoBehaviour
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money;
 
-        goal1.text = PlayerGoals.goalDataSaved1.goalName + "\n" + PlayerGoals.goalDataSaved1.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved1.GoalTargetInt;
-        goal2.text = PlayerGoals.goalDataSaved2.goalName + "\n" + PlayerGoals.goalDataSaved2.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved2.GoalTargetInt;
-        goal3.text = PlayerGoals.goalDataSaved3.goalName + "\n" + PlayerGoals.goalDataSaved3.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved3.GoalTargetInt;
+        goal1.text = PlayerGoals.goalDataSaved1.goalName;
+        goal2.text = PlayerGoals.goalDataSaved2.goalName;
+        goal3.text = PlayerGoals.goalDataSaved3.goalName;
+
+        progress1.text = PlayerGoals.goalDataSaved1.CurrentGoalInt + "/" + PlayerGoals.goalDataSaved1.GoalTargetInt;
+        progress2.text = PlayerGoals.goalDataSaved2.CurrentGoalInt + "/" + PlayerGoals.goalDataSaved2.GoalTargetInt;
+        progress3.text = PlayerGoals.goalDataSaved3.CurrentGoalInt + "/" + PlayerGoals.goalDataSaved3.GoalTargetInt;
+
+        slider1.value = PlayerGoals.goalDataSaved1.CurrentGoalInt;
+        slider2.value = PlayerGoals.goalDataSaved2.CurrentGoalInt;
+        slider3.value = PlayerGoals.goalDataSaved3.CurrentGoalInt;
+    }
+    public void setGoalTargetSlider()
+    {
+        slider1.maxValue = PlayerGoals.goalDataSaved1.GoalTargetInt;
+        slider2.maxValue = PlayerGoals.goalDataSaved2.GoalTargetInt;
+        slider3.maxValue = PlayerGoals.goalDataSaved3.GoalTargetInt;
+
+        slider1.value = PlayerGoals.goalDataSaved1.CurrentGoalInt;
+        slider2.value = PlayerGoals.goalDataSaved2.CurrentGoalInt;
+        slider3.value = PlayerGoals.goalDataSaved3.CurrentGoalInt;
     }
 
     // Updates the phase name based on the number
