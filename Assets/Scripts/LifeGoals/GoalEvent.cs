@@ -162,10 +162,12 @@ public class GoalEvent : MonoBehaviour
         else { return false; }
 
     }
+    // BUGGED
+    // If user does not buy all insurance, counter will still increase
     bool Goal5(GoalData goalData)
     {
         int MaxGoal = 3;
-        int HighestInsuranceProgress = Mathf.Max(buyInsuranceHealth.insuranceBoughtCountCategory, buyInsuranceAccident.insuranceBoughtCountCategory, buyInsuranceCritical.insuranceBoughtCountCategory, buyInsuranceLife.insuranceBoughtCountCategory);
+        int HighestInsuranceProgress = Mathf.Min(buyInsuranceHealth.insuranceBoughtCountCategory, buyInsuranceAccident.insuranceBoughtCountCategory, buyInsuranceCritical.insuranceBoughtCountCategory, buyInsuranceLife.insuranceBoughtCountCategory);
         SetGoalInt(goalData, HighestInsuranceProgress, MaxGoal);
 
         // Hold all 4 categories of insurance for 3 consecutive turns
