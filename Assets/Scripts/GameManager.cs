@@ -118,19 +118,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        healthText.text = "Health: " + health;
-        moneyText.text = "Money: " + money + "K";
-        jobLevelText.text = jobLevel.ToString();
-        familyLevelText.text = familyLevel.ToString();
-        personalLevelText.text = personalLevel.ToString();
         ShopGameObject.SetActive(false);
-
-        // Display game goal's
-        // Need to find a way to display goal name description on UI
-
-        goal1.text = PlayerGoals.goalDataSaved1.goalName;
-        goal2.text = PlayerGoals.goalDataSaved2.goalName;
-        goal3.text = PlayerGoals.goalDataSaved3.goalName;
     }
 
     void Update()
@@ -163,6 +151,10 @@ public class GameManager : MonoBehaviour
 
         healthText.text = "Health: " + health;
         moneyText.text = "Money: " + money;
+
+        goal1.text = PlayerGoals.goalDataSaved1.goalName + "\n" + PlayerGoals.goalDataSaved1.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved1.GoalTargetInt;
+        goal2.text = PlayerGoals.goalDataSaved2.goalName + "\n" + PlayerGoals.goalDataSaved2.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved2.GoalTargetInt;
+        goal3.text = PlayerGoals.goalDataSaved3.goalName + "\n" + PlayerGoals.goalDataSaved3.CurrentGoalInt + " / " + PlayerGoals.goalDataSaved3.GoalTargetInt;
     }
 
     // Updates the phase name based on the number

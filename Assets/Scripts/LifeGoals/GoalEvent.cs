@@ -32,48 +32,54 @@ public class GoalEvent : MonoBehaviour
 
     private void GoalCheck1_Conditions(object sender, System.EventArgs e)
     {
-        string goalName = PlayerGoals.goalDataSaved1.name;
+        GoalData GoalData1 = PlayerGoals.goalDataSaved1;
+        string goalName = GoalData1.name;
 
-        if (CheckGoal(goalName))
+        if (CheckGoal(goalName, GoalData1))
         {
+            m_gameManager.goal1.color = Color.yellow;
             UnsubscribeGoalCheck1();
         }
     }
 
     private void GoalCheck2_Conditions(object sender, System.EventArgs e)
     {
-        string goalName = PlayerGoals.goalDataSaved2.name;
+        GoalData GoalData2 = PlayerGoals.goalDataSaved2;
+        string goalName = GoalData2.name;
 
-        if (CheckGoal(goalName))
+        if (CheckGoal(goalName, GoalData2))
         {
+            m_gameManager.goal2.color = Color.yellow;
             UnsubscribeGoalCheck2();
         }
     }
 
     private void GoalCheck3_Conditions(object sender, System.EventArgs e)
     {
-        string goalName = PlayerGoals.goalDataSaved3.name;
+        GoalData GoalData3 = PlayerGoals.goalDataSaved3;
+        string goalName = GoalData3.name;
 
-        if (CheckGoal(goalName))
+        if (CheckGoal(goalName, GoalData3))
         {
+            m_gameManager.goal3.color = Color.yellow;
             UnsubscribeGoalCheck3();
         }
     }
 
-    private bool CheckGoal(string goalName)
+    private bool CheckGoal(string goalName, GoalData goalData)
     {
         switch (goalName)
         {
-            case "Goal1": return Goal1();
-            case "Goal2": return Goal2();
-            case "Goal3": return Goal3();
-            case "Goal4": return Goal4();
-            case "Goal5": return Goal5();
-            case "Goal6": return Goal6();
-            case "Goal7": return Goal7();
-            case "Goal8": return Goal8();
-            case "Goal9": return Goal9();
-            case "Goal10": return Goal10();
+            case "Goal1": return Goal1(goalData);
+            case "Goal2": return Goal2(goalData);
+            case "Goal3": return Goal3(goalData);
+            case "Goal4": return Goal4(goalData);
+            case "Goal5": return Goal5(goalData);
+            case "Goal6": return Goal6(goalData);
+            case "Goal7": return Goal7(goalData);
+            case "Goal8": return Goal8(goalData);
+            case "Goal9": return Goal9(goalData);
+            case "Goal10": return Goal10(goalData);
             default: return false;
         }
     }
@@ -93,10 +99,13 @@ public class GoalEvent : MonoBehaviour
     }
 
     // Goal Logic
-    bool Goal1()
+    bool Goal1(GoalData goalData)
     {
+        int MaxGoal = 10;
+        SetGoalInt(goalData, m_gameManager.jobLevel, MaxGoal);
+        
         //Reach 10 pts for work
-        if (m_gameManager.jobLevel >= 10)
+        if (m_gameManager.jobLevel >= MaxGoal)
         {
             Debug.Log("Goal1 Got");
 
@@ -104,10 +113,13 @@ public class GoalEvent : MonoBehaviour
         }
         else { return false; }
     }
-    bool Goal2()
+    bool Goal2(GoalData goalData)
     {
+        int MaxGoal = 10;
+        SetGoalInt(goalData, m_gameManager.personalLevel, MaxGoal);
+
         //Reach 10 pts for personal
-        if (m_gameManager.personalLevel >= 10)
+        if (m_gameManager.personalLevel >= MaxGoal)
         {
             Debug.Log("Goal2 Got");
 
@@ -115,10 +127,13 @@ public class GoalEvent : MonoBehaviour
         }
         else { return false; }
     }
-    bool Goal3()
+    bool Goal3(GoalData goalData)
     {
+        int MaxGoal = 10;
+        SetGoalInt(goalData, m_gameManager.familyLevel, MaxGoal);
+
         //Reach 10 pts for family
-        if (m_gameManager.familyLevel >= 10)
+        if (m_gameManager.familyLevel >= MaxGoal)
         {
             Debug.Log("Goal3 Got");
 
@@ -126,15 +141,20 @@ public class GoalEvent : MonoBehaviour
         }
         else { return false; }
     }
-    bool Goal4()
+    bool Goal4(GoalData goalData)
     {
-        // Checks if player has bought the same insurance type for 10 rounds straight
-        bool reachedGoal = buyInsuranceHealth.continuousInsuranceTurnInt >= 10 ||
-                   buyInsuranceAccident.continuousInsuranceTurnInt >= 10 ||
-                   buyInsuranceCritical.continuousInsuranceTurnInt >= 10 ||
-                   buyInsuranceLife.continuousInsuranceTurnInt >= 10;
+        int MaxGoal = 10;
+        int HighestInsuranceProgress = Mathf.Max(buyInsuranceHealth.insuranceBoughtCountCategory, buyInsuranceAccident.insuranceBoughtCountCategory, buyInsuranceCritical.insuranceBoughtCountCategory, buyInsuranceLife.insuranceBoughtCountCategory);
+        SetGoalInt(goalData, HighestInsuranceProgress, MaxGoal);
+        
 
-        if (reachedGoal && m_gameManager.PhaseInt == 5)
+        // Buy the same insurance category for 10 consecutive turns
+        bool reachedGoal = buyInsuranceHealth.insuranceBoughtCountCategory >= MaxGoal ||
+                   buyInsuranceAccident.insuranceBoughtCountCategory >= MaxGoal ||
+                   buyInsuranceCritical.insuranceBoughtCountCategory >= MaxGoal ||
+                   buyInsuranceLife.insuranceBoughtCountCategory >= MaxGoal;
+
+        if (reachedGoal && m_gameManager.PhaseInt == 4)
         {
             Debug.Log("Goal4 Got");
             return true;
@@ -142,14 +162,19 @@ public class GoalEvent : MonoBehaviour
         else { return false; }
 
     }
-    bool Goal5()
+    bool Goal5(GoalData goalData)
     {
-        // Hold every type of insurance card possible for 3 consecutive turns
-        bool reachedGoal = buyInsuranceHealth.continuousInsuranceTurnInt >= 3 &&
-                   buyInsuranceAccident.continuousInsuranceTurnInt >= 3 &&
-                   buyInsuranceCritical.continuousInsuranceTurnInt >= 3 &&
-                   buyInsuranceLife.continuousInsuranceTurnInt >= 3;
-        if (reachedGoal && m_gameManager.PhaseInt == 5)
+        int MaxGoal = 3;
+        int HighestInsuranceProgress = Mathf.Max(buyInsuranceHealth.insuranceBoughtCountCategory, buyInsuranceAccident.insuranceBoughtCountCategory, buyInsuranceCritical.insuranceBoughtCountCategory, buyInsuranceLife.insuranceBoughtCountCategory);
+        SetGoalInt(goalData, HighestInsuranceProgress, MaxGoal);
+
+        // Hold all 4 categories of insurance for 3 consecutive turns
+        bool reachedGoal = buyInsuranceHealth.insuranceBoughtCountCategory >= MaxGoal &&
+                   buyInsuranceAccident.insuranceBoughtCountCategory >= MaxGoal &&
+                   buyInsuranceCritical.insuranceBoughtCountCategory >= MaxGoal &&
+                   buyInsuranceLife.insuranceBoughtCountCategory >= MaxGoal;
+
+        if (reachedGoal && m_gameManager.PhaseInt == 4)
         {
             Debug.Log("Goal5 Got");
             return true;
@@ -157,54 +182,81 @@ public class GoalEvent : MonoBehaviour
         else { return false; }
     }
 
-    bool Goal6()
+    bool Goal6(GoalData goalData)
     {
+        int MaxGoal = 5;
+        SetGoalInt(goalData, m_gameManager.increasedHealth, MaxGoal);
+
         //Restore a total of 5 Health Points
-        if (m_gameManager.increasedHealth >= 5)
+        if (m_gameManager.increasedHealth >= MaxGoal)
         {
             Debug.Log("Goal6 Got");
             return true;
         }
         else { return false; }
     }
-    bool Goal7()
+    bool Goal7(GoalData goalData)
     {
+        // ADJUST MONEY
+        int MaxGoal = 50;
+        SetGoalInt(goalData, m_gameManager.spentMoney, MaxGoal);
+
         //Spend $ on insurance
-        if (m_gameManager.spentMoney >= 50)
+        if (m_gameManager.spentMoney >= MaxGoal)
         {
             Debug.Log("Goal7 Got");
             return true;
         }
         else { return false; }
     }
-    bool Goal8()
+    bool Goal8(GoalData goalData)
     {
+        int MaxGoal = 5;
+        SetGoalInt(goalData, m_gameManager.timesProtected, MaxGoal);
+
         //Be insured against 5 crises
-        if (m_gameManager.timesProtected >= 5)
+        if (m_gameManager.timesProtected >= MaxGoal)
         {
             Debug.Log("Goal8 Got");
             return true;
         }
         else { return false; }
     }
-    bool Goal9()
+    bool Goal9(GoalData goalData)
     {
+        int MaxGoal = 5;
+        SetGoalInt(goalData, m_dropArea.droppedCardInt, MaxGoal);
+
         //Play 5 cards in a turn
-        if (m_dropArea.droppedCardInt >= 5)
+        if (m_dropArea.droppedCardInt >= MaxGoal)
         {
             Debug.Log("Goal9 Got");
             return true;
         }
         else { return false; }
     }
-    bool Goal10()
+    bool Goal10(GoalData goalData)
     {
+        int MaxGoal = 5;
+        SetGoalInt(goalData, m_addPlayerCards.spawnCardCounter, MaxGoal);
+
         //Draw 5 cards in a turn
-        if (m_addPlayerCards.spawnCardCounter >= 5)
+        if (m_addPlayerCards.spawnCardCounter >= MaxGoal)
         {
             Debug.Log("Goal10 Got");
             return true;
         }
         else { return false; }
+    }
+
+    void SetGoalInt(GoalData goalData, int referenceCurrentGoal, int maxGoalInt)
+    {
+        goalData.CurrentGoalInt = referenceCurrentGoal;
+        goalData.GoalTargetInt = maxGoalInt;
+
+        if (goalData.CurrentGoalInt > goalData.GoalTargetInt)
+        {
+            goalData.CurrentGoalInt = goalData.GoalTargetInt;
+        }
     }
 }

@@ -21,7 +21,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     [SerializeField]
     Inventory inventory;
     public bool resetInt;
-    public int continuousInsuranceTurnInt;
+    public int insuranceBoughtCountCategory;
 
     private void Start()
     {
@@ -40,17 +40,18 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     }
     private void OnDisable()
     {
-        if (resetInt)
+        if (resetInt && otherInsurance1.resetInt &&  otherInsurance2.resetInt)
         {
-            continuousInsuranceTurnInt = 0;
+            insuranceBoughtCountCategory = 0;
         }
-        else
-        {
-            continuousInsuranceTurnInt = Mathf.Max(continuousInsuranceTurnInt, otherInsurance1.continuousInsuranceTurnInt, otherInsurance2.continuousInsuranceTurnInt);
-            Debug.Log(continuousInsuranceTurnInt);
+    }
 
-        }
-
+    private void Update()
+    {
+        int maxCategoryCount = Mathf.Max(insuranceBoughtCountCategory, otherInsurance1.insuranceBoughtCountCategory, otherInsurance2.insuranceBoughtCountCategory);
+        insuranceBoughtCountCategory = maxCategoryCount;
+        otherInsurance1.insuranceBoughtCountCategory = maxCategoryCount;
+        otherInsurance2.insuranceBoughtCountCategory = maxCategoryCount;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -110,7 +111,11 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
                 m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
                 inventory.boughtInsrData.Add(getInsuranceInfo.InsuranceData);
-                continuousInsuranceTurnInt++;
+
+                insuranceBoughtCountCategory++;
+                otherInsurance1.insuranceBoughtCountCategory++;
+                otherInsurance2.insuranceBoughtCountCategory++;
+
                 resetInt = false;
             }
         }
@@ -124,7 +129,11 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             otherInsurance2.getInsuranceInfo.staticCardBack = false;
 
             m_GameManager.insuranceBoughtDictionary.Remove(getInsuranceInfo.InsuranceData.insuranceCategory);
-            continuousInsuranceTurnInt--;
+
+            insuranceBoughtCountCategory--;
+            otherInsurance1.insuranceBoughtCountCategory--;
+            otherInsurance2.insuranceBoughtCountCategory--;
+
             resetInt = true;
         }
     }

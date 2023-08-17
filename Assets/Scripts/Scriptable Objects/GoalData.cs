@@ -8,4 +8,7 @@ public class GoalData : ScriptableObject
     // Text Info
     public string goalName;
     public string goalDescription;
+
+    public int GoalTargetInt;
+    public int CurrentGoalInt = 0;
 }
