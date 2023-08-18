@@ -2299,7 +2299,7 @@ PrefabInstance:
     - target: {fileID: 2055574351408377010, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
       propertyPath: crisisInfo
       value: 
-      objectReference: {fileID: 11400000, guid: 32e728e44ff2a9d46a2462fa483de892, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5903927749636392865, guid: 5e7a5d30dad92d940a2fa3605dfbb857, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

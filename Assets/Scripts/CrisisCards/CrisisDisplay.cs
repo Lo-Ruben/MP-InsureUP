@@ -21,14 +21,6 @@ public class CrisisDisplay : MonoBehaviour
     [SerializeField]
     Text cardDescriptionText;
 
-    [SerializeField]
-    static int numberOfCardsInDeck;
-
-    private void Start()
-    {
-        numberOfCardsInDeck = PlayerDeck.deckSize;
-    }
-
     private void Update()
     {
         DisplayInfo();
@@ -37,8 +29,11 @@ public class CrisisDisplay : MonoBehaviour
 
     void DisplayInfo()
     {
-        cardNameText.text = CrisisInfo.cardName;
-        cardDescriptionText.text = CrisisInfo.cardDescription;
-        animator.runtimeAnimatorController = crisisInfo.animatorController;
+        if (crisisInfo != null)
+        {
+            cardNameText.text = CrisisInfo.cardName;
+            cardDescriptionText.text = CrisisInfo.cardDescription;
+            animator.runtimeAnimatorController = crisisInfo.animatorController;
+        }
     }
 }

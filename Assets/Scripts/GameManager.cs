@@ -284,6 +284,16 @@ public class GameManager : MonoBehaviour
                 money += insuranceBenefit;
                 timesProtected++;
             }
+
+            else
+            {
+                familyLevel -= crisisDisplay.CrisisInfo.familyDecrease;
+                jobLevel -= crisisDisplay.CrisisInfo.jobDecrease;
+                personalLevel -= crisisDisplay.CrisisInfo.personalDecrease;
+                health -= crisisDisplay.CrisisInfo.healthDecrease;
+                money -= crisisDisplay.CrisisInfo.moneyDecrease;
+
+            }
         }
     }
 
