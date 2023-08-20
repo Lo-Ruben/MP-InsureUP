@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
     public Slider slider2;
     public Slider slider3;
 
+    public Text moneyChangedText;
+
+
     //Debugging
     public Text phaseText;
 
@@ -99,6 +102,8 @@ public class GameManager : MonoBehaviour
     [Header("Crisis Card")]
     [SerializeField]
     DropArea discardArea;
+    private string sign;
+    public Animator animator;
 
     // Crisis cards
     [SerializeField]
@@ -147,7 +152,7 @@ public class GameManager : MonoBehaviour
 
         //EndTurn();
     }
-
+   
     void UpdateTextInfo()
     {
         jobLevel = Mathf.Clamp(jobLevel, 0, 10);
@@ -183,7 +188,6 @@ public class GameManager : MonoBehaviour
         slider2.value = PlayerGoals.goalDataSaved2.CurrentGoalInt;
         slider3.value = PlayerGoals.goalDataSaved3.CurrentGoalInt;
     }
-
     // Updates the phase name based on the number
     // We have it this way so we can just have the integer increase instead of change the string
     public void PhaseCheck()
@@ -291,8 +295,19 @@ public class GameManager : MonoBehaviour
                 jobLevel -= crisisDisplay.CrisisInfo.jobDecrease;
                 personalLevel -= crisisDisplay.CrisisInfo.personalDecrease;
                 health -= crisisDisplay.CrisisInfo.healthDecrease;
+                if(crisisDisplay.CrisisInfo.moneyDecrease < 0)
+                {
+                    sign = "+";
+                }
+                else
+                {
+                    sign = "-";
+                }
+                int moneyDecrease = Mathf.Abs(crisisDisplay.CrisisInfo.moneyDecrease);
+                moneyChangedText.text = sign + moneyDecrease;
+                moneyChangedText.gameObject.SetActive(true);
+                animator.SetTrigger("Add");
                 money -= crisisDisplay.CrisisInfo.moneyDecrease;
-
             }
         }
     }

@@ -18,6 +18,7 @@ public class HighScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(displayScores());
         if (resetBool)
         {
             HighScoreSingleton.instance.ResetCurrentScore();
@@ -38,12 +39,27 @@ public class HighScoreManager : MonoBehaviour
         // Updates UI
         if (HighScoreText != null)
         {
-            HighScoreText.text = "HighScore: " + HighScoreSingleton.instance.highScore.ToString();
-            ScoreText.text = "Score: " + HighScoreSingleton.instance.currentScore.ToString();
+            HighScoreText.text = "" + HighScoreSingleton.instance.highScore.ToString();
+            ScoreText.text = "" + HighScoreSingleton.instance.currentScore.ToString();
         }
         if (m_gameManager != null)
         {
             HighScoreSingleton.instance.UpdateScore(m_gameManager.money, m_gameManager.roundCounter);
         }
+    }
+    void displayHighScore()
+    {
+        HighScoreText.gameObject.SetActive(true);
+    }
+    void displayCurrentScore()
+    {
+        ScoreText.gameObject.SetActive(true);
+    }
+    IEnumerator displayScores()
+    {
+        yield return new WaitForSeconds(0.4f);
+        displayHighScore();
+        yield return new WaitForSeconds(0.44f);
+        displayCurrentScore();
     }
 }
