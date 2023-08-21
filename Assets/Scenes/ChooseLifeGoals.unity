@@ -282,8 +282,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1334677395}
-  - {fileID: 881058688}
   - {fileID: 1557466918}
+  - {fileID: 881058688}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1736962949}
+  settings: {fileID: 0}
 --- !u!114 &1736962951
 MonoBehaviour:
   m_ObjectHideFlags: 0

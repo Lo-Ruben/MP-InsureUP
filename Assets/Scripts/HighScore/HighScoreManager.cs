@@ -49,11 +49,17 @@ public class HighScoreManager : MonoBehaviour
     }
     void displayHighScore()
     {
-        HighScoreText.gameObject.SetActive(true);
+        if (HighScoreText != null)
+        {
+            HighScoreText.gameObject.SetActive(true);
+        }
     }
     void displayCurrentScore()
     {
-        ScoreText.gameObject.SetActive(true);
+        if (ScoreText != null)
+        {
+            ScoreText.gameObject.SetActive(true);
+        }
     }
     IEnumerator displayScores()
     {

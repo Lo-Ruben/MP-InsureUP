@@ -14,7 +14,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("ChooseLifeGoals");
+        // Load life goals
+        SceneManager.LoadScene(1);
     }
 
     public void Settings()
