@@ -190,7 +190,7 @@ TextureImporter:
         width: 17
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,6 +198,27 @@ TextureImporter:
       bones: []
       spriteID: 3f57da13faf98e2408f140f674fcd6a4
       internalID: 1096559103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets-1.png (3)_4
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 177
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b30c862f68a1f24b971823ce658b483
+      internalID: 839735123
       vertices: []
       indices: 
       edges: []
@@ -217,6 +238,8 @@ TextureImporter:
       Assets-1.png (3)_1: -1967679348
       Assets-1.png (3)_2: -1653350287
       Assets-1.png (3)_3: 1855667517
+      Assets-1.png (3)_4: 839735123
+      Assets-1.png (3)_5: 167153975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

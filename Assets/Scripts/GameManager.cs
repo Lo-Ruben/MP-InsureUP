@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
         personalLevelText.text = personalLevel.ToString();
 
         healthText.text = "Health: " + health;
-        moneyText.text = "Money: " + money;
+        moneyText.text = " " + money;
 
         goal1.text = PlayerGoals.goalDataSaved1.goalName;
         goal2.text = PlayerGoals.goalDataSaved2.goalName;
