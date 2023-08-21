@@ -23,7 +23,8 @@ public class Tooltip : MonoBehaviour
     public void SetText(string content, string header = "")
     {
         if (string.IsNullOrEmpty(header))
-        { 
+        {
+            Debug.Log("Empty header");
             headerText.gameObject.SetActive(false);
         }
         else

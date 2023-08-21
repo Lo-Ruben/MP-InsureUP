@@ -21,6 +21,8 @@ public class TooltipManager : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             StopCoroutine(tooltipCoroutine);
         }
 
+        Debug.Log(gameObject.name);
+
         tooltipCoroutine = StartCoroutine(TooltipDelay());
     }
 

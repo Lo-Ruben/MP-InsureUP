@@ -21,6 +21,11 @@ public class MusicHandler : MonoBehaviour
                 BGMSingleton.instance.PlayMainMenuMusic();
                 break;
             case 1:
+                Debug.Log(BGMSingleton.instance.BGMAudioSournce.clip != BGMSingleton.instance.mainMenuMusic);
+                if(BGMSingleton.instance.BGMAudioSournce.clip != BGMSingleton.instance.mainMenuMusic)
+                {
+                    BGMSingleton.instance.PlayMainMenuMusic();
+                }
                 break;
             case 2:
                 Debug.Log("TableScene");
