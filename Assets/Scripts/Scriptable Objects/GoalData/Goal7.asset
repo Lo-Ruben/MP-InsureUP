@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal7
   m_EditorClassIdentifier: 
   goalName: For the greater good
+  goalSprite: {fileID: 114112631, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: Spend $50k on insurance
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

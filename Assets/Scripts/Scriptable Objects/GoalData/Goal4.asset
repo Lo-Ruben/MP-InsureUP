@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal4
   m_EditorClassIdentifier: 
   goalName: Loyal Customer
+  goalSprite: {fileID: -890210106, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: Hold onto an insurance card for 10 consecutive turns
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

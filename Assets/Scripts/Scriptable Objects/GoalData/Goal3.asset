@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal3
   m_EditorClassIdentifier: 
   goalName: Family Guy
+  goalSprite: {fileID: -1733571763, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: "Reach 10 points in the \u2018Family Needs\u2019 Life Aspect"
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

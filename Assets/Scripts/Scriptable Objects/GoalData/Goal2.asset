@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal2
   m_EditorClassIdentifier: 
   goalName: Me, Myself, and I
+  goalSprite: {fileID: 1660419916, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: "Reach 10 points in the \u2018Personal Needs\u2019 Life Aspect"
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

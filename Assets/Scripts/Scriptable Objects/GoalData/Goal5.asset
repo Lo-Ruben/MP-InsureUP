@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal5
   m_EditorClassIdentifier: 
   goalName: Perfectly balanced
+  goalSprite: {fileID: -1461447034, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: Hold every type of insurance card possible for 3 consecutive turns
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

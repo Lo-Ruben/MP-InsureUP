@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal8
   m_EditorClassIdentifier: 
   goalName: Insure UP
+  goalSprite: {fileID: -903844208, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: Be insured against 5 crises
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

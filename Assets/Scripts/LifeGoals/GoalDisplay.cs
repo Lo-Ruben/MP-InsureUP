@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GoalDisplay : MonoBehaviour
 {
     public Text GoalHeader;
+    public Image GoalImage;
     public Text GoalDescription;
 
     public GoalData goalData;
@@ -13,6 +14,10 @@ public class GoalDisplay : MonoBehaviour
     private void Update()
     {
         GoalHeader.text = goalData.goalName;
+        
         GoalDescription.text = goalData.goalDescription;
+
+        GoalImage.sprite = goalData.goalSprite;
+        GoalImage.enabled = true;
     }
 }

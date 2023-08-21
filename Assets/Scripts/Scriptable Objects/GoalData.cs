@@ -7,6 +7,7 @@ public class GoalData : ScriptableObject
 {
     // Text Info
     public string goalName;
+    public Sprite goalSprite;
     public string goalDescription;
 
     public int GoalTargetInt;

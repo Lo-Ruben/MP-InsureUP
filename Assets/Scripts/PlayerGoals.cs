@@ -50,9 +50,9 @@ public class PlayerGoals : MonoBehaviour
 
     public void SelectGoalGroupButton()
     {
-        GameObject goal1 = goalSets[goalGroup - 1].transform.GetChild(0).GetChild(0).gameObject;
-        GameObject goal2 = goalSets[goalGroup - 1].transform.GetChild(0).GetChild(1).gameObject;
-        GameObject goal3 = goalSets[goalGroup - 1].transform.GetChild(0).GetChild(2).gameObject;
+        GameObject goal1 = goalSets[goalGroup - 1].transform.GetChild(1).GetChild(1).gameObject;
+        GameObject goal2 = goalSets[goalGroup - 1].transform.GetChild(1).GetChild(2).gameObject;
+        GameObject goal3 = goalSets[goalGroup - 1].transform.GetChild(1).GetChild(3).gameObject;
 
         goalDataSaved1 = goal1.GetComponent<GoalDisplay>().goalData;
         goalDataSaved2 = goal2.GetComponent<GoalDisplay>().goalData;
@@ -67,27 +67,12 @@ public class PlayerGoals : MonoBehaviour
     {
         goalGroup += 1;
         EnableGoalGroups();
-        if (goalGroup == 2)
-        {
-            goalCards[(goalGroup - 2)].SetActive(false);
-        } else if (goalGroup == 3)
-        {
-            goalCards[(goalGroup - 2)].SetActive(false);
-        }
-
+  
     }
     public void PreviousGoalGroup()
     {
         goalGroup -= 1;
         EnableGoalGroups();
-        if (goalGroup == 2)
-        {
-            goalCards[(goalGroup)].SetActive(false);
-        } else if (goalGroup == 1)
-        {
-            goalCards[(goalGroup)].SetActive(false);
-        }
-
     }
 
     public void ShowGoals()

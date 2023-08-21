@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal9
   m_EditorClassIdentifier: 
   goalName: "It\u2019s a carnival!"
+  goalSprite: {fileID: -1446920751, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: Play 5 cards in a turn
+  GoalTargetInt: 0
+  CurrentGoalInt: 0

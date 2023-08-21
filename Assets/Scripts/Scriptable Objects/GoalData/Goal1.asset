@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Goal1
   m_EditorClassIdentifier: 
   goalName: Workaholic
+  goalSprite: {fileID: -2061879056, guid: 0ab0165bc08d9104b8a8e68671e48c31, type: 3}
   goalDescription: "Reach 10 points in the \u2018Work Needs\u2019 Life Aspect"
+  GoalTargetInt: 0
+  CurrentGoalInt: 0
