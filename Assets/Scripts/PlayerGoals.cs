@@ -9,12 +9,16 @@ public class PlayerGoals : MonoBehaviour
 {
     public GameObject[] goalSets = new GameObject[] {};
 
+    
+    public GameObject[] goalCards = new GameObject[] {};
+
     public static GoalData goalDataSaved1;
     public static GoalData goalDataSaved2;
     public static GoalData goalDataSaved3;
 
     public GameObject nextButton;
     public GameObject previousButton;
+    
 
     [SerializeField]
     private int goalGroup = 1;
@@ -26,6 +30,7 @@ public class PlayerGoals : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(goalGroup);
         if (goalGroup >= goalSets.Length)
         {
             nextButton.SetActive(false);
@@ -62,11 +67,39 @@ public class PlayerGoals : MonoBehaviour
     {
         goalGroup += 1;
         EnableGoalGroups();
+        if (goalGroup == 2)
+        {
+            goalCards[(goalGroup - 2)].SetActive(false);
+        } else if (goalGroup == 3)
+        {
+            goalCards[(goalGroup - 2)].SetActive(false);
+        }
+
     }
     public void PreviousGoalGroup()
     {
         goalGroup -= 1;
         EnableGoalGroups();
+        if (goalGroup == 2)
+        {
+            goalCards[(goalGroup)].SetActive(false);
+        } else if (goalGroup == 1)
+        {
+            goalCards[(goalGroup)].SetActive(false);
+        }
+
+    }
+
+    public void ShowGoals()
+    {
+        
+        goalCards[(goalGroup - 1)].SetActive(true);
+    }
+
+    public void Back()
+    {
+        
+        goalCards[(goalGroup - 1)].SetActive(false);
     }
 
     void EnableGoalGroups()
