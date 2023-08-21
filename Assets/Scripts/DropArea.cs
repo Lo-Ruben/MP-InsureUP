@@ -30,9 +30,11 @@ public class DropArea : MonoBehaviour, IDropHandler
         {
             Debug.Log("PlayerManager is not referened in DropArea");
         }
+
+        droppedCardInt += 1;
     }
     private void OnDisable()
     {
-        droppedCardInt = 0;
+        
     }
 }

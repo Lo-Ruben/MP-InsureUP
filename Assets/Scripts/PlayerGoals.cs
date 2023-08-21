@@ -30,7 +30,6 @@ public class PlayerGoals : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(goalGroup);
         if (goalGroup >= goalSets.Length)
         {
             nextButton.SetActive(false);
