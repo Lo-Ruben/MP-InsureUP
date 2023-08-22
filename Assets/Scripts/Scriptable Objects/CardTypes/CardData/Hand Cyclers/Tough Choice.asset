@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: Yesterday's Plan
+  m_Name: Tough Choice
   m_EditorClassIdentifier: 
-  cardName: Yesterday's Plans
+  cardName: Tough Choice
   cardDescription: 
   cardCost: 0
   cardImage: {fileID: 10541971, guid: 1678aa88f5dd6c94ba6cd53231f39eb0, type: 3}

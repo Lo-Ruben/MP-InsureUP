@@ -119,6 +119,11 @@ public class GameManager : MonoBehaviour
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
+    public List<GameObject> discarded = new List<GameObject>();
+    public List<GameObject> inHand = new List<GameObject>();
+    public GameObject discardObj;
+    public GameObject handObj;
+
     private void Awake()
     {
         money = 500;
@@ -133,6 +138,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ShopGameObject.SetActive(false);
+
+        discardObj = GameObject.Find("Discard Area");
+        handObj = GameObject.Find("PlayerHand");
     }
     void Update()
     {
@@ -140,6 +148,7 @@ public class GameManager : MonoBehaviour
         UpdateTextInfo();
         GameOver();
         PhaseCheck();
+        UpdateHandAndDiscard();
 
         JobLifeAspect.UpdateJobImage();
         FamilyLifeAspect.UpdateFamilyImage();
@@ -260,6 +269,7 @@ public class GameManager : MonoBehaviour
     public void PlayCard()
     {
         UpdateStats(discardArea.cardDisplay);
+        CycleHand(discardArea.cardDisplay);
 
         maxCardsHeld = familyLevel;
         HighScoreSingleton.instance.AddScore(10);
@@ -324,6 +334,41 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No cardDisplay");
         }
+    }
+
+    public void CycleHand(CardDisplay cardDisplay)
+    {
+        if (cardDisplay != null)
+        {
+            switch (cardDisplay.CardInfo.cardName)
+            {
+                case "Yesterday's Plans":
+                    //get random number
+                    int randInt = Random.Range(0, discarded.Count + 1);
+                    //get a card from a random position in discard pile
+                    //add that card to hand
+                    GameObject temp = Instantiate(discarded[randInt], handObj.transform.position, handObj.transform.rotation);
+                    temp.transform.SetParent(handObj.transform);
+                    //making sure the card is interactable
+                    temp.GetComponent<Draggable>().isDraggingStop = false;
+                    temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    break;
+                case "Screw it, we ball!":
+                    break;
+                case "Discovery":
+                    break;
+                case "Copycat":
+                    break;
+                case "Restock":
+                    break;
+                case "Tough Choice":
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("No cardDisplay");
+        }
 
     }
 
@@ -353,6 +398,21 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GameOver");
             SceneManager.LoadScene(3);
+        }
+    }
+
+    void UpdateHandAndDiscard()
+    {
+        discarded.Clear();
+        inHand.Clear();
+
+        foreach (Transform discard in discardObj.transform)
+        {
+            discarded.Add(discard.gameObject);
+        }
+        foreach (Transform hand in handObj.transform)
+        {
+            inHand.Add(hand.gameObject);
         }
     }
 }
