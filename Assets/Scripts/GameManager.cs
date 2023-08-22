@@ -376,7 +376,7 @@ public class GameManager : MonoBehaviour
                         Destroy(childHand.gameObject);
                     }
                     //draw back up to same amount for free
-                    for (int i = 0; i < handCount + 1; i++) //Buggy, it draws correct amt of copies, but of 1 card.
+                    for (int i = 0; i < handCount; i++) //Buggy, it draws correct amt of copies, but of 1 card.
                     {
                         addPlayerCards.SpawnCard();
                         money++;
