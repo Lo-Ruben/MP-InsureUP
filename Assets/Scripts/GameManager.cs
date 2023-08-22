@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
     public GameObject handObj;
     public PlayerDeck playerDeck;
     public AddPlayerCards addPlayerCards;
+    public GameObject toughDecisionPanel;
 
     private void Awake()
     {
@@ -400,7 +401,7 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 case "Tough Choice":
-
+                    toughDecisionPanel.SetActive(true);
                     break;
             }
         }
@@ -438,6 +439,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver");
             SceneManager.LoadScene(3);
         }
+    }
+
+    public void CloseToughDecision()
+    {
+        toughDecisionPanel.SetActive(false);
     }
 
     void UpdateHandAndDiscard()
