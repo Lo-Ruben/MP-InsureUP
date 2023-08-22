@@ -231,8 +231,10 @@ public class GameManager : MonoBehaviour
 
                         HighScoreSingleton.instance.DeductScore(100);
                     }
-                    CheckInsurance();
+                    //Debug.Log(crisisDisplay.CrisisInfo != null);
+                    
                     switchBool = false;
+                    StartCoroutine(CheckInsurance());
                 }
                 break;
             // Reset
@@ -268,46 +270,41 @@ public class GameManager : MonoBehaviour
     void CalculateIncome(int income)
     {
         int proffit = income * jobLevel;
+        MoneyDisplay(proffit);
         money += proffit;
     }
 
     // If player bought insurance
     // Check if player is encountering the same crisis as the insurance bought
     // Since its in update, adding of money may need to be tweaked
-    void CheckInsurance()
+
+    IEnumerator CheckInsurance()
     {
+        yield return new WaitForSeconds(0.1f);
+
         if (crisisDisplay.CrisisInfo != null)
         {
-            string insuranceType = crisisDisplay.CrisisInfo.insuranceCounter;
+            string insuranceTypeCounter = crisisDisplay.CrisisInfo.insuranceCounter;
 
-            if (insuranceBoughtDictionary.ContainsKey(insuranceType))
+            if (insuranceBoughtDictionary.ContainsKey(insuranceTypeCounter))
             {
-                int insuranceBenefit = insuranceBoughtDictionary[insuranceType];
-                Debug.Log(insuranceType + " Insurance money");
+                int insuranceBenefit = insuranceBoughtDictionary[insuranceTypeCounter];
+                Debug.Log(insuranceTypeCounter + " Insurance money");
                 Debug.Log("Insurance Profit: " + insuranceBenefit);
+                MoneyDisplay(insuranceBenefit);
                 money += insuranceBenefit;
                 timesProtected++;
             }
 
             else
             {
-                familyLevel -= crisisDisplay.CrisisInfo.familyDecrease;
-                jobLevel -= crisisDisplay.CrisisInfo.jobDecrease;
-                personalLevel -= crisisDisplay.CrisisInfo.personalDecrease;
-                health -= crisisDisplay.CrisisInfo.healthDecrease;
-                if(crisisDisplay.CrisisInfo.moneyDecrease < 0)
-                {
-                    sign = "+";
-                }
-                else
-                {
-                    sign = "-";
-                }
-                int moneyDecrease = Mathf.Abs(crisisDisplay.CrisisInfo.moneyDecrease);
-                moneyChangedText.text = sign + moneyDecrease;
-                moneyChangedText.gameObject.SetActive(true);
-                animator.SetTrigger("Add");
-                money -= crisisDisplay.CrisisInfo.moneyDecrease;
+                MoneyDisplay(crisisDisplay.CrisisInfo.moneyIntChange);
+
+                familyLevel += crisisDisplay.CrisisInfo.familyIntChange;
+                jobLevel += crisisDisplay.CrisisInfo.jobIntChange;
+                personalLevel += crisisDisplay.CrisisInfo.personalIntChange;
+                health += crisisDisplay.CrisisInfo.healthIntChange;
+                money += crisisDisplay.CrisisInfo.moneyIntChange;
             }
         }
     }
@@ -354,5 +351,22 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver");
             SceneManager.LoadScene(3);
         }
+    }
+
+    void MoneyDisplay(int moneyDifference)
+    {
+        Debug.Log(moneyDifference);
+        if (moneyDifference < 0)
+        {
+            sign = "-";
+        }
+        else
+        {
+            sign = "+";
+        }
+        int moneyDecrease = Mathf.Abs(moneyDifference);
+        moneyChangedText.text = sign + moneyDecrease;
+        moneyChangedText.gameObject.SetActive(true);
+        animator.SetTrigger("Add");
     }
 }
