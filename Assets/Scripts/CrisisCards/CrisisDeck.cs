@@ -5,15 +5,11 @@ using UnityEngine;
 public class CrisisDeck : MonoBehaviour
 {
     public static int deckSize;
-    int randomInt;
     int cardTypeAmount = 2;
 
     public List<CrisisData> crisisDeck = new List<CrisisData>();
     public static List<CrisisData> staticDeck = new List<CrisisData>();
     public List<CrisisData> existingCards = new List<CrisisData>();
-
-    // Counter for random crisis chance
-    public int disasterCounter = 10;
 
     [Header("Adjust Crisis chance of appearing")]
     [SerializeField]
@@ -24,6 +20,12 @@ public class CrisisDeck : MonoBehaviour
     [Header("Reference CrisisDisplay")]
     [SerializeField]
     CrisisDisplay crisisDisplay;
+
+    [SerializeField]
+    GameManager gameManager;
+
+    [SerializeField]
+    bool wasInvoked = false;
 
     void Start()
     {
@@ -37,7 +39,6 @@ public class CrisisDeck : MonoBehaviour
         }
         deckSize = crisisDeck.Count;
         Shuffle();
-        RandomChance();
 
         staticDeck = crisisDeck;
     }
@@ -47,18 +48,7 @@ public class CrisisDeck : MonoBehaviour
         {
             CountOccurrences(existingCards[0]);
         }
-        if (randomInt == disasterCounter)
-        {
-            ReduceDeck();
-            disasterCounter = 10;
-            RandomChance();
-
-        }
-        if (randomInt >= disasterCounter)
-        {
-            Debug.Log("Gone out of something wrong with disasterCounter");
-        }
-
+        ShowCrisis();
     }
 
     // Fisher-Yates Shuffle Algorithm
@@ -84,12 +74,6 @@ public class CrisisDeck : MonoBehaviour
         return occurrences.Count;
     }
 
-    void RandomChance()
-    {
-        randomInt = Random.Range(minDisasterCardChance,maxDisasterCardChance);
-        Debug.Log("RandomInt:"+randomInt);
-        
-    }
 
     public void ReduceDeck()
     {
@@ -104,5 +88,20 @@ public class CrisisDeck : MonoBehaviour
             Debug.Log("No More Crisis Cards");
         }
         
+    }
+    public void ShowCrisis()
+    {
+        if (gameManager.PhaseInt == 4)
+        {
+            if (!wasInvoked)
+            {
+                wasInvoked = true;
+                ReduceDeck();
+            }
+        }
+        else
+        {
+            wasInvoked = false;
+        }
     }
 }

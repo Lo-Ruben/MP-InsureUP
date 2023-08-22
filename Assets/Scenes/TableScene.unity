@@ -9299,10 +9299,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 628e32abf1639704c84625d111136e29, type: 2}
   - {fileID: 11400000, guid: a55cebcc2e64bcd45b533bda1bd7abc0, type: 2}
   - {fileID: 11400000, guid: 82d4eec0247729841815d299956caba5, type: 2}
-  disasterCounter: 10
   minDisasterCardChance: 0
   maxDisasterCardChance: 5
   crisisDisplay: {fileID: 390038040}
+  gameManager: {fileID: 827282913}
 --- !u!4 &1613521333
 Transform:
   m_ObjectHideFlags: 0

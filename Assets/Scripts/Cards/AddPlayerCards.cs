@@ -49,7 +49,6 @@ public class AddPlayerCards : MonoBehaviour
         m_playerManager.money -= 1;
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
-        m_crisisDeck.disasterCounter -= 1;
         spawnCardCounter++;
     }
 }
