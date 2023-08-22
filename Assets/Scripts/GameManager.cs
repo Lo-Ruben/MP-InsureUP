@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -123,6 +124,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> inHand = new List<GameObject>();
     public GameObject discardObj;
     public GameObject handObj;
+    public PlayerDeck playerDeck;
+    public AddPlayerCards addPlayerCards;
 
     private void Awake()
     {
@@ -141,6 +144,8 @@ public class GameManager : MonoBehaviour
 
         discardObj = GameObject.Find("Discard Area");
         handObj = GameObject.Find("PlayerHand");
+        playerDeck = GameObject.Find("ActionDeckManager").GetComponent<PlayerDeck>();
+        addPlayerCards = handObj.GetComponent<AddPlayerCards>();
     }
     void Update()
     {
@@ -354,6 +359,27 @@ public class GameManager : MonoBehaviour
                     temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
                     break;
                 case "Screw it, we ball!":
+                    //get deck [done]
+                    //get number of cards in hand
+                    int handCount = inHand.Count;
+                    //copy hand and put in deck
+                    foreach (GameObject handChild in inHand)
+                    {
+                        playerDeck.deck.Add(handChild.GetComponent<CardDisplay>().CardInfo);
+                    }
+                    //shuffle
+                    playerDeck.Shuffle();
+                    //delete hand
+                    foreach(Transform childHand in handObj.transform)
+                    {
+                        Destroy(childHand.gameObject);
+                    }
+                    //draw back up to same amount for free
+                    for (int i = 0; i < handCount + 1; i++)
+                    {
+                        addPlayerCards.SpawnCard();
+                        money++;
+                    }
                     break;
                 case "Discovery":
                     break;

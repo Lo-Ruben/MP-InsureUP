@@ -44,7 +44,7 @@ public class AddPlayerCards : MonoBehaviour
     }
 
     // Instantiate a card in PlayerHand
-    void SpawnCard()
+    public void SpawnCard()
     {
         m_playerManager.money -= 1;
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
