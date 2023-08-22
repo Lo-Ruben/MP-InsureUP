@@ -4,6 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -375,19 +376,31 @@ public class GameManager : MonoBehaviour
                         Destroy(childHand.gameObject);
                     }
                     //draw back up to same amount for free
-                    for (int i = 0; i < handCount + 1; i++)
+                    for (int i = 0; i < handCount + 1; i++) //Buggy, it draws correct amt of copies, but of 1 card.
                     {
                         addPlayerCards.SpawnCard();
                         money++;
                     }
                     break;
                 case "Discovery":
+                    addPlayerCards.SpawnCard();
+                    money++;
                     break;
                 case "Copycat":
+                    //get last card in discarded list
+                    //play it
+                    CardDisplay lastPlayed = discarded.Last(). GetComponent<CardDisplay>();
+                    UpdateStats(lastPlayed);
+                    CycleHand(lastPlayed);
                     break;
-                case "Restock":
+                case "Restock": //Buggy, Literally breaks
+                    for (int i = 0; i < FamilyLevel; i++)
+                    {
+                        addPlayerCards.SpawnCard();
+                    }
                     break;
                 case "Tough Choice":
+
                     break;
             }
         }
