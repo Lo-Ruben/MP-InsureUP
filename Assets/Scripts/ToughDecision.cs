@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ToughDecision : MonoBehaviour
 {
@@ -55,6 +56,10 @@ public class ToughDecision : MonoBehaviour
     {
         GameObject decision = EventSystem.current.currentSelectedGameObject;
         Debug.Log("Decided!" + decision.name);
+        foreach (GameObject cards in choiceCards)
+        {
+            Destroy(cards.GetComponent<Button>());
+        }
         //discard the unchosen cards
         foreach (GameObject unchosen in choiceCards)
         {
