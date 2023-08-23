@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Screw it, we ball!
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Screw it, we ball
   cardDescription: 
   cardCost: 0
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: a4b4cbd078e56ba4089e623c614e423f, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: Discovery
+  m_Name: NoCardData
   m_EditorClassIdentifier: 
-  cardName: Discovery
+  cardName: NIL
   cardDescription: 
   cardCost: 0
-  cardImage: {fileID: 21300000, guid: 5300e186315a40f44b9551c225b54c2a, type: 3}
+  cardImage: {fileID: 21300000, guid: 2f1b7d3ea9436714486b4bd76aa656d4, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0
