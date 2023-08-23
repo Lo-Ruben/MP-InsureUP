@@ -38,13 +38,13 @@ public class CardDisplay : MonoBehaviour
 
     private void Start()
     {
-        numberOfCardsInDeck = PlayerDeck.deckSize;
+        
         StartCoroutine(TextAfterAnimation());
     }
 
     private void Update()
     {
-
+        numberOfCardsInDeck = PlayerDeck.deckSize;
         if (staticCardBack == true)
         {
             cardBack.SetActive(true);

@@ -5719,10 +5719,10 @@ MonoBehaviour:
   increasedHealth: 0
   money: 0
   spentMoney: 0
+  maxCardsHeld: 0
   timesProtected: 0
   ShopGameObject: {fileID: 1991985548}
   baseIncome: 500
-  maxPlayerHand: 100
   healthText: {fileID: 174529756}
   moneyText: {fileID: 1446368490}
   jobLevelText: {fileID: 734575878}
@@ -11010,6 +11010,7 @@ MonoBehaviour:
   m_playerManager: {fileID: 827282913}
   m_crisisDeck: {fileID: 1613521332}
   spawnCardCounter: 0
+  childCount: 0
 --- !u!1 &1650041981
 GameObject:
   m_ObjectHideFlags: 0

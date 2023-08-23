@@ -20,17 +20,21 @@ public class AddPlayerCards : MonoBehaviour
 
     public int spawnCardCounter;
 
+    public int childCount;
+
     void Start()
     {
         m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
+        childCount = this.transform.childCount;
+
         // If draw phase and deck got cards and "W" is pressed
         if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
         {
             // If there are less decks in the 
-            if (this.transform.childCount < m_playerManager.MaxPlayerHand)
+            if (childCount < m_playerManager.maxCardsHeld)
             {
                 SpawnCard();
                 //Debug.Log(m_crisisDeck.disasterCounter);

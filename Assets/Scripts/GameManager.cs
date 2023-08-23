@@ -8,12 +8,12 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    // Player stats
+    [Header("Player stats")]
     private int health;
     public int increasedHealth;
     public int money;
     public int spentMoney;
-    private int maxCardsHeld;
+    public int maxCardsHeld;
 
     public int timesProtected;
 
@@ -25,14 +25,6 @@ public class GameManager : MonoBehaviour
     [Header("Personal aspects stats")]
     [SerializeField]
     int baseIncome;
-    [SerializeField]
-    private int maxPlayerHand;
-
-    public int MaxPlayerHand
-    {
-        get { return maxPlayerHand; }
-        set { maxPlayerHand = value; }
-    }
 
     public Dictionary<string, int> insuranceBoughtDictionary = new Dictionary<string, int>();
 
@@ -142,6 +134,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        maxCardsHeld = familyLevel;
+
         ShopGameObject.SetActive(false);
 
         discardObj = GameObject.Find("Discard Area");
@@ -394,8 +388,8 @@ public class GameManager : MonoBehaviour
                     UpdateStats(lastPlayed);
                     CycleHand(lastPlayed);
                     break;
-                case "Restock": //Buggy, Literally breaks
-                    for (int i = 0; i < FamilyLevel; i++)
+                case "Restock":
+                    for (int i = 0; i < maxCardsHeld - addPlayerCards.childCount; i++)
                     {
                         addPlayerCards.SpawnCard();
                     }
