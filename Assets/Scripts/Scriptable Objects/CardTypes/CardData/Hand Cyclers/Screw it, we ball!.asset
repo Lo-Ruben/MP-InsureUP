@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Screw it, we ball!
   m_EditorClassIdentifier: 
   cardName: Screw it, we ball!
-  cardDescription: 
+  cardDescription: "Embracing the randomness of life is a unique quality. Either
+    that or you\u2019re just lazy to think."
   cardCost: 0
   cardImage: {fileID: 0}
   familyIncrease: 0
