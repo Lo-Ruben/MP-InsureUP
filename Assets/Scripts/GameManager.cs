@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
     public PlayerDeck playerDeck;
     public AddPlayerCards addPlayerCards;
     public GameObject toughDecisionPanel;
+    public GameObject canvas;
 
     private void Awake()
     {
@@ -395,7 +396,8 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 case "Tough Choice":
-                    toughDecisionPanel.SetActive(true);
+                    Debug.Log("Tough Choice");
+                    canvas.GetComponent<ToughDecision>().StartDeciding();
                     break;
             }
         }
@@ -433,11 +435,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver");
             SceneManager.LoadScene(3);
         }
-    }
-
-    public void CloseToughDecision()
-    {
-        toughDecisionPanel.SetActive(false);
     }
 
     void UpdateHandAndDiscard()
