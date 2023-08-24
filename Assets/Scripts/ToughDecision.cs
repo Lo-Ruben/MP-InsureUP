@@ -66,6 +66,7 @@ public class ToughDecision : MonoBehaviour
             GameObject discard = Instantiate(unchosen, gameManager.discardObj.transform.position, gameManager.discardObj.transform.rotation);
             discard.transform.SetParent(gameManager.discardObj.transform);
             discard.GetComponent<Draggable>().isDraggingStop = true;
+            discard.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
         //draw the chosen card
         GameObject temp = Instantiate(decision, gameManager.handObj.transform.position, gameManager.handObj.transform.rotation);
