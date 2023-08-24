@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Discovery
   m_EditorClassIdentifier: 
   cardName: Discovery
-  cardDescription: I could have done that?!
+  cardDescription: Draw a card, free of charge.
   cardCost: 0
   cardImage: {fileID: 0}
   familyIncrease: 0
