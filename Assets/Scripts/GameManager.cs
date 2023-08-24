@@ -345,21 +345,24 @@ public class GameManager : MonoBehaviour
             switch (cardDisplay.CardInfo.cardName)
             {
                 case "Yesterday's Plans":
-                    //get random number
-                    int randInt = Random.Range(0, discarded.Count + 1);
+
                     //get a card from a random position in discard pile
                     //add that card to hand
-                    GameObject temp = Instantiate(discarded[randInt], handObj.transform.position, handObj.transform.rotation);
-                    temp.transform.SetParent(handObj.transform);
-                    //making sure the card is interactable
-                    temp.GetComponent<Draggable>().isDraggingStop = false;
-                    temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    int randInt = Random.Range(0, discarded.Count);
+                    if(discarded.Count > 0)
+                    {
+                        GameObject temp = discarded[randInt];
+                        temp.transform.SetParent(handObj.transform);
+                        //Allow card to be interactable
+                        temp.GetComponent<Draggable>().isDraggingStop = false;
+                        temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    }
                     break;
                 case "Screw it, we ball!":
-                    //get deck [done]
-                    //get number of cards in hand
+                    // Remove all cards from hand and shuffle
+                    // Then redraw same amount of cards
+
                     int handCount = inHand.Count;
-                    //copy hand and put in deck
                     foreach (GameObject handChild in inHand)
                     {
                         playerDeck.deck.Add(handChild.GetComponent<CardDisplay>().CardInfo);
@@ -372,13 +375,14 @@ public class GameManager : MonoBehaviour
                         Destroy(childHand.gameObject);
                     }
                     //draw back up to same amount for free
-                    for (int i = 0; i < handCount; i++) //Buggy, it draws correct amt of copies, but of 1 card.
+                    for (int i = 0; i < handCount; i++)
                     {
                         addPlayerCards.SpawnCard();
                         money++;
                     }
                     break;
                 case "Discovery":
+                    // Draw 1 card without paying
                     addPlayerCards.SpawnCard();
                     money++;
                     break;
@@ -396,8 +400,10 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 case "Tough Choice":
+                    // Creates a selection page and shows 3 cards
+                    // When user selects a card 
                     Debug.Log("Tough Choice");
-                    canvas.GetComponent<ToughDecision>().StartDeciding();
+                    canvas.GetComponent<ToughDecision>().ShowDecisionPanelUI();
                     break;
             }
         }
