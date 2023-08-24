@@ -348,7 +348,12 @@ public class GameManager : MonoBehaviour
     {
         if (health <= 0 || money <= 0)
         {
-            Debug.Log("GameOver");
+            Debug.Log("GameOver: Lose");
+            SceneManager.LoadScene(3);
+        }
+        if (money >= 50000)
+        {
+            Debug.Log("GameOver: Win");
             SceneManager.LoadScene(3);
         }
     }
