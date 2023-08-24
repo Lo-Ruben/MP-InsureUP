@@ -5415,6 +5415,7 @@ MonoBehaviour:
   JobLifeAspect: {fileID: 1396418241}
   FamilyLifeAspect: {fileID: 1810295277}
   PersonalLifeAspect: {fileID: 1121811908}
+  cardData: {fileID: 0}
 --- !u!1 &867951787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost to draw : $1'
+  m_Text: New Text
 --- !u!222 &867951790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7332,13 +7333,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b73018e765dd7bb4dac0fb009edc93a4, type: 2}
   - {fileID: 11400000, guid: 63ca1124c676d074e841dc7f7e5a1b3b, type: 2}
   - {fileID: 11400000, guid: 33eafff521216454290d10d0747f3755, type: 2}
+  - {fileID: 11400000, guid: f8d8baf8c0a3c694ebd7861e896a27eb, type: 2}
   - {fileID: 11400000, guid: b5fe0f23502582444a8a653def27ec27, type: 2}
   - {fileID: 11400000, guid: 93665cab94babd14abd22b6f81b779f0, type: 2}
   - {fileID: 11400000, guid: 5f13694400f54144a945a3811920721b, type: 2}
   - {fileID: 11400000, guid: 00e2811bb85214c4fbacc81ea73b4d4f, type: 2}
   - {fileID: 11400000, guid: 24d1c344262c3874289530c5192bde70, type: 2}
   - {fileID: 11400000, guid: 5014b4637904fa240b002c874ef81af8, type: 2}
-  - {fileID: 11400000, guid: f8d8baf8c0a3c694ebd7861e896a27eb, type: 2}
   cardInDeck1: {fileID: 590028513}
   cardInDeck2: {fileID: 40713218}
   cardInDeck3: {fileID: 1957994884}
@@ -9714,6 +9715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9fb23a1c9336240b14a4aeae6bf5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: 5014b4637904fa240b002c874ef81af8, type: 2}
+  costToDraw: {fileID: 867951789}
   card: {fileID: 5810304387013886296, guid: 4ea2fe1cb7305f848911aa2d4883a532, type: 3}
   m_playerManager: {fileID: 827282913}
   m_crisisDeck: {fileID: 1613521332}

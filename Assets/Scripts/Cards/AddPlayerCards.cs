@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AddPlayerCards : MonoBehaviour
 {
     // Add player cards adds cards onto the player's hand in the scene
     // Press w to instantiate a card
     // Player's hand limit may change
+
+    public CardData cardData;
+
+    
+    public Text costToDraw;
 
     [Header("Insert Card Prefab Here")]
     public GameObject card;
@@ -26,6 +32,18 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(cardData.drawDiscount);
+        if (cardData.drawDiscount == true)
+        {
+            costToDraw.text = "Cost to draw: " + 3;
+
+        }
+        else if (cardData.drawDiscount == false)
+        {
+            costToDraw.text = "Cost to draw: " + 4;
+
+        }
+        
         // If draw phase and deck got cards and "W" is pressed
         if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
         {
@@ -46,7 +64,17 @@ public class AddPlayerCards : MonoBehaviour
     // Instantiate a card in PlayerHand
     void SpawnCard()
     {
-        m_playerManager.money -= 1;
+        if(cardData.drawDiscount == true)
+        {
+            m_playerManager.money -= 3;
+
+        }
+        else if (cardData.drawDiscount == false)
+        {
+            m_playerManager.money -= 4;
+            
+        }
+        
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
         spawnCardCounter++;

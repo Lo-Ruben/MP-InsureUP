@@ -23,9 +23,24 @@ public class CardData : ScriptableObject
     // Card Duration
     public int cardEffectDuration;
 
-    // For skills
-    public bool testBool;
+    //Discounts
+    //Discount for Draw (Coupon Book)
+    public bool drawDiscount = false;
 
+    //Discount for Insurance Renewal (Clean Record)
+    public bool renewalDiscount = false;
+
+    //Discount for Insurance Upgrade (Add-On Deal)
+    public bool upgradeDiscount = false;
+
+    //Discount for Insurance Purchase (Referral)
+    public bool insurancePurchaseDiscount = false;
+
+    //Discount for Medical Treatment Item (Care Package) 
+    public bool medicalTreatmentDiscount = false;
+
+    //Discount for Prosthetics Item (Mass Production)
+    public bool prostheticsDiscount = false;
 
 }
 

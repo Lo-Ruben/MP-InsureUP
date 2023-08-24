@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: Referral
   m_EditorClassIdentifier: 
   cardName: Referral
-  cardDescription: 
+  cardDescription: Insurance Purchase Cost -25%, 1 turn
   cardCost: 0
   cardImage: {fileID: -224497685, guid: 1678aa88f5dd6c94ba6cd53231f39eb0, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 0
+  insurancePurchaseDiscount: 1
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0

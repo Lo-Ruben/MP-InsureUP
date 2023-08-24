@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
+    public CardData cardData;
     private void Awake()
     {
         money = 500;
