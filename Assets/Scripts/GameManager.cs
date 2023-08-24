@@ -195,20 +195,20 @@ public class GameManager : MonoBehaviour
         switch (phaseInt)
         {
             case 1:
-                phaseText.text = "Draw";
+                phaseText.text = "Current Phase: Draw";
                 discardArea.enabled = false;
                 break;
             case 2:
-                phaseText.text = "Action";
+                phaseText.text = "Current Phase: Action";
                 discardArea.enabled = true;
                 break;
             case 3:
-                phaseText.text = "Buy";
+                phaseText.text = "Current Phase: Buy";
                 discardArea.enabled = false;
                 ShopGameObject.SetActive(true);
                 break;
             case 4:
-                phaseText.text = "Event";
+                phaseText.text = "Current Phase: Event";
                 ShopGameObject.SetActive(false);
                 ActivateCrisis();
                 //Handle insurance interaction with crisis

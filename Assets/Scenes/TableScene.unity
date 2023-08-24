@@ -5125,13 +5125,13 @@ RectTransform:
   - {fileID: 1444420109}
   - {fileID: 143569116}
   - {fileID: 1635265974}
-  - {fileID: 1165469887}
   - {fileID: 3095862682855216856}
   - {fileID: 76320216}
   - {fileID: 217829599}
   - {fileID: 2117780648}
   - {fileID: 316379921}
   - {fileID: 1670651027}
+  - {fileID: 1165469887}
   - {fileID: 1973151596}
   - {fileID: 623604000}
   - {fileID: 1991985549}
@@ -7942,10 +7942,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e4726e73cf9f9fd408adcfe62dda1849, type: 3}
-    m_FontSize: 30
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 74
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -7979,8 +7979,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 529, y: 60}
-  m_SizeDelta: {x: 318.6741, y: 43.3388}
+  m_AnchoredPosition: {x: 594, y: 60}
+  m_SizeDelta: {x: 467.0795, y: 43.3388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1358878873
 PrefabInstance:
@@ -8547,7 +8547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 812, y: -155.67}
+  m_AnchoredPosition: {x: 703, y: 472}
   m_SizeDelta: {x: 253.4284, y: 85.839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444420110
@@ -8626,7 +8626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 876113063, guid: 6b328183d140924489a39b649cc35b39, type: 3}
+  m_Sprite: {fileID: 964097492, guid: f0c0c7bb338e36d40883f2a0bde49bbb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9303,6 +9303,7 @@ MonoBehaviour:
   maxDisasterCardChance: 5
   crisisDisplay: {fileID: 390038040}
   gameManager: {fileID: 827282913}
+  wasInvoked: 0
 --- !u!4 &1613521333
 Transform:
   m_ObjectHideFlags: 0
