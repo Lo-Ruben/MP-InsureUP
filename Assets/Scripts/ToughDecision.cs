@@ -53,26 +53,31 @@ public class ToughDecision : MonoBehaviour
     public void DecideCardButton()
     {
         GameObject decision = EventSystem.current.currentSelectedGameObject;
-        //Debug.Log("Decided!" + decision.name);
 
         // Destroy button component
         foreach (GameObject cards in choiceCards)
         {
             Destroy(cards.GetComponent<Button>());
         }
+
+        Transform discardTransform = gameManager.discardObj.transform;
+        Transform handTransform = gameManager.handObj.transform;
+
         //discard the unchosen cards
         foreach (GameObject unchosen in choiceCards)
         {
-            GameObject discard = Instantiate(unchosen, gameManager.discardObj.transform.position, gameManager.discardObj.transform.rotation);
-            discard.transform.SetParent(gameManager.discardObj.transform);
-            discard.GetComponent<Draggable>().isDraggingStop = true;
-            discard.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            GameObject discard = Instantiate(unchosen, discardTransform.position, discardTransform.rotation, discardTransform);
+            Draggable discardDraggable = discard.GetComponent<Draggable>();
+            discardDraggable.isDraggingStop = true;
+
+            CanvasGroup discardCanvasGroup = discard.GetComponent<CanvasGroup>();
+            discardCanvasGroup.blocksRaycasts = false;
         }
         //draw the chosen card
-        GameObject temp = Instantiate(decision, gameManager.handObj.transform.position, gameManager.handObj.transform.rotation);
-        temp.transform.SetParent(gameManager.handObj.transform);
+        GameObject temp = Instantiate(decision, handTransform.position, handTransform.rotation, handTransform);
         addPlayerCards.spawnCardCounter++;
         choiceCards.Remove(decision);
+
         HideDecisionPanelUI();
     }
 }

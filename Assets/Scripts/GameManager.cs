@@ -340,78 +340,86 @@ public class GameManager : MonoBehaviour
 
     public void CycleHand(CardDisplay cardDisplay)
     {
-        if (cardDisplay != null)
-        {
-            switch (cardDisplay.CardInfo.cardName)
-            {
-                case "Yesterday's Plans":
-
-                    //get a card from a random position in discard pile
-                    //add that card to hand
-                    int randInt = Random.Range(0, discarded.Count);
-                    if(discarded.Count > 0)
-                    {
-                        GameObject temp = discarded[randInt];
-                        temp.transform.SetParent(handObj.transform);
-                        //Allow card to be interactable
-                        temp.GetComponent<Draggable>().isDraggingStop = false;
-                        temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                    }
-                    break;
-                case "Screw it, we ball!":
-                    // Remove all cards from hand and shuffle
-                    // Then redraw same amount of cards
-
-                    int handCount = inHand.Count;
-                    foreach (GameObject handChild in inHand)
-                    {
-                        playerDeck.deck.Add(handChild.GetComponent<CardDisplay>().CardInfo);
-                    }
-                    //shuffle
-                    playerDeck.Shuffle();
-                    //delete hand
-                    foreach(Transform childHand in handObj.transform)
-                    {
-                        Destroy(childHand.gameObject);
-                    }
-                    //draw back up to same amount for free
-                    for (int i = 0; i < handCount; i++)
-                    {
-                        addPlayerCards.SpawnCard();
-                        money++;
-                    }
-                    break;
-                case "Discovery":
-                    // Draw 1 card without paying
-                    addPlayerCards.SpawnCard();
-                    money++;
-                    break;
-                case "Copycat":
-                    //get last card in discarded list
-                    //play it
-                    CardDisplay lastPlayed = discarded.Last(). GetComponent<CardDisplay>();
-                    UpdateStats(lastPlayed);
-                    CycleHand(lastPlayed);
-                    break;
-                case "Restock":
-                    for (int i = 0; i < maxCardsHeld - addPlayerCards.childCount; i++)
-                    {
-                        addPlayerCards.SpawnCard();
-                    }
-                    break;
-                case "Tough Choice":
-                    // Creates a selection page and shows 3 cards
-                    // When user selects a card 
-                    Debug.Log("Tough Choice");
-                    canvas.GetComponent<ToughDecision>().ShowDecisionPanelUI();
-                    break;
-            }
-        }
-        else
+        if (cardDisplay == null)
         {
             Debug.Log("No cardDisplay");
+            return; // This will exit the function immediately
         }
 
+        switch (cardDisplay.CardInfo.cardName)
+        {
+            case "Yesterday's Plans":
+
+                //get a card from a random position in discard pile
+                //add that card to hand
+                if (discarded.Count > 0)
+                {
+                    int randInt = Random.Range(0, discarded.Count);
+                    GameObject temp = discarded[randInt];
+                    temp.transform.SetParent(handObj.transform);
+                    //Allow card to be interactable
+                    temp.GetComponent<Draggable>().isDraggingStop = false;
+                    temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                }
+                break;
+
+            case "Screw it, we ball!":
+                // Remove all cards from hand and shuffle
+                // Then redraw same amount of cards
+
+                int handCount = inHand.Count;
+                foreach (GameObject handChild in inHand)
+                {
+                    playerDeck.deck.Add(handChild.GetComponent<CardDisplay>().CardInfo);
+                }
+                //shuffle
+                playerDeck.Shuffle();
+                //delete hand
+                foreach (Transform childHand in handObj.transform)
+                {
+                    Destroy(childHand.gameObject);
+                }
+                //draw back up to same amount for free
+                for (int i = 0; i < handCount; i++)
+                {
+                    addPlayerCards.SpawnCard();
+                    money++;
+                }
+                break;
+
+            case "Discovery":
+                // Draw 1 card without paying
+                addPlayerCards.SpawnCard();
+                money++;
+                break;
+
+            case "Copycat":
+                //get last card in discarded list
+                //play it
+                if (discarded.Count > 0)
+                {
+                    CardDisplay lastPlayed = discarded.Last().GetComponent<CardDisplay>();
+                    UpdateStats(lastPlayed);
+                    CycleHand(lastPlayed);
+                }
+                break;
+
+            case "Restock":
+                int cardsToAdd = maxCardsHeld - addPlayerCards.childCount;
+                for (int i = 0; i < cardsToAdd; i++)
+                {
+                    addPlayerCards.SpawnCard();
+                }
+                break;
+
+            case "Tough Choice":
+                // Creates a selection page and shows 3 cards
+                // When user selects a card 
+                Debug.Log("Tough Choice");
+                canvas.GetComponent<ToughDecision>().ShowDecisionPanelUI();
+                break;
+
+        }
     }
 
     // On button press function
