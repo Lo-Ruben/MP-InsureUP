@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     public int increasedHealth;
     public int money;
     public int spentMoney;
-    private int maxCardsHeld;
-
     public int timesProtected;
 
     [Header("Test Insurance fields")]
@@ -29,7 +27,6 @@ public class GameManager : MonoBehaviour
     public int MaxPlayerHand
     {
         get { return maxPlayerHand; }
-        set { maxPlayerHand = value; }
     }
 
     public Dictionary<string, int> insuranceBoughtDictionary = new Dictionary<string, int>();
@@ -142,27 +139,28 @@ public class GameManager : MonoBehaviour
         GameOver();
         PhaseCheck();
 
-        JobLifeAspect.UpdateJobImage();
-        FamilyLifeAspect.UpdateFamilyImage();
-        PersonalLifeAspect.UpdatePersonalImage();
+        JobLifeAspect.UpdateImage(JobLevel);
+        FamilyLifeAspect.UpdateImage(FamilyLevel);
+        PersonalLifeAspect.UpdateImage(PersonalLevel);
 
         if (goalDataArray[1] == null)
         {
             Debug.LogError("No Goals Found");
         }
 
-        //EndTurn();
+        // Ensure max player hand matches family level
+        maxPlayerHand = FamilyLevel;
     }
    
     void UpdateTextInfo()
     {
-        jobLevel = Mathf.Clamp(jobLevel, 0, 10);
-        familyLevel = Mathf.Clamp(familyLevel, 0, 10);
-        personalLevel = Mathf.Clamp(personalLevel, 0, 10);
+        JobLevel = Mathf.Clamp(JobLevel, 0, 10);
+        FamilyLevel = Mathf.Clamp(FamilyLevel, 0, 10);
+        PersonalLevel = Mathf.Clamp(PersonalLevel, 0, 10);
 
-        jobLevelText.text = jobLevel.ToString();
-        familyLevelText.text = familyLevel.ToString();
-        personalLevelText.text = personalLevel.ToString();
+        jobLevelText.text = JobLevel.ToString();
+        familyLevelText.text = FamilyLevel.ToString();
+        personalLevelText.text = PersonalLevel.ToString();
 
         healthText.text = "Health: " + health;
         moneyText.text = " " + money;
@@ -215,7 +213,7 @@ public class GameManager : MonoBehaviour
                 //Handle insurance interaction with crisis
                 if (switchBool)
                 {
-                    if (personalLevel > 5)
+                    if (PersonalLevel > 5)
                     {
                         if (health < 5)
                         {
@@ -226,7 +224,7 @@ public class GameManager : MonoBehaviour
                         HighScoreSingleton.instance.AddScore(100);
 
                     }
-                    if (personalLevel < 5)
+                    if (PersonalLevel < 5)
                     {
                         health -= 1;
 
@@ -263,14 +261,12 @@ public class GameManager : MonoBehaviour
     public void PlayCard()
     {
         UpdateStats(discardArea.cardDisplay);
-
-        maxCardsHeld = familyLevel;
         HighScoreSingleton.instance.AddScore(10);
     }
 
     void CalculateIncome(int income)
     {
-        int proffit = income * jobLevel;
+        int proffit = income * JobLevel;
         MoneyDisplay(proffit);
         money += proffit;
     }
@@ -301,9 +297,9 @@ public class GameManager : MonoBehaviour
             {
                 MoneyDisplay(crisisDisplay.CrisisInfo.moneyIntChange);
 
-                familyLevel += crisisDisplay.CrisisInfo.familyIntChange;
-                jobLevel += crisisDisplay.CrisisInfo.jobIntChange;
-                personalLevel += crisisDisplay.CrisisInfo.personalIntChange;
+                FamilyLevel += crisisDisplay.CrisisInfo.familyIntChange;
+                JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
+                PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
                 health += crisisDisplay.CrisisInfo.healthIntChange;
                 money += crisisDisplay.CrisisInfo.moneyIntChange;
             }

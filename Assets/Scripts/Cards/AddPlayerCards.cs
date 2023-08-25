@@ -32,7 +32,7 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(cardData.drawDiscount);
+        //Debug.Log(cardData.drawDiscount);
         if (cardData.drawDiscount == true)
         {
             costToDraw.text = "Cost to draw: " + 3;
@@ -43,20 +43,18 @@ public class AddPlayerCards : MonoBehaviour
             costToDraw.text = "Cost to draw: " + 4;
 
         }
-        
-        // If draw phase and deck got cards and "W" is pressed
-        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
+
+        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
         {
-            // If there are less decks in the 
-            if (this.transform.childCount < m_playerManager.MaxPlayerHand)
-            {
-                SpawnCard();
-                //Debug.Log(m_crisisDeck.disasterCounter);
-            }
-            else
+            if (this.transform.childCount >= m_playerManager.MaxPlayerHand)
             {
                 Debug.Log("Player's hand is full");
                 m_playerManager.PhaseInt += 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.W) && this.transform.childCount < m_playerManager.MaxPlayerHand)
+            {
+                SpawnCard();
+                //Debug.Log(m_crisisDeck.disasterCounter);
             }
         }
     }

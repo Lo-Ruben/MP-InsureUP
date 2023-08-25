@@ -6,16 +6,13 @@ using UnityEngine.EventSystems;
 
 public class InfoDisplay : MonoBehaviour, IPointerDownHandler
 {
+    // InfoDisplay is used for the Info prefab & helps to update text and image based on the referenced scriptable object [CardData]
+    // Info Prefab is the base layout of the card 
+
 
     [SerializeField]
-    private CardData cardInfo; 
+    private CardData cardData; 
     EffectDisplay effectDisplay;
-
-    public CardData CardInfo
-    {
-        get { return cardInfo; }
-        set { cardInfo = value; }
-    }
 
     [SerializeField]
     Text cardNameText;
@@ -37,14 +34,14 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        effectDisplay.CardInfo = CardInfo;
+        effectDisplay.CardInfo = cardData;
         Debug.Log("Update");
     }
     void DisplayInfo() //name and cost of card
     {
-        cardNameText.text = CardInfo.cardName;
-        cardCostText.text = CardInfo.cardCost.ToString();
-        cardImage.sprite = cardInfo.cardImage;
-        cardDescriptionText.text = CardInfo.cardDescription;
+        cardNameText.text = cardData.cardName;
+        cardCostText.text = cardData.cardCost.ToString();
+        cardImage.sprite = cardData.cardImage;
+        cardDescriptionText.text = cardData.cardDescription;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EffectDisplay : MonoBehaviour
 {
+    // EffectDisplay helps to display information for cards by referencing the scriptable object on mouse click
+    // Effect Info prefab is used for the card info pannel within the UI
+
     [SerializeField]
     private CardData cardInfo;
 

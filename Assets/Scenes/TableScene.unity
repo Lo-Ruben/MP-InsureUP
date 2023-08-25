@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 72398168}
   - component: {fileID: 72398167}
   m_Layer: 5
-  m_Name: Info
+  m_Name: Card Info List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -2912.9595}
+  m_AnchoredPosition: {x: 2, y: -2912.9597}
   m_SizeDelta: {x: 1434.8094, y: 5825.919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220153295
@@ -18252,7 +18252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347766207048097469, guid: c9ed370aa7a4d3f48a90d3d7add5fc6d, type: 3}
       propertyPath: m_Name
-      value: Info Info
+      value: Card Info Display
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CardInfo : MonoBehaviour
 {
+    // Script to handle when search card info UI should be activated and deactivated
+    // Script is attached to canvas
+
     public GameObject CardInfoUI;
     public void openCardInfo()
     {
