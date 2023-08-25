@@ -9,7 +9,7 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
 
     [SerializeField]
     private CardData cardInfo; 
-    public EffectDisplay effectDisplay;
+    EffectDisplay effectDisplay;
 
     public CardData CardInfo
     {
@@ -25,14 +25,19 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
     Text cardCostText;
     [SerializeField]
     Image cardImage;
-
+    [SerializeField]
+    GameObject cardInfoDisplayPrefab;
+    private void Awake()
+    {
+        effectDisplay = cardInfoDisplayPrefab.GetComponent<EffectDisplay>();
+    }
     private void Start()
     {
         DisplayInfo();
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        effectDisplay.CardInfo = cardInfo;
+        effectDisplay.CardInfo = CardInfo;
         Debug.Log("Update");
     }
     void DisplayInfo() //name and cost of card

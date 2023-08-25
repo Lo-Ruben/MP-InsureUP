@@ -20,7 +20,7 @@ public class EffectDisplay : MonoBehaviour
     [SerializeField]
     Image cardImage;
 
-    private void Start()
+    private void Update()
     {
         DisplayInfo();
     }
@@ -28,7 +28,7 @@ public class EffectDisplay : MonoBehaviour
     {
         cardNameText.text = CardInfo.cardName;
         cardImage.sprite = cardInfo.cardImage;
-        cardDescriptionText.text = "Personal Needs : " + cardInfo.personalIncrease + "\n\n Job Needs : " + cardInfo.jobIncrease +
-                                   "\n\n Family Needs : " + cardInfo.familyIncrease + "\n\n Cost : $" + cardInfo.cardCost;
+        cardDescriptionText.text = "Personal Needs : " + cardInfo.personalIncrease + "\n\nJob Needs : " + cardInfo.jobIncrease +
+                                   "\n\nFamily Needs : " + cardInfo.familyIncrease + "\n\nCost : $" + cardInfo.cardCost;
     }
 }
