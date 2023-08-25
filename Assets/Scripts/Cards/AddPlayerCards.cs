@@ -8,7 +8,7 @@ public class AddPlayerCards : MonoBehaviour
     // Add player cards adds cards onto the player's hand in the scene
     // Press w to instantiate a card
     // Player's hand limit may change
-
+    public Text costToDraw;
     [Header("Insert Card Prefab Here")]
     public GameObject card;
 
@@ -27,6 +27,7 @@ public class AddPlayerCards : MonoBehaviour
     }
     void Update()
     {
+        costToDraw.text = "Cost to draw: " + 5;
         if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
         {
             if (this.transform.childCount >= m_playerManager.MaxPlayerHand)
@@ -36,6 +37,7 @@ public class AddPlayerCards : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.W) && this.transform.childCount < m_playerManager.MaxPlayerHand)
             {
+                
                 SpawnCard();
                 //Debug.Log(m_crisisDeck.disasterCounter);
             }
@@ -45,6 +47,7 @@ public class AddPlayerCards : MonoBehaviour
     // Instantiate a card in PlayerHand
     void SpawnCard()
     {
+        m_playerManager.money -= 5;
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
         spawnCardCounter++;

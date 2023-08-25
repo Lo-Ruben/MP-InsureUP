@@ -15,9 +15,14 @@ MonoBehaviour:
   cardName: Screw it, we ball!
   cardDescription: 
   cardCost: 0
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 46d4bea225426c04cb8c90d922d6c7cd, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 0
+  insurancePurchaseDiscount: 0
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0
