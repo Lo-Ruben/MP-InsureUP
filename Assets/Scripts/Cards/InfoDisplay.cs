@@ -35,7 +35,6 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         effectDisplay.CardInfo = cardData;
-        Debug.Log("Update");
     }
     void DisplayInfo() //name and cost of card
     {

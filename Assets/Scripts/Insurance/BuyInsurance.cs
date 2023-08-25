@@ -5,48 +5,70 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 {
+    // THIS SYSTEM NEEDS THESE ITEMS TO BE MANUALLY EDITED IN THE INSPECTOR
+    // NEED TO REFORMAT THE ENTIRE SYSTEM
+    [SerializeField] private InsuranceDisplay getInsuranceInfo;
+    [SerializeField] private GameManager m_GameManager;
+    [SerializeField] private BuyInsurance otherInsurance1;
+    [SerializeField] private BuyInsurance otherInsurance2;
+    [SerializeField] private Inventory inventory;
 
-    InsuranceDisplay getInsuranceInfo;
-    [SerializeField]
-    GameManager m_GameManager;
-
-    // NEED TO MANUALLY SET THIS 
-    // If i can refactor it it would be great
-    // So I dont have to go crazy setting every individual insurance gameobject
-
-    [SerializeField]
-    BuyInsurance otherInsurance1;
-    [SerializeField]
-    BuyInsurance otherInsurance2;
-    [SerializeField]
-    Inventory inventory;
-    public bool resetInt;
     public int insuranceBoughtCountCategory;
 
-    private void Start()
+    public bool resetInt;
+
+    private void Awake()
     {
-        GameObject ActionDeckManagerGameObject = GameObject.Find("GameManager");
-        m_GameManager = ActionDeckManagerGameObject.GetComponent<GameManager>();
-        getInsuranceInfo = gameObject.GetComponent<InsuranceDisplay>();
+        GetGameManager();
     }
 
     private void OnEnable()
     {
         resetInt = true;
-        if (getInsuranceInfo != null && getInsuranceInfo.staticCardBack == true)
+        int cardCost = getInsuranceInfo.InsuranceData.cardCost;
+        int remainingMoney = m_GameManager.money - cardCost;
+
+        if (otherInsurance1.getInsuranceInfo != null && otherInsurance2.getInsuranceInfo != null)
         {
-            getInsuranceInfo.staticCardBack = false;
+            if (otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack)
+            {
+                if(remainingMoney <= 0)
+                {
+                    otherInsurance1.getInsuranceInfo.staticCardBack = false;
+                    otherInsurance2.getInsuranceInfo.staticCardBack = false;
+                    
+                }
+                else
+                {
+                    m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
+                }
+                
+            }
+            else
+            {
+                Debug.Log("Both cards dont show back");
+            }
         }
-    }
-    private void OnDisable()
-    {
-        if (resetInt && otherInsurance1.resetInt &&  otherInsurance2.resetInt)
+        else
         {
-            insuranceBoughtCountCategory = 0;
+            Debug.Log("One or more insurance references are null.");
         }
     }
 
-    private void Update()
+    private void GetGameManager()
+    {
+        GameObject actionDeckManagerGameObject = GameObject.Find("GameManager");
+        if (actionDeckManagerGameObject != null)
+        {
+            m_GameManager = actionDeckManagerGameObject.GetComponent<GameManager>();
+        }
+        else
+        {
+            Debug.LogError("GameManager object not found!");
+        }
+    }
+
+    private void UpdateCounts()
     {
         int maxCategoryCount = Mathf.Max(insuranceBoughtCountCategory, otherInsurance1.insuranceBoughtCountCategory, otherInsurance2.insuranceBoughtCountCategory);
         insuranceBoughtCountCategory = maxCategoryCount;
@@ -54,50 +76,54 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         otherInsurance2.insuranceBoughtCountCategory = maxCategoryCount;
     }
 
+    private void OnDisable()
+    {
+        if (resetInt && otherInsurance1.resetInt && otherInsurance2.resetInt)
+        {
+            insuranceBoughtCountCategory = 0;
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         InsuranceBool();
     }
 
-    void InsuranceBool()
+    private void InsuranceBool()
     {
         string cardName = getInsuranceInfo.InsuranceData.cardName;
-
+        
+        // Use an enum or constants for card names for better readability
         switch (cardName)
         {
-            case "Health Insurance T1": //The name of the card are these dont change
+            case "Health Insurance T1":
             case "Health Insurance T2":
             case "Health Insurance T3":
-
             case "Critical Illness Insurance T1":
             case "Critical Illness Insurance T2":
             case "Critical Illness Insurance T3":
-
             case "Life Insurance T1":
             case "Life Insurance T2":
             case "Life Insurance T3":
-
             case "Accident Insurance T1":
             case "Accident Insurance T2":
             case "Accident Insurance T3":
                 ToggleCards();
                 break;
-
             default:
-                print("Incorrect insurance.");
+                Debug.Log("Incorrect insurance.");
                 break;
         }
     }
 
-    // Function to manage players buying shop card items
-    void ToggleCards()
+    private void ToggleCards()
     {
-        bool areOtherCardsBack = otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack;
         int cardCost = getInsuranceInfo.InsuranceData.cardCost;
+        int remainingMoney = m_GameManager.money - cardCost;
+        bool areOtherCardsBack = otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack;
 
         if (!areOtherCardsBack)
         {
-            int remainingMoney = m_GameManager.money - cardCost;
             if (remainingMoney <= 0)
             {
                 Debug.Log("Not Enough Money");
@@ -105,6 +131,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             else
             {
                 m_GameManager.money = remainingMoney;
+
                 getInsuranceInfo.staticCardBack = false;
                 otherInsurance1.getInsuranceInfo.staticCardBack = true;
                 otherInsurance2.getInsuranceInfo.staticCardBack = true;
@@ -122,7 +149,6 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         else
         {
             m_GameManager.money += cardCost;
-            Debug.Log("Money: " + m_GameManager.money);
 
             getInsuranceInfo.staticCardBack = false;
             otherInsurance1.getInsuranceInfo.staticCardBack = false;
@@ -134,8 +160,11 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             otherInsurance1.insuranceBoughtCountCategory--;
             otherInsurance2.insuranceBoughtCountCategory--;
 
+
             resetInt = true;
         }
+
+        UpdateCounts();
     }
 
     public void ResetCardBack()
