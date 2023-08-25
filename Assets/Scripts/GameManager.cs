@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayCard()
     {
-        UpdateStats(discardArea.cardDisplay);
+        UpdateStats(discardArea.cardData);
         HighScoreSingleton.instance.AddScore(10);
     }
 
@@ -306,13 +306,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateStats(CardDisplay cardDisplay)
+    public void UpdateStats(CardData cardData)
     {
-        if (cardDisplay != null)
+        if (cardData != null)
         {
-            JobLevel += cardDisplay.CardInfo.jobIncrease;
-            FamilyLevel += cardDisplay.CardInfo.familyIncrease;
-            PersonalLevel += cardDisplay.CardInfo.personalIncrease;
+            JobLevel += cardData.jobIncrease;
+            FamilyLevel += cardData.familyIncrease;
+            PersonalLevel += cardData.personalIncrease;
         }
         else
         {
