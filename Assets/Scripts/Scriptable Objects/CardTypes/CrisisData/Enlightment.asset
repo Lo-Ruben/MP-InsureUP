@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Enlightment
   m_EditorClassIdentifier: 
+  cardType: 
   cardName: Enlightment
   cardDescription: 
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: -100
+  moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: bf7da67823a66654c87c443d0cdd201b, type: 2}

@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Recover
   m_EditorClassIdentifier: 
+  cardType: 
   cardName: Miraculous Recovery
   cardDescription: 
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: -100
+  moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 7bdce87ef8f435948b3bd31bcfad29b8, type: 2}
