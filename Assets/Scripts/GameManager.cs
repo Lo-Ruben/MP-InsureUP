@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     DropArea discardArea;
     private string sign;
-    public Animator animator;
+    public Animator textAnimation;
+    public Animator coinAnimation;
 
     // Crisis cards
     [SerializeField]
@@ -268,7 +269,26 @@ public class GameManager : MonoBehaviour
     {
         int proffit = income * JobLevel;
         MoneyDisplay(proffit);
-        money += proffit;
+        if (sign == "+")
+        {
+            StartCoroutine(IncomeMoneyCoroutine());
+        }
+        else
+        {
+            textAnimation.SetTrigger("Add");
+            money += proffit;
+        }
+
+        void UpdateIncomeMoney()
+        {
+            textAnimation.SetTrigger("Add");
+            money += proffit;
+        }
+        IEnumerator IncomeMoneyCoroutine()
+        {
+            yield return new WaitForSeconds(2f);
+            UpdateIncomeMoney();
+        }
     }
 
     // If player bought insurance
@@ -289,8 +309,28 @@ public class GameManager : MonoBehaviour
                 Debug.Log(insuranceTypeCounter + " Insurance money");
                 Debug.Log("Insurance Profit: " + insuranceBenefit);
                 MoneyDisplay(insuranceBenefit);
-                money += insuranceBenefit;
+                if (sign == "+")
+                {
+                    StartCoroutine(InsuranceMoneyCoroutine());
+                }
+                else
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += insuranceBenefit;
+                }
                 timesProtected++;
+
+
+                void UpdateInsuranceMoney()
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += insuranceBenefit;
+                }
+                IEnumerator InsuranceMoneyCoroutine()
+                {
+                    yield return new WaitForSeconds(2f);
+                    UpdateInsuranceMoney();
+                }
             }
 
             else
@@ -301,7 +341,27 @@ public class GameManager : MonoBehaviour
                 JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
                 PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
                 health += crisisDisplay.CrisisInfo.healthIntChange;
-                money += crisisDisplay.CrisisInfo.moneyIntChange;
+                if (sign == "+")
+                {
+                    StartCoroutine(EventMoneyCoroutine());
+                }
+                else
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += crisisDisplay.CrisisInfo.moneyIntChange;
+                }
+
+
+                void updateMoneyEvent()
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += crisisDisplay.CrisisInfo.moneyIntChange;
+                }
+                IEnumerator EventMoneyCoroutine()
+                {
+                    yield return new WaitForSeconds(2f);
+                    updateMoneyEvent();
+                }
             }
         }
     }
@@ -365,10 +425,10 @@ public class GameManager : MonoBehaviour
         else
         {
             sign = "+";
+            coinAnimation.SetTrigger("Add");
         }
         int moneyDecrease = Mathf.Abs(moneyDifference);
         moneyChangedText.text = sign + moneyDecrease;
         moneyChangedText.gameObject.SetActive(true);
-        animator.SetTrigger("Add");
     }
 }
