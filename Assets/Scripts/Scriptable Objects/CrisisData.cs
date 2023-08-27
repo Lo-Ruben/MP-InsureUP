@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class CrisisData : ScriptableObject
 {
+    //Card Type
+    public string cardType;
+
     // Text Info
     public string cardName;
     public string cardDescription;

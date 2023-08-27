@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
     {
         int proffit = income * JobLevel;
         MoneyDisplay(proffit);
-        if (sign == "+")
+        if (sign == "+" && proffit > 0)
         {
             StartCoroutine(IncomeMoneyCoroutine());
         }
@@ -309,7 +309,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log(insuranceTypeCounter + " Insurance money");
                 Debug.Log("Insurance Profit: " + insuranceBenefit);
                 MoneyDisplay(insuranceBenefit);
-                if (sign == "+")
+                if (sign == "+" && insuranceBenefit > 0)
                 {
                     StartCoroutine(InsuranceMoneyCoroutine());
                 }
@@ -341,7 +341,7 @@ public class GameManager : MonoBehaviour
                 JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
                 PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
                 health += crisisDisplay.CrisisInfo.healthIntChange;
-                if (sign == "+")
+                if (sign == "+" && crisisDisplay.CrisisInfo.moneyIntChange >0)
                 {
                     StartCoroutine(EventMoneyCoroutine());
                 }
@@ -422,7 +422,11 @@ public class GameManager : MonoBehaviour
         {
             sign = "-";
         }
-        else
+        else if(moneyDifference == 0)
+        {
+            sign = "+";
+        }
+        else if(moneyDifference >0)
         {
             sign = "+";
             coinAnimation.SetTrigger("Add");

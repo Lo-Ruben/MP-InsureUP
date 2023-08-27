@@ -31,7 +31,18 @@ public class EffectDisplay : MonoBehaviour
     {
         cardNameText.text = CardInfo.cardName;
         cardImage.sprite = cardInfo.cardImage;
-        cardDescriptionText.text = "Personal Needs : " + cardInfo.personalIncrease + "\n\nJob Needs : " + cardInfo.jobIncrease +
+        if(cardInfo.cardType == "Life Aspect")
+        {
+            cardDescriptionText.text = "Personal Needs : " + cardInfo.personalIncrease + "\n\nJob Needs : " + cardInfo.jobIncrease +
                                    "\n\nFamily Needs : " + cardInfo.familyIncrease + "\n\nCost : $" + cardInfo.cardCost;
+        }
+        if(cardInfo.cardType == "Hand Cycler")
+        {
+            cardDescriptionText.text = cardInfo.cardDescription;
+        }
+        if(cardInfo.cardType == "Discounter")
+        {
+            cardDescriptionText.text = cardInfo.cardDescription + "\n\nEffect Duration : " + cardInfo.cardEffectDuration + "\n\nCost : $" + cardInfo.cardCost;
+        }
     }
 }

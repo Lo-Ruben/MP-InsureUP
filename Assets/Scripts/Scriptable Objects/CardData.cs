@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObjects/CardTypeData")]
 public class CardData : ScriptableObject
 {
+    //Card Type
+    public string cardType;
+
     // Text Info
     public string cardName;
     public string cardDescription;
