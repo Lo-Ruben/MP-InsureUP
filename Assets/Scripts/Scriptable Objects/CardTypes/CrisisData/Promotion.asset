@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Promotion
-  cardDescription: 
+  cardDescription: +2 Work Needs
   familyIntChange: 0
-  jobIntChange: 0
+  jobIntChange: 2
   personalIntChange: 0
   healthIntChange: 0
   moneyIntChange: 100

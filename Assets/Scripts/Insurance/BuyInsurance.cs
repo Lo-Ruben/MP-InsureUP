@@ -46,12 +46,12 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                Debug.Log("Both cards dont show back");
+                //Debug.Log("Both cards dont show back");
             }
         }
         else
         {
-            Debug.Log("One or more insurance references are null.");
+            //Debug.Log("One or more insurance references are null.");
         }
     }
 

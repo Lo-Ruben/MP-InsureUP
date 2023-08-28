@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
-  m_Name: Cancer
+  m_Name: Devastating Diagnosis
   m_EditorClassIdentifier: 
   cardType: 
-  cardName: Cancer
-  cardDescription: Im soooo sorry
+  cardName: Devastating Diagnosis
+  cardDescription: -3 HP
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
-  healthIntChange: 0
+  healthIntChange: -3
   moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: 

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Bonus
-  cardDescription: 
+  cardDescription: Gain $5000
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: 100
+  moneyIntChange: 5000
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 6e04fe2312687d64ba5e7640c5fe8e77, type: 2}

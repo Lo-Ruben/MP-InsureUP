@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Enlightment
-  cardDescription: 
+  cardDescription: +2 Personal Needs
   familyIntChange: 0
   jobIntChange: 0
-  personalIntChange: 0
+  personalIntChange: 2
   healthIntChange: 0
   moneyIntChange: 100
   cardEffectDuration: 0

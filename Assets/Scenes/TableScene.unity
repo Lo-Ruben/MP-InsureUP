@@ -7837,7 +7837,8 @@ MonoBehaviour:
   coinAnimation: {fileID: 462980006}
   crisisDisplay: {fileID: 390038040}
   CrisisCardArea: {fileID: 623603999}
-  switchBool: 1
+  hasHealthBeenModified: 1
+  hasCardCostBeenModified: 1
   JobLifeAspect: {fileID: 1396418241}
   FamilyLifeAspect: {fileID: 1810295277}
   PersonalLifeAspect: {fileID: 1121811908}
@@ -7850,6 +7851,8 @@ MonoBehaviour:
   addPlayerCards: {fileID: 0}
   toughDecisionPanel: {fileID: 0}
   canvas: {fileID: 819967108}
+  hasRoundPassed: 0
+  discountedDraw: 0
 --- !u!1 &830628156
 GameObject:
   m_ObjectHideFlags: 0
@@ -14060,6 +14063,7 @@ MonoBehaviour:
   m_crisisDeck: {fileID: 1613521332}
   spawnCardCounter: 0
   childCount: 0
+  drawCost: 0
 --- !u!1 &1646646962
 GameObject:
   m_ObjectHideFlags: 0

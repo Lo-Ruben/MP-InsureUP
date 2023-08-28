@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Recluse
   m_EditorClassIdentifier: 
+  cardType: 
   cardName: Recluse
-  cardDescription: 
+  cardDescription: 'Family Needs -1 Personal Needs +1 '
   cardCost: 0
   cardImage: {fileID: -721810842, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: -1
   jobIncrease: 0
   personalIncrease: 1
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 0
+  insurancePurchaseDiscount: 0
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Family Dispute
-  cardDescription: angry
-  familyIntChange: 0
+  cardDescription: Set Family Level to 1
+  familyIntChange: -9
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0

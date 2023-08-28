@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Miraculous Recovery
-  cardDescription: 
+  cardDescription: +2 Health
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
-  healthIntChange: 0
+  healthIntChange: 2
   moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: 

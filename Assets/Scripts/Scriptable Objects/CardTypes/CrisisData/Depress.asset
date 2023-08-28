@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Depress
-  cardDescription: Im sooooo sorry
+  cardDescription: Set Personal Level to 1
   familyIntChange: 0
   jobIntChange: 0
-  personalIntChange: 0
+  personalIntChange: -9
   healthIntChange: 0
   moneyIntChange: 100
   cardEffectDuration: 0

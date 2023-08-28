@@ -110,7 +110,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject CrisisCardArea;
 
-    public bool switchBool = true;
+    public bool hasHealthBeenModified = true;
+    public bool hasCardCostBeenModified = true;
 
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
@@ -129,7 +130,7 @@ public class GameManager : MonoBehaviour
     public GameObject toughDecisionPanel;
     public GameObject canvas;
 
-
+    public bool hasRoundPassed = false;
     public bool discountedDraw = false;
     private void Awake()
     {
@@ -222,6 +223,12 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 phaseText.text = "Current Phase: Action";
+                if (hasCardCostBeenModified)
+                {
+                    Debug.Log("Reset");
+                    addPlayerCards.drawCost = 4;
+                    hasCardCostBeenModified = false;
+                }
                 discardArea.enabled = true;
                 break;
             case 3:
@@ -234,7 +241,7 @@ public class GameManager : MonoBehaviour
                 ShopGameObject.SetActive(false);
                 ActivateCrisis();
                 //Handle insurance interaction with crisis
-                if (switchBool)
+                if (hasHealthBeenModified)
                 {
                     if (PersonalLevel > 5)
                     {
@@ -254,8 +261,8 @@ public class GameManager : MonoBehaviour
                         HighScoreSingleton.instance.DeductScore(100);
                     }
                     //Debug.Log(crisisDisplay.CrisisInfo != null);
-                    
-                    switchBool = false;
+
+                    hasHealthBeenModified = false;
                     StartCoroutine(CheckInsurance());
                 }
                 break;
@@ -268,10 +275,11 @@ public class GameManager : MonoBehaviour
                 {
                     crisisDisplay.CrisisInfo = null;
                 }
-
+                discountedDraw = false;
                 roundCounter++;
                 CalculateIncome(baseIncome);
-                switchBool = true;
+                hasHealthBeenModified = true;
+                hasCardCostBeenModified = true;
                 break;
             default:
                 Debug.Log("Out of phaseInt size");
@@ -290,13 +298,17 @@ public class GameManager : MonoBehaviour
 
     public void DrawDiscount()
     {
-        if(discardArea.cardData.drawDiscount == true)
+
+        if (discountedDraw != true)
         {
-            discountedDraw = true;
+            addPlayerCards.drawCost = 4;
         }
-        else
+        
+        if (discardArea.cardData.drawDiscount == true)
         {
-            discountedDraw = false;
+            Debug.Log("Discounted card has been placed");
+            addPlayerCards.drawCost = 3;
+            discountedDraw = true;
         }
     }
     void CalculateIncome(int income)
@@ -505,32 +517,6 @@ public class GameManager : MonoBehaviour
     public void NextPhase()
     {
         phaseInt += 1;
-
-        if (phaseInt == 1)
-        {
-            if(discountedDraw == true)
-            {
-                addPlayerCards.drawCost = 3;
-                Debug.Log("Discounted");
-            }
-        } 
-        else if (phaseInt == 2)
-            {
-            
-            if (discountedDraw == true)
-                {
-                    discardArea.cardData.drawDiscount = false;
-                    addPlayerCards.drawCost = 4;
-
-                }
-            else if (discountedDraw == false)
-                {
-                    Debug.Log("Not Discounted");
-                }
-
-            
-            }
-        
     }
 
     void ActivateCrisis()

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Food Poisoning
-  cardDescription: Bad Food
+  cardDescription: -1 Health
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
-  healthIntChange: 0
+  healthIntChange: -1
   moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: Health

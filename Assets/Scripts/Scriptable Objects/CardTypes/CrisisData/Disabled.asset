@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 
   cardName: Permanantly Disabled
-  cardDescription: 
+  cardDescription: Set Personal Level to 1
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
