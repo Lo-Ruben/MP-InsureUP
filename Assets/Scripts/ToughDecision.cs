@@ -63,6 +63,11 @@ public class ToughDecision : MonoBehaviour
         Transform discardTransform = gameManager.discardObj.transform;
         Transform handTransform = gameManager.handObj.transform;
 
+        //draw the chosen card
+        GameObject temp = Instantiate(decision, handTransform.position, handTransform.rotation, handTransform);
+        addPlayerCards.spawnCardCounter++;
+        choiceCards.Remove(decision);
+
         //discard the unchosen cards
         foreach (GameObject unchosen in choiceCards)
         {
@@ -73,11 +78,7 @@ public class ToughDecision : MonoBehaviour
             CanvasGroup discardCanvasGroup = discard.GetComponent<CanvasGroup>();
             discardCanvasGroup.blocksRaycasts = false;
         }
-        //draw the chosen card
-        GameObject temp = Instantiate(decision, handTransform.position, handTransform.rotation, handTransform);
-        addPlayerCards.spawnCardCounter++;
-        choiceCards.Remove(decision);
-
+        
         HideDecisionPanelUI();
     }
 }

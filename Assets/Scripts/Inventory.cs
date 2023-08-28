@@ -6,6 +6,8 @@ public class Inventory : MonoBehaviour
 {
     public GameObject inventory;
 
+    public GameManager gameManager;
+
     public List<GameObject> invCards = new List<GameObject>();
 
     public List<InsuranceData> boughtInsrData = new List<InsuranceData>();

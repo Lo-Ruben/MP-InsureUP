@@ -38,13 +38,13 @@ public class CardDisplay : MonoBehaviour
 
     private void Start()
     {
-        
         StartCoroutine(TextAfterAnimation());
     }
 
     private void Update()
     {
         numberOfCardsInDeck = PlayerDeck.deckSize;
+
         if (staticCardBack == true)
         {
             cardBack.SetActive(true);
@@ -84,20 +84,13 @@ public class CardDisplay : MonoBehaviour
         cardDescriptionText.text = CardInfo.cardDescription;
     }
 
-    IEnumerator TextAfterAnimation()
+        IEnumerator TextAfterAnimation()
     {
         yield return new WaitForSeconds(0.1f);
         DisplayInfoTop();
         yield return new WaitForSeconds(0.1f);
         DisplayInfoMid();
         yield return new WaitForSeconds(0.1f);
-        DisplayInfoBot();
-    }
-
-    public void DisplayAllInfo()
-    {
-        DisplayInfoTop();
-        DisplayInfoMid();
         DisplayInfoBot();
     }
 }

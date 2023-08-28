@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Screw it, we ball!
   m_EditorClassIdentifier: 
+  cardType: 
   cardName: Screw it, we ball!
-  cardDescription: Put current hand into the deck, shuffle, then draw that amount
-    for free.
+  cardDescription: Replace your hand with a new one from the deck.
   cardCost: 0
   cardImage: {fileID: 21300000, guid: 46d4bea225426c04cb8c90d922d6c7cd, type: 3}
   familyIncrease: 0

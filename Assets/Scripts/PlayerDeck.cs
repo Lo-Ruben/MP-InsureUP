@@ -12,7 +12,7 @@ public class PlayerDeck : MonoBehaviour
     public static List<CardData> staticDeck = new List<CardData>();
     public List<CardData> existingCards = new List<CardData>();
     public static int deckSize;
-    int cardTypeAmount = /*10*/ 1;
+    int cardTypeAmount = 10;
 
     //public Text cardLeft;
 

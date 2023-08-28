@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Player stats")]
+    // Player stats
     private int health;
     public int increasedHealth;
     public int money;
     public int spentMoney;
-    public int maxCardsHeld;
-
     public int timesProtected;
 
     [Header("Test Insurance fields")]
@@ -121,6 +118,8 @@ public class GameManager : MonoBehaviour
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
+    public CardData cardData;
+
     public List<GameObject> discarded = new List<GameObject>();
     public List<GameObject> inHand = new List<GameObject>();
     public GameObject discardObj;
@@ -130,7 +129,6 @@ public class GameManager : MonoBehaviour
     public GameObject toughDecisionPanel;
     public GameObject canvas;
 
-    public CardData cardData;
     private void Awake()
     {
         money = 500;
@@ -144,14 +142,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        maxCardsHeld = familyLevel;
-
         ShopGameObject.SetActive(false);
+
+        maxPlayerHand = familyLevel;
 
         discardObj = GameObject.Find("Discard Area");
         handObj = GameObject.Find("PlayerHand");
         playerDeck = GameObject.Find("ActionDeckManager").GetComponent<PlayerDeck>();
         addPlayerCards = handObj.GetComponent<AddPlayerCards>();
+
     }
     void Update()
     {
@@ -284,9 +283,6 @@ public class GameManager : MonoBehaviour
     {
         UpdateStats(discardArea.cardData);
         CycleHand(discardArea.cardData);
-
-        maxCardsHeld = familyLevel;
-
         HighScoreSingleton.instance.AddScore(10);
     }
 
@@ -403,6 +399,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No cardDisplay");
         }
+
     }
 
     public void CycleHand(CardData cardData)
@@ -415,14 +412,16 @@ public class GameManager : MonoBehaviour
 
         switch (cardData.cardName)
         {
-            case "Yesterday's Plans":
+            case "Yesterday's Plan":
 
                 //get a card from a random position in discard pile
                 //add that card to hand
                 if (discarded.Count > 0)
                 {
+                    
                     int randInt = Random.Range(0, discarded.Count);
                     GameObject temp = discarded[randInt];
+                    Debug.Log("balls: "+temp.GetComponent<CardDisplay>().CardInfo);
                     temp.transform.SetParent(handObj.transform);
                     //Allow card to be interactable
                     temp.GetComponent<Draggable>().isDraggingStop = false;
@@ -472,7 +471,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case "Restock":
-                int cardsToAdd = maxCardsHeld - addPlayerCards.childCount;
+                int cardsToAdd = maxPlayerHand - addPlayerCards.childCount;
                 for (int i = 0; i < cardsToAdd; i++)
                 {
                     addPlayerCards.SpawnCard();
@@ -523,22 +522,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    void UpdateHandAndDiscard()
-    {
-        discarded.Clear();
-        inHand.Clear();
-
-        foreach (Transform discard in discardObj.transform)
-        {
-            discarded.Add(discard.gameObject);
-        }
-        foreach (Transform hand in handObj.transform)
-        {
-            inHand.Add(hand.gameObject);
-        }
-    }
-
     void MoneyDisplay(int moneyDifference)
     {
         Debug.Log(moneyDifference);
@@ -558,6 +541,26 @@ public class GameManager : MonoBehaviour
         int moneyDecrease = Mathf.Abs(moneyDifference);
         moneyChangedText.text = sign + moneyDecrease;
         moneyChangedText.gameObject.SetActive(true);
+    }
 
+    void UpdateHandAndDiscard()
+    {
+        discarded.Clear();
+        inHand.Clear();
+
+        foreach (Transform discard in discardObj.transform)
+        {
+            if(discard.gameObject.GetComponent<CardDisplay>() != null)
+            {
+                discarded.Add(discard.gameObject);
+            }  
+        }
+        foreach (Transform hand in handObj.transform)
+        {
+            if (hand.gameObject.GetComponent<CardDisplay>() != null)
+            {
+                inHand.Add(hand.gameObject);
+            }
+        }
     }
 }
