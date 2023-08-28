@@ -21,31 +21,36 @@ public class AddPlayerCards : MonoBehaviour
 
     public int spawnCardCounter;
 
+    public int childCount;
+
     void Start()
     {
         m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
+        childCount = this.transform.childCount;
         costToDraw.text = "Cost to draw: " + 5;
-        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
+
+        // If draw phase and deck got cards and "W" is pressed
+        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0 && Input.GetKeyDown("w"))
         {
-            if (this.transform.childCount >= m_playerManager.MaxPlayerHand)
+            // If there are less decks in the 
+            if (childCount < m_playerManager.maxCardsHeld)
+            {
+                SpawnCard();
+                //Debug.Log(m_crisisDeck.disasterCounter);
+            }
+            else
             {
                 Debug.Log("Player's hand is full");
                 m_playerManager.PhaseInt += 1;
-            }
-            else if (Input.GetKeyDown(KeyCode.W) && this.transform.childCount < m_playerManager.MaxPlayerHand)
-            {
-                
-                SpawnCard();
-                //Debug.Log(m_crisisDeck.disasterCounter);
             }
         }
     }
 
     // Instantiate a card in PlayerHand
-    void SpawnCard()
+    public void SpawnCard()
     {
         m_playerManager.money -= 5;
         GameObject temp = Instantiate(card, transform.position, transform.rotation);

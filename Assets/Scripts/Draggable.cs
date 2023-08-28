@@ -67,7 +67,7 @@ public class Draggable : MonoBehaviour, /*IPointerDownHandler, */IBeginDragHandl
     {
         if (isDraggingStop)
         {
-
+            Debug.Log("PreventDrop");
             return;
         }
         this.transform.SetParent(parentToReturnTo);
