@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObjects/CardTypeData")]
-public class CardData : ScriptableObject
+[CreateAssetMenu(fileName = "DiscountersData", menuName = "ScriptableObjects/DiscountersData")]
+public class DiscountersData : ScriptableObject
 {
     //Card Type
     public string cardType;
@@ -18,32 +18,22 @@ public class CardData : ScriptableObject
     // Card Image
     public Sprite cardImage;
 
-    // Family, Job and Personal aspects increase and decrease
-    public int familyIncrease;
-    public int jobIncrease;
-    public int personalIncrease;
-
-    // Card Duration
-    public int cardEffectDuration;
-
     //Discounts
     //Discount for Draw (Coupon Book)
-    public bool drawDiscount = false;
+    public bool drawDiscount;
 
     //Discount for Insurance Renewal (Clean Record)
-    public bool renewalDiscount = false;
+    public bool renewalDiscount;
 
     //Discount for Insurance Upgrade (Add-On Deal)
-    public bool upgradeDiscount = false;
+    public bool upgradeDiscount;
 
     //Discount for Insurance Purchase (Referral)
-    public bool insurancePurchaseDiscount = false;
+    public bool insurancePurchaseDiscount;
 
     //Discount for Medical Treatment Item (Care Package) 
-    public bool medicalTreatmentDiscount = false;
+    public bool medicalTreatmentDiscount;
 
     //Discount for Prosthetics Item (Mass Production)
-    public bool prostheticsDiscount = false;
-
+    public bool prostheticsDiscount;
 }
-

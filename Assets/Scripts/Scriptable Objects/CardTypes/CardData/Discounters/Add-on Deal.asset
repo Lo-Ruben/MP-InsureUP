@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: Add-on Deal
   m_EditorClassIdentifier: 
   cardName: Add-on Deal
-  cardDescription: 
+  cardDescription: Insurance Upgrade Cost -25%, 1 turn
   cardCost: 0
   cardImage: {fileID: -155386020, guid: 1678aa88f5dd6c94ba6cd53231f39eb0, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 1
+  insurancePurchaseDiscount: 0
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0

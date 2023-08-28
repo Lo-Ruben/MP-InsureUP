@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Retrench
   m_EditorClassIdentifier: 
+  cardType: 
   cardName: Retrenchment
   cardDescription: noooooooooo
-  familyDecrease: 0
-  jobDecrease: 0
-  personalDecrease: 0
-  healthDecrease: 0
-  moneyDecrease: -100
+  familyIntChange: 0
+  jobIntChange: 0
+  personalIntChange: 0
+  healthIntChange: 0
+  moneyIntChange: 100
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 865e570a5f140e24d887f8877507044c, type: 2}

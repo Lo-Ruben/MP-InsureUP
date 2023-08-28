@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LifeAspectUI : MonoBehaviour
 {
+    // Script manages the bar progression for Job, Personal and Life levels
+
     public GameManager gameManager;
     public List<Sprite> numberSprites;
 
@@ -14,37 +16,11 @@ public class LifeAspectUI : MonoBehaviour
     {
         imageComponent = GetComponent<Image>();
     }
-    public void UpdateJobImage()
+    public void UpdateImage(int spriteIndex)
     {
-        if (gameManager != null)
+        if (gameManager != null && spriteIndex >= 0 && spriteIndex < numberSprites.Count)
         {
-            int JobNumber = gameManager.jobLevel;
-            int JobspriteIndex = JobNumber;
-
-            if (JobspriteIndex >= 0 && JobspriteIndex < numberSprites.Count)
-            {
-                imageComponent.sprite = numberSprites[JobspriteIndex];
-            }
-        }
-    }
-    public void UpdateFamilyImage()
-    {
-        int FamNumber = gameManager.familyLevel;
-        int FamspriteIndex = FamNumber;
-
-        if (FamspriteIndex >= 0 && FamspriteIndex < numberSprites.Count)
-        {
-            imageComponent.sprite = numberSprites[FamspriteIndex];
-        }
-    }
-    public void UpdatePersonalImage()
-    {
-        int PersonalNumber = gameManager.personalLevel;
-        int PersonalspriteIndex = PersonalNumber;
-
-        if (PersonalspriteIndex >= 0 && PersonalspriteIndex < numberSprites.Count)
-        {
-            imageComponent.sprite = numberSprites[PersonalspriteIndex];
+            imageComponent.sprite = numberSprites[spriteIndex];
         }
     }
 }

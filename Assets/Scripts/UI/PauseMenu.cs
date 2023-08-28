@@ -9,13 +9,26 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject buttons;
     public Animator animator;
+    bool opened = false;
 
     void Start()
     {
         pauseMenu.SetActive(false);
         buttons.SetActive(false);
     }
-
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape) && opened == false)
+        {
+            OpenMenu();
+            opened = true;
+        }
+        if(Input.GetKey(KeyCode.Escape) )
+        {
+            Resume();
+            opened = false;
+        }
+    }
     public void OpenMenu()
     {
         pauseMenu.SetActive(true);

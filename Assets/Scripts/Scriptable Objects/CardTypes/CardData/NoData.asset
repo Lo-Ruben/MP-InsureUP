@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
-  m_Name: Tough Choice
+  m_Name: NoData
   m_EditorClassIdentifier: 
-  cardName: Tough Choice
+  cardName: Select a card to display info
   cardDescription: 
   cardCost: 0
-  cardImage: {fileID: -343485040, guid: 1678aa88f5dd6c94ba6cd53231f39eb0, type: 3}
+  cardImage: {fileID: 21300000, guid: 2f1b7d3ea9436714486b4bd76aa656d4, type: 3}
   familyIncrease: 0
   jobIncrease: 0
   personalIncrease: 0
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 0
+  insurancePurchaseDiscount: 0
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0

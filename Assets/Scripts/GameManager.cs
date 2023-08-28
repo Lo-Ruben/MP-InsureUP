@@ -25,6 +25,13 @@ public class GameManager : MonoBehaviour
     [Header("Personal aspects stats")]
     [SerializeField]
     int baseIncome;
+    [SerializeField]
+    private int maxPlayerHand;
+
+    public int MaxPlayerHand
+    {
+        get { return maxPlayerHand; }
+    }
 
     public Dictionary<string, int> insuranceBoughtDictionary = new Dictionary<string, int>();
 
@@ -97,7 +104,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     DropArea discardArea;
     private string sign;
-    public Animator animator;
+    public Animator textAnimation;
+    public Animator coinAnimation;
 
     // Crisis cards
     [SerializeField]
@@ -122,6 +130,7 @@ public class GameManager : MonoBehaviour
     public GameObject toughDecisionPanel;
     public GameObject canvas;
 
+    public CardData cardData;
     private void Awake()
     {
         money = 500;
@@ -152,27 +161,28 @@ public class GameManager : MonoBehaviour
         PhaseCheck();
         UpdateHandAndDiscard();
 
-        JobLifeAspect.UpdateJobImage();
-        FamilyLifeAspect.UpdateFamilyImage();
-        PersonalLifeAspect.UpdatePersonalImage();
+        JobLifeAspect.UpdateImage(JobLevel);
+        FamilyLifeAspect.UpdateImage(FamilyLevel);
+        PersonalLifeAspect.UpdateImage(PersonalLevel);
 
         if (goalDataArray[1] == null)
         {
             Debug.LogError("No Goals Found");
         }
 
-        //EndTurn();
+        // Ensure max player hand matches family level
+        maxPlayerHand = FamilyLevel;
     }
    
     void UpdateTextInfo()
     {
-        jobLevel = Mathf.Clamp(jobLevel, 0, 10);
-        familyLevel = Mathf.Clamp(familyLevel, 0, 10);
-        personalLevel = Mathf.Clamp(personalLevel, 0, 10);
+        JobLevel = Mathf.Clamp(JobLevel, 0, 10);
+        FamilyLevel = Mathf.Clamp(FamilyLevel, 0, 10);
+        PersonalLevel = Mathf.Clamp(PersonalLevel, 0, 10);
 
-        jobLevelText.text = jobLevel.ToString();
-        familyLevelText.text = familyLevel.ToString();
-        personalLevelText.text = personalLevel.ToString();
+        jobLevelText.text = JobLevel.ToString();
+        familyLevelText.text = FamilyLevel.ToString();
+        personalLevelText.text = PersonalLevel.ToString();
 
         healthText.text = "Health: " + health;
         moneyText.text = " " + money;
@@ -206,26 +216,26 @@ public class GameManager : MonoBehaviour
         switch (phaseInt)
         {
             case 1:
-                phaseText.text = "Draw";
+                phaseText.text = "Current Phase: Draw";
                 discardArea.enabled = false;
                 break;
             case 2:
-                phaseText.text = "Action";
+                phaseText.text = "Current Phase: Action";
                 discardArea.enabled = true;
                 break;
             case 3:
-                phaseText.text = "Buy";
+                phaseText.text = "Current Phase: Buy";
                 discardArea.enabled = false;
                 ShopGameObject.SetActive(true);
                 break;
             case 4:
-                phaseText.text = "Event";
+                phaseText.text = "Current Phase: Event";
                 ShopGameObject.SetActive(false);
                 ActivateCrisis();
                 //Handle insurance interaction with crisis
                 if (switchBool)
                 {
-                    if (personalLevel > 5)
+                    if (PersonalLevel > 5)
                     {
                         if (health < 5)
                         {
@@ -236,14 +246,16 @@ public class GameManager : MonoBehaviour
                         HighScoreSingleton.instance.AddScore(100);
 
                     }
-                    if (personalLevel < 5)
+                    if (PersonalLevel < 5)
                     {
                         health -= 1;
 
                         HighScoreSingleton.instance.DeductScore(100);
                     }
-                    CheckInsurance();
+                    //Debug.Log(crisisDisplay.CrisisInfo != null);
+                    
                     switchBool = false;
+                    StartCoroutine(CheckInsurance());
                 }
                 break;
             // Reset
@@ -274,63 +286,118 @@ public class GameManager : MonoBehaviour
         CycleHand(discardArea.cardDisplay);
 
         maxCardsHeld = familyLevel;
+
         HighScoreSingleton.instance.AddScore(10);
     }
 
     void CalculateIncome(int income)
     {
-        int proffit = income * jobLevel;
-        money += proffit;
+        int proffit = income * JobLevel;
+        MoneyDisplay(proffit);
+        if (sign == "+" && proffit > 0)
+        {
+            StartCoroutine(IncomeMoneyCoroutine());
+        }
+        else
+        {
+            textAnimation.SetTrigger("Add");
+            money += proffit;
+        }
+
+        void UpdateIncomeMoney()
+        {
+            textAnimation.SetTrigger("Add");
+            money += proffit;
+        }
+        IEnumerator IncomeMoneyCoroutine()
+        {
+            yield return new WaitForSeconds(2f);
+            UpdateIncomeMoney();
+        }
     }
 
     // If player bought insurance
     // Check if player is encountering the same crisis as the insurance bought
     // Since its in update, adding of money may need to be tweaked
-    void CheckInsurance()
+
+    IEnumerator CheckInsurance()
     {
+        yield return new WaitForSeconds(0.1f);
+
         if (crisisDisplay.CrisisInfo != null)
         {
-            string insuranceType = crisisDisplay.CrisisInfo.insuranceCounter;
+            string insuranceTypeCounter = crisisDisplay.CrisisInfo.insuranceCounter;
 
-            if (insuranceBoughtDictionary.ContainsKey(insuranceType))
+            if (insuranceBoughtDictionary.ContainsKey(insuranceTypeCounter))
             {
-                int insuranceBenefit = insuranceBoughtDictionary[insuranceType];
-                Debug.Log(insuranceType + " Insurance money");
+                int insuranceBenefit = insuranceBoughtDictionary[insuranceTypeCounter];
+                Debug.Log(insuranceTypeCounter + " Insurance money");
                 Debug.Log("Insurance Profit: " + insuranceBenefit);
-                money += insuranceBenefit;
+                MoneyDisplay(insuranceBenefit);
+                if (sign == "+" && insuranceBenefit > 0)
+                {
+                    StartCoroutine(InsuranceMoneyCoroutine());
+                }
+                else
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += insuranceBenefit;
+                }
                 timesProtected++;
+
+
+                void UpdateInsuranceMoney()
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += insuranceBenefit;
+                }
+                IEnumerator InsuranceMoneyCoroutine()
+                {
+                    yield return new WaitForSeconds(2f);
+                    UpdateInsuranceMoney();
+                }
             }
 
             else
             {
-                familyLevel -= crisisDisplay.CrisisInfo.familyDecrease;
-                jobLevel -= crisisDisplay.CrisisInfo.jobDecrease;
-                personalLevel -= crisisDisplay.CrisisInfo.personalDecrease;
-                health -= crisisDisplay.CrisisInfo.healthDecrease;
-                if(crisisDisplay.CrisisInfo.moneyDecrease < 0)
+                MoneyDisplay(crisisDisplay.CrisisInfo.moneyIntChange);
+
+                FamilyLevel += crisisDisplay.CrisisInfo.familyIntChange;
+                JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
+                PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
+                health += crisisDisplay.CrisisInfo.healthIntChange;
+                if (sign == "+" && crisisDisplay.CrisisInfo.moneyIntChange >0)
                 {
-                    sign = "+";
+                    StartCoroutine(EventMoneyCoroutine());
                 }
                 else
                 {
-                    sign = "-";
+                    textAnimation.SetTrigger("Add");
+                    money += crisisDisplay.CrisisInfo.moneyIntChange;
                 }
-                int moneyDecrease = Mathf.Abs(crisisDisplay.CrisisInfo.moneyDecrease);
-                moneyChangedText.text = sign + moneyDecrease;
-                moneyChangedText.gameObject.SetActive(true);
-                animator.SetTrigger("Add");
-                money -= crisisDisplay.CrisisInfo.moneyDecrease;
+
+
+                void updateMoneyEvent()
+                {
+                    textAnimation.SetTrigger("Add");
+                    money += crisisDisplay.CrisisInfo.moneyIntChange;
+                }
+                IEnumerator EventMoneyCoroutine()
+                {
+                    yield return new WaitForSeconds(2f);
+                    updateMoneyEvent();
+                }
             }
         }
     }
 
-    public void UpdateStats(CardDisplay cardDisplay)
+    public void UpdateStats(CardData cardData)
     {
-        if (cardDisplay != null)
+        if (cardData != null)
         {
-            JobLevel += cardDisplay.CardInfo.jobIncrease;
-            FamilyLevel += cardDisplay.CardInfo.familyIncrease;
-            PersonalLevel += cardDisplay.CardInfo.personalIncrease;
+            JobLevel += cardData.jobIncrease;
+            FamilyLevel += cardData.familyIncrease;
+            PersonalLevel += cardData.personalIncrease;
         }
         else
         {
@@ -446,10 +513,16 @@ public class GameManager : MonoBehaviour
     {
         if (health <= 0 || money <= 0)
         {
-            Debug.Log("GameOver");
+            Debug.Log("GameOver: Lose");
+            SceneManager.LoadScene(3);
+        }
+        if (money >= 50000)
+        {
+            Debug.Log("GameOver: Win");
             SceneManager.LoadScene(3);
         }
     }
+
 
     void UpdateHandAndDiscard()
     {
@@ -464,5 +537,26 @@ public class GameManager : MonoBehaviour
         {
             inHand.Add(hand.gameObject);
         }
+
+    void MoneyDisplay(int moneyDifference)
+    {
+        Debug.Log(moneyDifference);
+        if (moneyDifference < 0)
+        {
+            sign = "-";
+        }
+        else if(moneyDifference == 0)
+        {
+            sign = "+";
+        }
+        else if(moneyDifference >0)
+        {
+            sign = "+";
+            coinAnimation.SetTrigger("Add");
+        }
+        int moneyDecrease = Mathf.Abs(moneyDifference);
+        moneyChangedText.text = sign + moneyDecrease;
+        moneyChangedText.gameObject.SetActive(true);
+
     }
 }

@@ -21,6 +21,10 @@ public class HighScoreSingleton : GenericSingleton<HighScoreSingleton>
     }
     public void UpdateScore(int updatedScore, int roundNumber)
     {
+        if (updatedScore <= 0)
+        {
+            updatedScore = 0;
+        }
         currentScore = updatedScore;
         round = roundNumber;
     }

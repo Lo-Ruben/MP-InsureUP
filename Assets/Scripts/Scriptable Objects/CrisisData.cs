@@ -6,16 +6,19 @@ using UnityEngine;
 
 public class CrisisData : ScriptableObject
 {
+    //Card Type
+    public string cardType;
+
     // Text Info
     public string cardName;
     public string cardDescription;
 
     // Family, Job and Personal aspects decrease
-    public int familyDecrease;
-    public int jobDecrease;
-    public int personalDecrease;
-    public int healthDecrease;
-    public int moneyDecrease;
+    public int familyIntChange;
+    public int jobIntChange;
+    public int personalIntChange;
+    public int healthIntChange;
+    public int moneyIntChange;
 
     // Card Duration
     public int cardEffectDuration;
