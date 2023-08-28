@@ -282,8 +282,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayCard()
     {
-        UpdateStats(discardArea.cardDisplay);
-        CycleHand(discardArea.cardDisplay);
+        UpdateStats(discardArea.cardData);
+        CycleHand(discardArea.cardData);
 
         maxCardsHeld = familyLevel;
 
@@ -405,15 +405,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CycleHand(CardDisplay cardDisplay)
+    public void CycleHand(CardData cardData)
     {
-        if (cardDisplay == null)
+        if (cardData == null)
         {
             Debug.Log("No cardDisplay");
             return; // This will exit the function immediately
         }
 
-        switch (cardDisplay.CardInfo.cardName)
+        switch (cardData.cardName)
         {
             case "Yesterday's Plans":
 
@@ -466,8 +466,8 @@ public class GameManager : MonoBehaviour
                 if (discarded.Count > 0)
                 {
                     CardDisplay lastPlayed = discarded.Last().GetComponent<CardDisplay>();
-                    UpdateStats(lastPlayed);
-                    CycleHand(lastPlayed);
+                    UpdateStats(lastPlayed.CardInfo);
+                    CycleHand(lastPlayed.CardInfo);
                 }
                 break;
 
@@ -537,6 +537,7 @@ public class GameManager : MonoBehaviour
         {
             inHand.Add(hand.gameObject);
         }
+    }
 
     void MoneyDisplay(int moneyDifference)
     {
