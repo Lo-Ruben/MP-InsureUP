@@ -23,6 +23,8 @@ public class AddPlayerCards : MonoBehaviour
 
     public int childCount;
 
+    public int drawCost;
+
     void Start()
     {
         m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -31,7 +33,7 @@ public class AddPlayerCards : MonoBehaviour
     {
         childCount = this.transform.childCount;
 
-        costToDraw.text = "Cost to draw: " + 5;
+        costToDraw.text = "Cost to draw: " + drawCost;
         if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
         {
             if (childCount >= m_playerManager.MaxPlayerHand)
@@ -51,7 +53,7 @@ public class AddPlayerCards : MonoBehaviour
     // Instantiate a card in PlayerHand
     public void SpawnCard()
     {
-        m_playerManager.money -= 5;
+        m_playerManager.money -= drawCost;
         GameObject temp = Instantiate(card, transform.position, transform.rotation);
         temp.transform.SetParent(this.transform);
         spawnCardCounter++;

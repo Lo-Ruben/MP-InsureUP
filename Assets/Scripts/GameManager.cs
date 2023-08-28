@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
     public GameObject toughDecisionPanel;
     public GameObject canvas;
 
+
+    public bool discountedDraw = false;
     private void Awake()
     {
         money = 500;
@@ -269,7 +271,6 @@ public class GameManager : MonoBehaviour
 
                 roundCounter++;
                 CalculateIncome(baseIncome);
-
                 switchBool = true;
                 break;
             default:
@@ -283,9 +284,21 @@ public class GameManager : MonoBehaviour
     {
         UpdateStats(discardArea.cardData);
         CycleHand(discardArea.cardData);
+        DrawDiscount();
         HighScoreSingleton.instance.AddScore(10);
     }
 
+    public void DrawDiscount()
+    {
+        if(discardArea.cardData.drawDiscount == true)
+        {
+            discountedDraw = true;
+        }
+        else
+        {
+            discountedDraw = false;
+        }
+    }
     void CalculateIncome(int income)
     {
         int proffit = income * JobLevel;
@@ -488,11 +501,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // On button press function
+    // OnClick function for End Phase Button
     public void NextPhase()
     {
         phaseInt += 1;
 
+        if (phaseInt == 1)
+        {
+            if(discountedDraw == true)
+            {
+                addPlayerCards.drawCost = 3;
+                Debug.Log("Discounted");
+            }
+        } 
+        else if (phaseInt == 2)
+            {
+            
+            if (discountedDraw == true)
+                {
+                    discardArea.cardData.drawDiscount = false;
+                    addPlayerCards.drawCost = 4;
+
+                }
+            else if (discountedDraw == false)
+                {
+                    Debug.Log("Not Discounted");
+                }
+
+            
+            }
+        
     }
 
     void ActivateCrisis()
