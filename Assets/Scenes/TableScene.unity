@@ -8181,6 +8181,7 @@ MonoBehaviour:
   addPlayerCards: {fileID: 0}
   toughDecisionPanel: {fileID: 0}
   canvas: {fileID: 819967108}
+  cardPlayed: {fileID: 0}
   discountedDraw: 0
   discountedInsuranceCost: 0
 --- !u!1 &830628156
@@ -11232,7 +11233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
@@ -11290,7 +11291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
