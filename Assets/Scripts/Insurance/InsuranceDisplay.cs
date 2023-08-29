@@ -32,12 +32,18 @@ public class InsuranceDisplay : MonoBehaviour
     private void Start()
     {
         numberOfCardsInDeck = PlayerDeck.deckSize;
+        staticCardBack = false;
         DisplayInfo();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("Enabled");
     }
 
     private void Update()
     {
-
+        DisplayInfo();
         if (staticCardBack == true)
         {
             cardBack.SetActive(true);
@@ -48,12 +54,11 @@ public class InsuranceDisplay : MonoBehaviour
         }
     }
 
-    void DisplayInfo()
+    public void DisplayInfo()
     {
         cardNameText.text = InsuranceData.cardName;
         cardDescriptionText.text = InsuranceData.cardDescription;
         cardCostText.text = InsuranceData.cardCost.ToString();
         cardImage.sprite = InsuranceData.cardImage;
-        staticCardBack = false;
     }
 }

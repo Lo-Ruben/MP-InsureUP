@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     public bool hasHealthBeenModified = true;
     public bool hasCardCostBeenModified = true;
-    public bool hasInsuranceCostBeenModified = true;
+    public bool hasInsuranceCostBeenModified = false;
 
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
@@ -121,7 +121,6 @@ public class GameManager : MonoBehaviour
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
     public CardData cardData;
-    public InsuranceData insuranceData;
 
     public List<GameObject> discarded = new List<GameObject>();
     public List<GameObject> inHand = new List<GameObject>();
@@ -133,13 +132,10 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
 
 
-
-    public bool hasRoundPassed = false;
     public bool discountedDraw = false;
     public bool discountedInsuranceCost = false;
     private void Awake()
     {
-        money = 500;
         health = 3;
         JobLevel = 5;
         FamilyLevel = 5;
@@ -230,16 +226,14 @@ public class GameManager : MonoBehaviour
                 phaseText.text = "Current Phase: Action";
                 if (hasCardCostBeenModified)
                 {
-                    Debug.Log("Reset");
                     addPlayerCards.drawCost = 4;
                     hasCardCostBeenModified = false;
                 }
-/*
                 if (hasInsuranceCostBeenModified)
                 {
-                    
+                    discountedInsuranceCost = true;
                     hasInsuranceCostBeenModified = false;
-                }*/
+                }
                 discardArea.enabled = true;
                 break;
             case 3:
@@ -292,7 +286,6 @@ public class GameManager : MonoBehaviour
                 CalculateIncome(baseIncome);
                 hasHealthBeenModified = true;
                 hasCardCostBeenModified = true;
-                //hasInsuranceCostBeenModified = true;
                 break;
             default:
                 Debug.Log("Out of phaseInt size");
@@ -305,41 +298,37 @@ public class GameManager : MonoBehaviour
     {
         UpdateStats(discardArea.cardData);
         CycleHand(discardArea.cardData);
-        DrawDiscount();
+        CheckDiscount();
         HighScoreSingleton.instance.AddScore(10);
     }
 
-    public void DrawDiscount()
+    public void CheckDiscount()
     {
-
-        if (discountedDraw != true)
-        {
-            addPlayerCards.drawCost = 4;
-        }
-        
         if (discardArea.cardData.drawDiscount == true)
         {
             Debug.Log("Discounted card has been placed");
             addPlayerCards.drawCost = 3;
             discountedDraw = true;
         }
-    }
-
-    /*public void InsuranceCostDiscount()
-    {
-
-        if (discountedInsuranceCost != true) 
-        {
-            insuranceData.cardCost = insuranceData.cardCost * 2;
-        }
-
         if (discardArea.cardData.insurancePurchaseDiscount == true)
         {
-            insuranceData.cardCost = insuranceData.cardCost / 2;
-            discountedInsuranceCost = true;
+            Debug.Log("Discounted card has been placed");
+            hasInsuranceCostBeenModified = true;
+        }
+    }
+
+    public int InsuranceCostChange(int discountedCardCost, int originalCardCost)
+    {
+        if (discountedInsuranceCost == true)
+        {
+            return discountedCardCost;
+        }
+        else
+        {
+            return originalCardCost;
         }
       
-    }*/
+    }
     void CalculateIncome(int income)
     {
         int proffit = income * JobLevel;
