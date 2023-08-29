@@ -14,6 +14,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     [SerializeField] private BuyInsurance otherInsurance1;
     [SerializeField] private BuyInsurance otherInsurance2;
     [SerializeField] private Inventory inventory;
+    [SerializeField]
+    Animator MinusAnimator;
+    public Text moneyText;
 
     int cardCost;
     int discountedCardCost;
@@ -142,7 +145,8 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             else
             {
                 m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
-
+                moneyText.text = "-$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
+                MinusAnimator.SetTrigger("minus");
                 getInsuranceInfo.staticCardBack = false;
                 otherInsurance1.getInsuranceInfo.staticCardBack = true;
                 otherInsurance2.getInsuranceInfo.staticCardBack = true;
@@ -160,7 +164,8 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         else
         {
             m_GameManager.money += getInsuranceInfo.InsuranceData.cardCost;
-
+            moneyText.text = "+$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
+            MinusAnimator.SetTrigger("minus");
             getInsuranceInfo.staticCardBack = false;
             otherInsurance1.getInsuranceInfo.staticCardBack = false;
             otherInsurance2.getInsuranceInfo.staticCardBack = false;

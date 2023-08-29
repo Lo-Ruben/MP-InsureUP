@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // Player stats
-    private int health;
+    public int health;
+    public int maxHealth;
     public int increasedHealth;
     public int money;
     public int spentMoney;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     [Header("Game UI")]
     public Text healthText;
     public Text moneyText;
-
+    public Text shopMoneyText;
 
     public Text jobLevelText;
     public Text familyLevelText;
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour
     public Slider slider3;
 
     public Text moneyChangedText;
+
+    public GameObject phaseButton;
 
 
     //Debugging
@@ -136,7 +139,8 @@ public class GameManager : MonoBehaviour
     public bool discountedInsuranceCost = false;
     private void Awake()
     {
-        health = 3;
+        maxHealth = 5;
+        health = maxHealth;
         JobLevel = 5;
         FamilyLevel = 5;
         PersonalLevel = 5;
@@ -187,8 +191,9 @@ public class GameManager : MonoBehaviour
         familyLevelText.text = FamilyLevel.ToString();
         personalLevelText.text = PersonalLevel.ToString();
 
-        healthText.text = "Health: " + health;
-        moneyText.text = " " + money;
+        healthText.text = "Health: " + health + "/" + maxHealth;
+        moneyText.text = "" + money;
+        shopMoneyText.text = "" + money;
 
         goal1.text = PlayerGoals.goalDataSaved1.goalName;
         goal2.text = PlayerGoals.goalDataSaved2.goalName;
@@ -254,6 +259,10 @@ public class GameManager : MonoBehaviour
                         {
                             health += 1;
                             increasedHealth++;
+                            if(health > maxHealth)
+                            {
+                                health = maxHealth;
+                            }
                         }
 
                         HighScoreSingleton.instance.AddScore(100);
@@ -405,6 +414,11 @@ public class GameManager : MonoBehaviour
                 JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
                 PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
                 health += crisisDisplay.CrisisInfo.healthIntChange;
+                if(health > maxHealth)
+                {
+                    health = maxHealth;
+                }
+                phaseButton.SetActive(false);
                 if (sign == "+" && crisisDisplay.CrisisInfo.moneyIntChange >0)
                 {
                     StartCoroutine(EventMoneyCoroutine());
@@ -413,6 +427,7 @@ public class GameManager : MonoBehaviour
                 {
                     textAnimation.SetTrigger("Add");
                     money += crisisDisplay.CrisisInfo.moneyIntChange;
+                    phaseButton.SetActive(true);
                 }
 
 
@@ -420,6 +435,7 @@ public class GameManager : MonoBehaviour
                 {
                     textAnimation.SetTrigger("Add");
                     money += crisisDisplay.CrisisInfo.moneyIntChange;
+                    phaseButton.SetActive(true);
                 }
                 IEnumerator EventMoneyCoroutine()
                 {
