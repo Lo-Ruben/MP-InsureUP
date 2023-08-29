@@ -26,15 +26,12 @@ public class ToughDecision : MonoBehaviour
         //Debug.Log("Starting Decision");//works
         if (playerDeck.deck.Count >= 3)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                cardList.Add(playerDeck.deck[playerDeck.deck.Count - 1 - i]);
-                //Debug.Log(cardList[i].cardName);
-            }
             toughDecisionPanel.SetActive(true);
             for (int i = 0; i < 3; i++)
             {
+                cardList.Add(playerDeck.deck[playerDeck.deck.Count - 1 - i]);
                 choiceCards[i].GetComponent<CardDisplay>().CardInfo = cardList[i];
+                choiceCards[i].GetComponent<Button>().enabled = true;
             }
         }
 
@@ -57,7 +54,7 @@ public class ToughDecision : MonoBehaviour
         // Destroy button component
         foreach (GameObject cards in choiceCards)
         {
-            Destroy(cards.GetComponent<Button>());
+            cards.GetComponent<Button>().enabled = false;
         }
 
         Transform discardTransform = gameManager.discardObj.transform;

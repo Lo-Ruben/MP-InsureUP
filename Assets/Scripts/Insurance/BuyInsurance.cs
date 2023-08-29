@@ -171,6 +171,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             otherInsurance2.getInsuranceInfo.staticCardBack = false;
 
             m_GameManager.insuranceBoughtDictionary.Remove(getInsuranceInfo.InsuranceData.insuranceCategory);
+            inventory.boughtInsrData.Remove(getInsuranceInfo.InsuranceData);
 
             insuranceBoughtCountCategory--;
             otherInsurance1.insuranceBoughtCountCategory--;
