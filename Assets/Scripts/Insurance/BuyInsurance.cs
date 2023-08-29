@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+
 public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 {
     // THIS SYSTEM NEEDS THESE ITEMS TO BE MANUALLY EDITED IN THE INSPECTOR
@@ -12,7 +14,13 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     [SerializeField] private BuyInsurance otherInsurance1;
     [SerializeField] private BuyInsurance otherInsurance2;
     [SerializeField] private Inventory inventory;
+    [SerializeField]
+    Animator MinusAnimator;
+    public Text moneyText;
 
+    int cardCost;
+    int discountedCardCost;
+    int newCardCost;
     public int insuranceBoughtCountCategory;
 
     public bool resetInt;
@@ -24,9 +32,13 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
+        cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
+        discountedCardCost = cardCost / 2;
+        newCardCost = m_GameManager.InsuranceCostChange(discountedCardCost, cardCost);
+        getInsuranceInfo.InsuranceData.cardCost = newCardCost;
+
         resetInt = true;
-        int cardCost = getInsuranceInfo.InsuranceData.cardCost;
-        int remainingMoney = m_GameManager.money - cardCost;
+        int remainingMoney = m_GameManager.money - getInsuranceInfo.InsuranceData.cardCost;
 
         if (otherInsurance1.getInsuranceInfo != null && otherInsurance2.getInsuranceInfo != null)
         {
@@ -40,7 +52,8 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 }
                 else
                 {
-                    m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
+                    Debug.Log("Refund");
+                    //m_GameManager.money -= cardCost;
                 }
                 
             }
@@ -53,6 +66,14 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         {
             //Debug.Log("One or more insurance references are null.");
         }
+    }
+    private void OnDisable()
+    {
+        if (resetInt && otherInsurance1.resetInt && otherInsurance2.resetInt)
+        {
+            insuranceBoughtCountCategory = 0;
+        }
+        getInsuranceInfo.InsuranceData.cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
     }
 
     private void GetGameManager()
@@ -76,13 +97,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         otherInsurance2.insuranceBoughtCountCategory = maxCategoryCount;
     }
 
-    private void OnDisable()
-    {
-        if (resetInt && otherInsurance1.resetInt && otherInsurance2.resetInt)
-        {
-            insuranceBoughtCountCategory = 0;
-        }
-    }
+    
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -118,7 +133,6 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
     private void ToggleCards()
     {
-        int cardCost = getInsuranceInfo.InsuranceData.cardCost;
         int remainingMoney = m_GameManager.money - cardCost;
         bool areOtherCardsBack = otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack;
 
@@ -130,8 +144,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                m_GameManager.money = remainingMoney;
-
+                m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
+                moneyText.text = "-$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
+                MinusAnimator.SetTrigger("minus");
                 getInsuranceInfo.staticCardBack = false;
                 otherInsurance1.getInsuranceInfo.staticCardBack = true;
                 otherInsurance2.getInsuranceInfo.staticCardBack = true;
@@ -148,8 +163,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         }
         else
         {
-            m_GameManager.money += cardCost;
-
+            m_GameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+            moneyText.text = "+$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
+            MinusAnimator.SetTrigger("minus");
             getInsuranceInfo.staticCardBack = false;
             otherInsurance1.getInsuranceInfo.staticCardBack = false;
             otherInsurance2.getInsuranceInfo.staticCardBack = false;

@@ -11,10 +11,16 @@ public class InsuranceData : ScriptableObject
 
     // Card Cost
     public int cardCost;
+    public int originalCardCost;
 
     public Sprite cardImage;
     // Card Return
     public int returnMoney;
 
     public string insuranceCategory;
+
+    void Awake()
+    {
+        originalCardCost = cardCost;
+    }
 }

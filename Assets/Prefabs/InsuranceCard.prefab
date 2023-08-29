@@ -127,10 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e5777aa232c91488a79b357b15a28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getInsuranceInfo: {fileID: 0}
   m_GameManager: {fileID: 0}
   otherInsurance1: {fileID: 0}
   otherInsurance2: {fileID: 0}
   inventory: {fileID: 0}
+  insuranceBoughtCountCategory: 0
+  resetInt: 0
 --- !u!1 &2539421315740212972
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,11 +362,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e4726e73cf9f9fd408adcfe62dda1849, type: 3}
-    m_FontSize: 11
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 135
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

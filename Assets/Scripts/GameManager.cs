@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // Player stats
-    private int health;
-    public int maxHP;
+    public int health;
+    public int maxHealth;
     public int increasedHealth;
     public int money;
     public int spentMoney;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     [Header("Game UI")]
     public Text healthText;
     public Text moneyText;
-
+    public Text shopMoneyText;
 
     public Text jobLevelText;
     public Text familyLevelText;
@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     public Slider slider3;
 
     public Text moneyChangedText;
+
+    public GameObject phaseButton;
 
 
     //Debugging
@@ -113,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     public bool hasHealthBeenModified = true;
     public bool hasCardCostBeenModified = true;
-    public bool hasInsuranceCostBeenModified = true;
+    public bool hasInsuranceCostBeenModified = false;
 
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
@@ -122,7 +124,6 @@ public class GameManager : MonoBehaviour
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
     public CardData cardData;
-    public InsuranceData insuranceData;
 
     public List<GameObject> discarded = new List<GameObject>();
     public List<GameObject> inHand = new List<GameObject>();
@@ -134,15 +135,13 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
     public CardData cardPlayed;
 
-
-    public bool hasRoundPassed = false;
     public bool discountedDraw = false;
     public bool discountedInsuranceCost = false;
     private void Awake()
     {
         money = 500;
-        maxHP = 5;
-        health = maxHP;
+        maxHealth = 5;
+        health = maxHealth;
         JobLevel = 5;
         FamilyLevel = 5;
         PersonalLevel = 5;
@@ -194,8 +193,9 @@ public class GameManager : MonoBehaviour
         familyLevelText.text = FamilyLevel.ToString();
         personalLevelText.text = PersonalLevel.ToString();
 
-        healthText.text = "Health: " + health;
-        moneyText.text = " " + money;
+        healthText.text = "Health: " + health + "/" + maxHealth;
+        moneyText.text = "" + money;
+        shopMoneyText.text = "" + money;
 
         goal1.text = PlayerGoals.goalDataSaved1.goalName;
         goal2.text = PlayerGoals.goalDataSaved2.goalName;
@@ -233,16 +233,14 @@ public class GameManager : MonoBehaviour
                 phaseText.text = "Current Phase: Action";
                 if (hasCardCostBeenModified)
                 {
-                    Debug.Log("Reset");
                     addPlayerCards.drawCost = 4;
                     hasCardCostBeenModified = false;
                 }
-/*
                 if (hasInsuranceCostBeenModified)
                 {
-                    
+                    discountedInsuranceCost = true;
                     hasInsuranceCostBeenModified = false;
-                }*/
+                }
                 discardArea.enabled = true;
                 break;
             case 3:
@@ -263,6 +261,10 @@ public class GameManager : MonoBehaviour
                         {
                             health += 1;
                             increasedHealth++;
+                            if(health > maxHealth)
+                            {
+                                health = maxHealth;
+                            }
                         }
 
                         HighScoreSingleton.instance.AddScore(100);
@@ -295,7 +297,6 @@ public class GameManager : MonoBehaviour
                 CalculateIncome(baseIncome);
                 hasHealthBeenModified = true;
                 hasCardCostBeenModified = true;
-                //hasInsuranceCostBeenModified = true;
                 break;
             default:
                 Debug.Log("Out of phaseInt size");
@@ -308,42 +309,38 @@ public class GameManager : MonoBehaviour
     {
         UpdateStats(discardArea.cardData);
         CycleHand(discardArea.cardData);
-        DrawDiscount();
+        CheckDiscount();
         cardPlayed = discardArea.cardData;
         HighScoreSingleton.instance.AddScore(10);
     }
 
-    public void DrawDiscount()
+    public void CheckDiscount()
     {
-
-        if (discountedDraw != true)
-        {
-            addPlayerCards.drawCost = 4;
-        }
-        
         if (discardArea.cardData.drawDiscount == true)
         {
             Debug.Log("Discounted card has been placed");
             addPlayerCards.drawCost = 3;
             discountedDraw = true;
         }
-    }
-
-    /*public void InsuranceCostDiscount()
-    {
-
-        if (discountedInsuranceCost != true) 
-        {
-            insuranceData.cardCost = insuranceData.cardCost * 2;
-        }
-
         if (discardArea.cardData.insurancePurchaseDiscount == true)
         {
-            insuranceData.cardCost = insuranceData.cardCost / 2;
-            discountedInsuranceCost = true;
+            Debug.Log("Discounted card has been placed");
+            hasInsuranceCostBeenModified = true;
+        }
+    }
+
+    public int InsuranceCostChange(int discountedCardCost, int originalCardCost)
+    {
+        if (discountedInsuranceCost == true)
+        {
+            return discountedCardCost;
+        }
+        else
+        {
+            return originalCardCost;
         }
       
-    }*/
+    }
     void CalculateIncome(int income)
     {
         int proffit = income * JobLevel;
@@ -420,6 +417,11 @@ public class GameManager : MonoBehaviour
                 JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
                 PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
                 health += crisisDisplay.CrisisInfo.healthIntChange;
+                if(health > maxHealth)
+                {
+                    health = maxHealth;
+                }
+                phaseButton.SetActive(false);
                 if (sign == "+" && crisisDisplay.CrisisInfo.moneyIntChange >0)
                 {
                     StartCoroutine(EventMoneyCoroutine());
@@ -428,6 +430,7 @@ public class GameManager : MonoBehaviour
                 {
                     textAnimation.SetTrigger("Add");
                     money += crisisDisplay.CrisisInfo.moneyIntChange;
+                    phaseButton.SetActive(true);
                 }
 
 
@@ -435,6 +438,7 @@ public class GameManager : MonoBehaviour
                 {
                     textAnimation.SetTrigger("Add");
                     money += crisisDisplay.CrisisInfo.moneyIntChange;
+                    phaseButton.SetActive(true);
                 }
                 IEnumerator EventMoneyCoroutine()
                 {
