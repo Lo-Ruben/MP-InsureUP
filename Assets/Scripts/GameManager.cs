@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     // Player stats
     private int health;
+    public int maxHP;
     public int increasedHealth;
     public int money;
     public int spentMoney;
@@ -140,7 +141,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         money = 500;
-        health = 3;
+        maxHP = 5;
+        health = maxHP;
         JobLevel = 5;
         FamilyLevel = 5;
         PersonalLevel = 5;
