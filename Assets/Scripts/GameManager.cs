@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     public AddPlayerCards addPlayerCards;
     public GameObject toughDecisionPanel;
     public GameObject canvas;
-
+    public CardData cardPlayed;
 
 
     public bool hasRoundPassed = false;
@@ -158,6 +158,7 @@ public class GameManager : MonoBehaviour
         handObj = GameObject.Find("PlayerHand");
         playerDeck = GameObject.Find("ActionDeckManager").GetComponent<PlayerDeck>();
         addPlayerCards = handObj.GetComponent<AddPlayerCards>();
+        cardPlayed = null;
 
     }
     void Update()
@@ -306,6 +307,7 @@ public class GameManager : MonoBehaviour
         UpdateStats(discardArea.cardData);
         CycleHand(discardArea.cardData);
         DrawDiscount();
+        cardPlayed = discardArea.cardData;
         HighScoreSingleton.instance.AddScore(10);
     }
 
@@ -516,11 +518,10 @@ public class GameManager : MonoBehaviour
             case "Copycat":
                 //get last card in discarded list
                 //play it
-                if (discarded.Count > 0)
+                if (cardPlayed != null)
                 {
-                    CardDisplay lastPlayed = discarded.Last().GetComponent<CardDisplay>();
-                    UpdateStats(lastPlayed.CardInfo);
-                    CycleHand(lastPlayed.CardInfo);
+                    UpdateStats(cardPlayed);
+                    CycleHand(cardPlayed);
                 }
                 break;
 

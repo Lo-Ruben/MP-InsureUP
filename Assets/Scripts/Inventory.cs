@@ -52,6 +52,7 @@ public class Inventory : MonoBehaviour
         }
         for (int o = 0; o < boughtInsrData.Count; o++)
         {
+            invCards[o].GetComponent<InsuranceDisplay>().DisplayInfo();
             invCards[o].SetActive(true);
         }
     }

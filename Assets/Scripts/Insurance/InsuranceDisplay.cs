@@ -48,7 +48,7 @@ public class InsuranceDisplay : MonoBehaviour
         }
     }
 
-    void DisplayInfo()
+    public void DisplayInfo()
     {
         cardNameText.text = InsuranceData.cardName;
         cardDescriptionText.text = InsuranceData.cardDescription;
