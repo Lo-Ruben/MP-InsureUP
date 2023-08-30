@@ -13,6 +13,22 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
     public float distanceFromCamera = 10f;
     [SerializeField]
     Animator animator;
+
+    int cardCostProsthetics;
+    int discountedCardCostProsthetics;
+    int newCardCostProsthetics;
+
+    private void OnEnable()
+    {
+        cardCostProsthetics = getInsuranceInfo.InsuranceData.originalCardCost;
+        discountedCardCostProsthetics = cardCostProsthetics / 2;
+        newCardCostProsthetics = gameManager.ProstheticsCostChange(discountedCardCostProsthetics, cardCostProsthetics);
+        getInsuranceInfo.InsuranceData.cardCost = newCardCostProsthetics;
+    }
+    private void OnDisable()
+    {
+        getInsuranceInfo.InsuranceData.cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
+    }
     public void Update()
     {
         string cardName = getInsuranceInfo.InsuranceData.cardName;
@@ -58,7 +74,7 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
                 if (gameManager.health < gameManager.maxHealth)
                 {
                     getInsuranceInfo.staticCardBack = false;
-                    gameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+                    gameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
                     gameManager.health += 1;
                     Debug.Log("Bought check up");
                     animator.SetTrigger("minus");
@@ -72,7 +88,7 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
                 if(gameManager.maxHealth < 5)
                 {
                     getInsuranceInfo.staticCardBack = false;
-                    gameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+                    gameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
                     gameManager.maxHealth += 1;
                     Debug.Log("Bought prosthetic");
                     animator.SetTrigger("minus");

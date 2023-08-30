@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
     public bool hasHealthBeenModified = true;
     public bool hasCardCostBeenModified = true;
     public bool hasInsuranceCostBeenModified = false;
+    public bool hasProstheticsCostBeenModified = false;
 
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
@@ -137,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     public bool discountedDraw = false;
     public bool discountedInsuranceCost = false;
+    public bool discountedProstheticsCost = false;
     private void Awake()
     {
         money = 500;
@@ -241,6 +243,11 @@ public class GameManager : MonoBehaviour
                     discountedInsuranceCost = true;
                     hasInsuranceCostBeenModified = false;
                 }
+                if (hasProstheticsCostBeenModified)
+                {
+                    discountedProstheticsCost = true;
+                    hasProstheticsCostBeenModified = false;
+                }
                 discardArea.enabled = true;
                 break;
             case 3:
@@ -293,6 +300,7 @@ public class GameManager : MonoBehaviour
                 }
                 discountedDraw = false;
                 discountedInsuranceCost = false;
+                discountedProstheticsCost = false;
                 roundCounter++;
                 CalculateIncome(baseIncome);
                 hasHealthBeenModified = true;
@@ -327,6 +335,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Discounted card has been placed");
             hasInsuranceCostBeenModified = true;
         }
+        if(discardArea.cardData.prostheticsDiscount == true)
+        {
+            hasProstheticsCostBeenModified = true;
+        }
     }
 
     public int InsuranceCostChange(int discountedCardCost, int originalCardCost)
@@ -340,6 +352,18 @@ public class GameManager : MonoBehaviour
             return originalCardCost;
         }
       
+    }
+
+    public int ProstheticsCostChange(int discountedCardCost, int originalCardCost)
+    {
+        if(discountedProstheticsCost == true)
+        {
+            return discountedCardCost;
+        }
+        else
+        {
+            return originalCardCost;
+        }
     }
     void CalculateIncome(int income)
     {

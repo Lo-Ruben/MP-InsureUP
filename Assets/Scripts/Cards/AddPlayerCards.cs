@@ -49,7 +49,7 @@ public class AddPlayerCards : MonoBehaviour
     // It is also attached to a button 
     public void SpawnCard()
     {
-        if (this.transform.childCount < m_playerManager.MaxPlayerHand)
+        if (this.transform.childCount < m_playerManager.MaxPlayerHand && m_playerManager.PhaseInt == 1)
         {
             m_playerManager.money -= drawCost;
             GameObject temp = Instantiate(card, transform.position, transform.rotation);

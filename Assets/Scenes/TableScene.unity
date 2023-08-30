@@ -320,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &54463222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6195,7 +6195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &659552513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8226,6 +8226,7 @@ MonoBehaviour:
   hasHealthBeenModified: 1
   hasCardCostBeenModified: 1
   hasInsuranceCostBeenModified: 0
+  hasProstheticsCostBeenModified: 0
   JobLifeAspect: {fileID: 1396418241}
   FamilyLifeAspect: {fileID: 1810295277}
   PersonalLifeAspect: {fileID: 1121811908}
@@ -8241,6 +8242,7 @@ MonoBehaviour:
   cardPlayed: {fileID: 0}
   discountedDraw: 0
   discountedInsuranceCost: 0
+  discountedProstheticsCost: 0
 --- !u!1 &830628156
 GameObject:
   m_ObjectHideFlags: 0
@@ -11290,7 +11292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
@@ -11348,15 +11350,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deck: []
   existingCards:
-  - {fileID: 11400000, guid: 5014b4637904fa240b002c874ef81af8, type: 2}
-  - {fileID: 11400000, guid: 00e2811bb85214c4fbacc81ea73b4d4f, type: 2}
+  - {fileID: 11400000, guid: 24d1c344262c3874289530c5192bde70, type: 2}
   cardInDeck1: {fileID: 590028513}
   cardInDeck2: {fileID: 40713218}
   cardInDeck3: {fileID: 1957994884}
