@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
     public bool hasCardCostBeenModified = true;
     public bool hasInsuranceCostBeenModified = false;
     public bool hasProstheticsCostBeenModified = false;
+    public bool hasMedCheckCostBeenModified = false;
 
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
@@ -139,6 +140,7 @@ public class GameManager : MonoBehaviour
     public bool discountedDraw = false;
     public bool discountedInsuranceCost = false;
     public bool discountedProstheticsCost = false;
+    public bool discountedMedCheckCost = false;
     private void Awake()
     {
         money = 500;
@@ -248,6 +250,11 @@ public class GameManager : MonoBehaviour
                     discountedProstheticsCost = true;
                     hasProstheticsCostBeenModified = false;
                 }
+                if (hasMedCheckCostBeenModified)
+                {
+                    discountedMedCheckCost = true;
+                    hasMedCheckCostBeenModified = false;
+                }
                 discardArea.enabled = true;
                 break;
             case 3:
@@ -301,6 +308,7 @@ public class GameManager : MonoBehaviour
                 discountedDraw = false;
                 discountedInsuranceCost = false;
                 discountedProstheticsCost = false;
+                discountedMedCheckCost = false;
                 roundCounter++;
                 CalculateIncome(baseIncome);
                 hasHealthBeenModified = true;
@@ -339,6 +347,10 @@ public class GameManager : MonoBehaviour
         {
             hasProstheticsCostBeenModified = true;
         }
+        if(discardArea.cardData.medicalTreatmentDiscount == true)
+        {
+            hasMedCheckCostBeenModified = true;
+        }
     }
 
     public int InsuranceCostChange(int discountedCardCost, int originalCardCost)
@@ -365,6 +377,20 @@ public class GameManager : MonoBehaviour
             return originalCardCost;
         }
     }
+
+    public int MedCheckCostChange(int discountedCardCost, int originalCardCost)
+    {
+        if (discountedMedCheckCost == true)
+        {
+            return discountedCardCost;
+        }
+        else
+        {
+            return originalCardCost;
+        }
+    }
+
+    
     void CalculateIncome(int income)
     {
         int proffit = income * JobLevel;

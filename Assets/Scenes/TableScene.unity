@@ -8227,6 +8227,7 @@ MonoBehaviour:
   hasCardCostBeenModified: 1
   hasInsuranceCostBeenModified: 0
   hasProstheticsCostBeenModified: 0
+  hasMedCheckCostBeenModified: 0
   JobLifeAspect: {fileID: 1396418241}
   FamilyLifeAspect: {fileID: 1810295277}
   PersonalLifeAspect: {fileID: 1121811908}
@@ -8243,6 +8244,7 @@ MonoBehaviour:
   discountedDraw: 0
   discountedInsuranceCost: 0
   discountedProstheticsCost: 0
+  discountedMedCheckCost: 0
 --- !u!1 &830628156
 GameObject:
   m_ObjectHideFlags: 0
@@ -11355,7 +11357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck: []
+  deck:
+  - {fileID: 11400000, guid: 93665cab94babd14abd22b6f81b779f0, type: 2}
   existingCards:
   - {fileID: 11400000, guid: 24d1c344262c3874289530c5192bde70, type: 2}
   cardInDeck1: {fileID: 590028513}

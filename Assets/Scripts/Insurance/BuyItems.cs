@@ -18,12 +18,30 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
     int discountedCardCostProsthetics;
     int newCardCostProsthetics;
 
+    int cardCostMedCheck;
+    int discountedCardCostMedCheck;
+    int newCardCostMedCheck;
     private void OnEnable()
     {
-        cardCostProsthetics = getInsuranceInfo.InsuranceData.originalCardCost;
-        discountedCardCostProsthetics = cardCostProsthetics / 2;
-        newCardCostProsthetics = gameManager.ProstheticsCostChange(discountedCardCostProsthetics, cardCostProsthetics);
-        getInsuranceInfo.InsuranceData.cardCost = newCardCostProsthetics;
+        string cardName = getInsuranceInfo.InsuranceData.cardName;
+        switch (cardName)
+        {
+            case "Medical Check Up":
+                cardCostMedCheck = getInsuranceInfo.InsuranceData.originalCardCost;
+                discountedCardCostMedCheck = cardCostMedCheck / 2;
+                newCardCostMedCheck = gameManager.MedCheckCostChange(discountedCardCostMedCheck, cardCostMedCheck);
+                getInsuranceInfo.InsuranceData.cardCost = newCardCostMedCheck;
+                break;
+            case "Prosthetic":
+                cardCostProsthetics = getInsuranceInfo.InsuranceData.originalCardCost;
+                discountedCardCostProsthetics = cardCostProsthetics / 2;
+                newCardCostProsthetics = gameManager.ProstheticsCostChange(discountedCardCostProsthetics, cardCostProsthetics);
+                getInsuranceInfo.InsuranceData.cardCost = newCardCostProsthetics;
+                
+                break;
+        }
+
+        
     }
     private void OnDisable()
     {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Medical Check Up
   cardDescription: 
-  cardCost: -50
+  cardCost: 50
   originalCardCost: 50
   cardImage: {fileID: 21300000, guid: cdb76cf4f7287e942af46f6f2b339525, type: 3}
   returnMoney: 0
