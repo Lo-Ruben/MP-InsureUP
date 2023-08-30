@@ -185,9 +185,9 @@ public class GameManager : MonoBehaviour
    
     void UpdateTextInfo()
     {
-        JobLevel = Mathf.Clamp(JobLevel, 0, 10);
-        FamilyLevel = Mathf.Clamp(FamilyLevel, 0, 10);
-        PersonalLevel = Mathf.Clamp(PersonalLevel, 0, 10);
+        JobLevel = Mathf.Clamp(JobLevel, 1, 10);
+        FamilyLevel = Mathf.Clamp(FamilyLevel, 1, 10);
+        PersonalLevel = Mathf.Clamp(PersonalLevel, 1, 10);
 
         jobLevelText.text = JobLevel.ToString();
         familyLevelText.text = FamilyLevel.ToString();

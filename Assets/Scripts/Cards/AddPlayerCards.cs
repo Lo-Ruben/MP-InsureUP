@@ -42,21 +42,19 @@ public class AddPlayerCards : MonoBehaviour
                 Debug.Log("Player's hand is full");
                 m_playerManager.PhaseInt += 1;
             }
-            else if (Input.GetKeyDown(KeyCode.W) && this.transform.childCount < m_playerManager.MaxPlayerHand)
-            {
-                
-                SpawnCard();
-                //Debug.Log(m_crisisDeck.disasterCounter);
-            }
         }
     }
 
     // Instantiate a card in PlayerHand
+    // It is also attached to a button 
     public void SpawnCard()
     {
-        m_playerManager.money -= drawCost;
-        GameObject temp = Instantiate(card, transform.position, transform.rotation);
-        temp.transform.SetParent(this.transform);
-        spawnCardCounter++;
+        if (this.transform.childCount < m_playerManager.MaxPlayerHand)
+        {
+            m_playerManager.money -= drawCost;
+            GameObject temp = Instantiate(card, transform.position, transform.rotation);
+            temp.transform.SetParent(this.transform);
+            spawnCardCounter++;
+        }
     }
 }
