@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject buttons;
     public Animator animator;
+    public GameObject tutorialScreen;
     bool opened = false;
 
     void Start()
@@ -45,5 +46,15 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+    }
+    public void tutorial()
+    {
+        tutorialScreen.SetActive(true);
+        Resume();
+    }
+    public void tutorialBack()
+    {
+        OpenMenu();
+        tutorialScreen.SetActive(false);
     }
 }

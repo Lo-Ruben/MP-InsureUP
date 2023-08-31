@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
     public GameObject settings;
+    public GameObject tutorialScreen;
     public void FadeToGame ()
     {
         animator.SetTrigger("FadeOut");     
@@ -36,6 +37,13 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
+    public void tutorial()
+    {
+        tutorialScreen.SetActive(true);
+    }
+    public void tutorialBack()
+    {
+        tutorialScreen.SetActive(false);
+    }
 
 }

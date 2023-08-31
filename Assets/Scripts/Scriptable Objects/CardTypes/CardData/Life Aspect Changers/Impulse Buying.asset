@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Impulse Buying
   m_EditorClassIdentifier: 
+  cardType: Life Aspect
   cardName: Impulse Buying
   cardDescription: + 2 Personal Needs
   cardCost: 5
@@ -20,4 +21,9 @@ MonoBehaviour:
   jobIncrease: 0
   personalIncrease: 2
   cardEffectDuration: 0
-  testBool: 0
+  drawDiscount: 0
+  renewalDiscount: 0
+  upgradeDiscount: 0
+  insurancePurchaseDiscount: 0
+  medicalTreatmentDiscount: 0
+  prostheticsDiscount: 0

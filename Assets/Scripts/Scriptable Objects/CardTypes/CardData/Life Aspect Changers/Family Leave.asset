@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Family Leave
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Life Aspect
   cardName: Family Leave
   cardDescription: 'Work Needs -1 Family Needs +1 '
   cardCost: 0

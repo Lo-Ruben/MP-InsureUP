@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Inventory Update")]
+    //inventory display
+    public Inventory invt;
+    public GameObject insuranceInfoPrefab;
+    public InventoryData noDataFound;
+
+    [Header("Player Stats")]
     // Player stats
     public int health;
     public int maxHealth;
@@ -179,6 +186,7 @@ public class GameManager : MonoBehaviour
         GameOver();
         PhaseCheck();
         UpdateHandAndDiscard();
+        noInsuranceBought();
 
         JobLifeAspect.UpdateImage(JobLevel);
         FamilyLifeAspect.UpdateImage(FamilyLevel);
@@ -191,6 +199,15 @@ public class GameManager : MonoBehaviour
 
         // Ensure max player hand matches family level
         maxPlayerHand = FamilyLevel;
+    }
+    void noInsuranceBought()
+    {
+        if (invt.boughtInsrData.Count == 0)
+        {
+            InventoryDisplay noData = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
+            noData.InventoryData = noDataFound;
+        }
+        Debug.Log("lol");
     }
    
     void UpdateTextInfo()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Business Trip
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Life Aspect
   cardName: Business Trip
   cardDescription: 'Family Needs -1 Work Needs +1 '
   cardCost: 0

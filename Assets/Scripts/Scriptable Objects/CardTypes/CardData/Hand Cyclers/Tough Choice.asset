@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Tough Choice
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Hand Cycler
   cardName: Tough Choice
   cardDescription: See the top 3 cards of the deck, choose 1 card to add to your
     hand, the other 2 are discarded.

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Copycat
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Hand Cycler
   cardName: Copycat
   cardDescription: Play the previous card, costs $1k.
   cardCost: 1000

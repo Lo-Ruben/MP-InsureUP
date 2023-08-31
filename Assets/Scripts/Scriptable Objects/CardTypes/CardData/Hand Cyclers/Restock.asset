@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Restock
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Hand Cycler
   cardName: Restock
   cardDescription: Draw until your hand is full.
   cardCost: 0

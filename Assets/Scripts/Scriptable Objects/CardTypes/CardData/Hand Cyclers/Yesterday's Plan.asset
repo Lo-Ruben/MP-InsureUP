@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Yesterday's Plan
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Hand Cycler
   cardName: Yesterday's Plan
   cardDescription: Add a random card from the discard pile to your hand.
   cardCost: 0

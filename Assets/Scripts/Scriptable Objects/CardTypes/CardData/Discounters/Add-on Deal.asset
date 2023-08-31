@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5955a48eaae845a430b10dbd0f282, type: 3}
   m_Name: Add-on Deal
   m_EditorClassIdentifier: 
+  cardType: Discounter
   cardName: Add-on Deal
   cardDescription: Insurance Upgrade Cost -25%, 1 turn
   cardCost: 0

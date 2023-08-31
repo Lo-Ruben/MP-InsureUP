@@ -15,7 +15,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         animator.SetTrigger("Highlighted");
-    }
+    }   
     public void OnPointerExit(PointerEventData eventData)
     {
         animator.SetTrigger("Normal");
