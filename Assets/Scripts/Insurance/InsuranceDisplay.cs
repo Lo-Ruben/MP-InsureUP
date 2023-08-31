@@ -38,7 +38,6 @@ public class InsuranceDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Enabled");
     }
 
     private void Update()

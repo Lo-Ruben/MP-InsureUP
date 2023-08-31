@@ -327,7 +327,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void PlayCard()
     {
         UpdateStats(discardArea.cardData);
@@ -434,76 +433,76 @@ public class GameManager : MonoBehaviour
 
         if (crisisDisplay.CrisisInfo != null)
         {
-            string insuranceTypeCounter = crisisDisplay.CrisisInfo.insuranceCounter;
+            CrisisData crisisInfo = crisisDisplay.CrisisInfo;
+            int moneyChange = crisisInfo.moneyIntChange;
+            int familyChange = crisisInfo.familyIntChange;
+            int jobChange = crisisInfo.jobIntChange;
+            int personalChange = crisisInfo.personalIntChange;
+            int healthChange = crisisInfo.healthIntChange;
 
-            if (insuranceBoughtDictionary.ContainsKey(insuranceTypeCounter))
+            if (insuranceBoughtDictionary.ContainsKey(crisisInfo.insuranceCounter))
             {
-                int insuranceBenefit = insuranceBoughtDictionary[insuranceTypeCounter];
-                Debug.Log(insuranceTypeCounter + " Insurance money");
+                int insuranceBenefit = insuranceBoughtDictionary[crisisInfo.insuranceCounter];
+                HighScoreSingleton.instance.AddScore(200);
+                Debug.Log(crisisInfo.insuranceCounter + " Insurance money");
                 Debug.Log("Insurance Profit: " + insuranceBenefit);
                 MoneyDisplay(insuranceBenefit);
+
                 if (sign == "+" && insuranceBenefit > 0)
                 {
-                    StartCoroutine(InsuranceMoneyCoroutine());
+                    yield return StartCoroutine(DelayedUpdateMoney(insuranceBenefit));
                 }
                 else
                 {
-                    textAnimation.SetTrigger("Add");
-                    money += insuranceBenefit;
+                    UpdateMoney(insuranceBenefit);
                 }
+
                 timesProtected++;
-
-
-                void UpdateInsuranceMoney()
-                {
-                    textAnimation.SetTrigger("Add");
-                    money += insuranceBenefit;
-                }
-                IEnumerator InsuranceMoneyCoroutine()
-                {
-                    yield return new WaitForSeconds(2f);
-                    UpdateInsuranceMoney();
-                }
             }
-
             else
             {
-                MoneyDisplay(crisisDisplay.CrisisInfo.moneyIntChange);
+                if (crisisInfo.cardType == "Bad")
+                {
+                    HighScoreSingleton.instance.DeductScore(1000);
+                }
 
-                FamilyLevel += crisisDisplay.CrisisInfo.familyIntChange;
-                JobLevel += crisisDisplay.CrisisInfo.jobIntChange;
-                PersonalLevel += crisisDisplay.CrisisInfo.personalIntChange;
-                health += crisisDisplay.CrisisInfo.healthIntChange;
-                if(health > maxHealth)
+                MoneyDisplay(moneyChange);
+                FamilyLevel += familyChange;
+                JobLevel += jobChange;
+                PersonalLevel += personalChange;
+                health += healthChange;
+
+                if (health > maxHealth)
                 {
                     health = maxHealth;
                 }
+
                 phaseButton.SetActive(false);
-                if (sign == "+" && crisisDisplay.CrisisInfo.moneyIntChange >0)
+
+                if (sign == "+" && moneyChange > 0)
                 {
-                    StartCoroutine(EventMoneyCoroutine());
+                    yield return StartCoroutine(DelayedUpdateMoney(moneyChange));
                 }
                 else
                 {
-                    textAnimation.SetTrigger("Add");
-                    money += crisisDisplay.CrisisInfo.moneyIntChange;
+                    UpdateMoney(moneyChange);
                     phaseButton.SetActive(true);
-                }
-
-
-                void updateMoneyEvent()
-                {
-                    textAnimation.SetTrigger("Add");
-                    money += crisisDisplay.CrisisInfo.moneyIntChange;
-                    phaseButton.SetActive(true);
-                }
-                IEnumerator EventMoneyCoroutine()
-                {
-                    yield return new WaitForSeconds(2f);
-                    updateMoneyEvent();
                 }
             }
         }
+    }
+
+    IEnumerator DelayedUpdateMoney(int amount)
+    {
+        yield return new WaitForSeconds(2f);
+        UpdateMoney(amount);
+        phaseButton.SetActive(true);
+    }
+
+    void UpdateMoney(int amount)
+    {
+        textAnimation.SetTrigger("Add");
+        money += amount;
     }
 
     public void UpdateStats(CardData cardData)

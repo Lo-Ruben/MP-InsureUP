@@ -32,6 +32,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
+        RenewalPayment();
         cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
         discountedCardCost = cardCost / 2;
         newCardCost = m_GameManager.InsuranceCostChange(discountedCardCost, cardCost);
@@ -52,7 +53,6 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 }
                 else
                 {
-                    Debug.Log("Refund");
                     //m_GameManager.money -= cardCost;
                 }
                 
@@ -195,6 +195,17 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         if (getInsuranceInfo.staticCardBack == true)
         {
             getInsuranceInfo.staticCardBack = false;
+        }
+    }
+    public void RenewalPayment()
+    {
+        if(otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack)
+        {
+            foreach (var individualInsurance in inventory.boughtInsrData)
+            {
+                m_GameManager.money -= individualInsurance.cardCost;
+                Debug.Log(m_GameManager.money);
+            }
         }
     }
 }
