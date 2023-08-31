@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 456177427}
   - component: {fileID: 456177429}
   - component: {fileID: 456177430}
+  - component: {fileID: 456177431}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -390,6 +391,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &456177431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456177425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1abb9bb0cd8bc438492f82f4d82c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &475562642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1701605520434806917, guid: 9a4179aa728bfa343b1846969b96f5d2, type: 3}
@@ -1226,6 +1239,7 @@ GameObject:
   - component: {fileID: 972237197}
   - component: {fileID: 972237200}
   - component: {fileID: 972237199}
+  - component: {fileID: 972237201}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1372,6 +1386,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &972237201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972237195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1abb9bb0cd8bc438492f82f4d82c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1030948178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1411,7 @@ GameObject:
   - component: {fileID: 1030948180}
   - component: {fileID: 1030948182}
   - component: {fileID: 1030948183}
+  - component: {fileID: 1030948184}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1531,6 +1558,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1030948184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030948178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1abb9bb0cd8bc438492f82f4d82c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126427905
 GameObject:
   m_ObjectHideFlags: 0
