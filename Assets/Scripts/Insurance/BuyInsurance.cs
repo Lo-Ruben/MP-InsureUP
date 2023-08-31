@@ -159,6 +159,12 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 otherInsurance2.insuranceBoughtCountCategory++;
 
                 resetInt = false;
+
+                //for health insurance
+                if (getInsuranceInfo.InsuranceData.insuranceCategory == "Health")
+                {
+                    m_GameManager.boughtTurn = m_GameManager.roundCounter;
+                }
             }
         }
         else

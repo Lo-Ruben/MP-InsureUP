@@ -21,6 +21,9 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
     int cardCostMedCheck;
     int discountedCardCostMedCheck;
     int newCardCostMedCheck;
+
+    public GameObject canvas; //here (drag it into both cards in inspector)
+
     private void OnEnable()
     {
         string cardName = getInsuranceInfo.InsuranceData.cardName;
@@ -94,6 +97,7 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
                     getInsuranceInfo.staticCardBack = false;
                     gameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
                     gameManager.health += 1;
+                    CheckHealthInsurance(); //here
                     Debug.Log("Bought check up");
                     animator.SetTrigger("minus");
                 }
@@ -108,6 +112,7 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
                     getInsuranceInfo.staticCardBack = false;
                     gameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
                     gameManager.maxHealth += 1;
+                    CheckHealthInsurance(); //here
                     Debug.Log("Bought prosthetic");
                     animator.SetTrigger("minus");
                 }   
@@ -118,5 +123,25 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
                 break;
         }
 
+    }
+
+    public void CheckHealthInsurance()
+    {
+        Inventory inventory = canvas.GetComponent<Inventory>();
+        foreach (InsuranceData insurance in inventory.boughtInsrData)
+        {
+            if (insurance.insuranceCategory == "Health" 
+                && gameManager.roundCounter > gameManager.boughtTurn
+                && gameManager.healthInsuranceBool == false)
+            {
+                gameManager.money += insurance.returnMoney;
+                gameManager.healthInsuranceBool = true;
+                Debug.Log("it works! " + insurance.returnMoney);
+            }
+            else
+            {
+                Debug.Log("Boohoo!");
+            }
+        }
     }
 }

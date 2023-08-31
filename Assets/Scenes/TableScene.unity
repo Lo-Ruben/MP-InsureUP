@@ -6492,6 +6492,7 @@ MonoBehaviour:
   getInsuranceInfo: {fileID: 686366895}
   distanceFromCamera: 10
   animator: {fileID: 1654650452}
+  canvas: {fileID: 819967108}
 --- !u!1 &692248810
 GameObject:
   m_ObjectHideFlags: 0
@@ -8245,6 +8246,7 @@ MonoBehaviour:
   discountedInsuranceCost: 0
   discountedProstheticsCost: 0
   discountedMedCheckCost: 0
+  boughtTurn: 0
 --- !u!1 &830628156
 GameObject:
   m_ObjectHideFlags: 0
@@ -14320,6 +14322,7 @@ MonoBehaviour:
   getInsuranceInfo: {fileID: 1580710434}
   distanceFromCamera: 10
   animator: {fileID: 1654650452}
+  canvas: {fileID: 819967108}
 --- !u!1 &1584893114
 GameObject:
   m_ObjectHideFlags: 0

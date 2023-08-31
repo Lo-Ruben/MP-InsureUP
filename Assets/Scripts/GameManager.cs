@@ -141,6 +141,10 @@ public class GameManager : MonoBehaviour
     public bool discountedInsuranceCost = false;
     public bool discountedProstheticsCost = false;
     public bool discountedMedCheckCost = false;
+
+    public int boughtTurn; //here
+    public bool healthInsuranceBool; //here
+
     private void Awake()
     {
         money = 500;
@@ -151,7 +155,9 @@ public class GameManager : MonoBehaviour
         PersonalLevel = 5;
         phaseInt = 1;
         roundCounter = 1;
-    }
+        boughtTurn = 0; //here
+        healthInsuranceBool = false; //here
+}
 
     void Start()
     {
@@ -313,6 +319,7 @@ public class GameManager : MonoBehaviour
                 CalculateIncome(baseIncome);
                 hasHealthBeenModified = true;
                 hasCardCostBeenModified = true;
+                healthInsuranceBool = false; //here
                 break;
             default:
                 Debug.Log("Out of phaseInt size");
