@@ -32,6 +32,7 @@ public class ToughDecision : MonoBehaviour
                 cardList.Add(playerDeck.deck[playerDeck.deck.Count - 1 - i]);
                 choiceCards[i].GetComponent<CardDisplay>().CardInfo = cardList[i];
                 choiceCards[i].GetComponent<Button>().enabled = true;
+                choiceCards[i].GetComponent<CardDisplay>().RefreshInfo();
             }
         }
 
@@ -63,7 +64,6 @@ public class ToughDecision : MonoBehaviour
         //draw the chosen card
         GameObject temp = Instantiate(decision, handTransform.position, handTransform.rotation, handTransform);
         addPlayerCards.spawnCardCounter++;
-        choiceCards.Remove(decision);
 
         //discard the unchosen cards
         foreach (GameObject unchosen in choiceCards)

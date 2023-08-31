@@ -93,4 +93,9 @@ public class CardDisplay : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         DisplayInfoBot();
     }
+
+    public void RefreshInfo()
+    {
+        StartCoroutine(TextAfterAnimation());
+    }
 }
