@@ -151,6 +151,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 otherInsurance1.getInsuranceInfo.staticCardBack = true;
                 otherInsurance2.getInsuranceInfo.staticCardBack = true;
 
+                otherInsurance1.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                otherInsurance2.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
                 m_GameManager.insuranceBoughtDictionary.Add(getInsuranceInfo.InsuranceData.insuranceCategory, getInsuranceInfo.InsuranceData.returnMoney);
                 inventory.boughtInsrData.Add(getInsuranceInfo.InsuranceData);
 
@@ -175,6 +178,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             getInsuranceInfo.staticCardBack = false;
             otherInsurance1.getInsuranceInfo.staticCardBack = false;
             otherInsurance2.getInsuranceInfo.staticCardBack = false;
+
+            otherInsurance1.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            otherInsurance2.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             m_GameManager.insuranceBoughtDictionary.Remove(getInsuranceInfo.InsuranceData.insuranceCategory);
             inventory.boughtInsrData.Remove(getInsuranceInfo.InsuranceData);
