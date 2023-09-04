@@ -15,6 +15,7 @@ MonoBehaviour:
   cardType: Hand Cycler
   cardName: Discovery
   cardDescription: Draw a card for free.
+  cardEffect: Draw a card for free.
   cardCost: 0
   cardImage: {fileID: 21300000, guid: 05d95a707cbb64b4a90d5bd805f0be82, type: 3}
   familyIncrease: 0

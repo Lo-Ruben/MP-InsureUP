@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 671, y: -323}
-  m_SizeDelta: {x: 381.5605, y: 264.3605}
+  m_AnchoredPosition: {x: 671, y: -327.40775}
+  m_SizeDelta: {x: 381.5605, y: 256.3906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &29320825280597595
 CanvasRenderer:
@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e4726e73cf9f9fd408adcfe62dda1849, type: 3}
-    m_FontSize: 16
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -78,8 +78,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
+    m_LineSpacing: 1.5
+  m_Text: Used when encountered with a permanant disablility crisis, helps to absorb
+    the cost of the crisis
 --- !u!1 &5373462916512253427
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb370f598d7ea634099749191f13d155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insruanceInfo: {fileID: 0}
+  inventoryData: {fileID: 0}
   cardNameText: {fileID: 2380171873345654436}
   cardDescriptionText: {fileID: 5662781280274817404}
   cardImage: {fileID: 939074450321865349}

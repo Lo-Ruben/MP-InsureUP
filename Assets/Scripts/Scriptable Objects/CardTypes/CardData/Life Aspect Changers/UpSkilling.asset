@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: UpSkilling
-  cardDescription: Work Needs +1
+  cardDescription: Take this short 20 hours course on spaceship refueling!
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: 494059239, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: 0

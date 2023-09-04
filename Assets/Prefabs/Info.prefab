@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3337, y: -123.84668}
-  m_SizeDelta: {x: 219.3326, y: 106.8212}
+  m_AnchoredPosition: {x: -1.8677, y: -132.06497}
+  m_SizeDelta: {x: 222.4, y: 123.2578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7981199575120295958
 CanvasRenderer:
@@ -78,8 +78,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
+    m_LineSpacing: 1.5
+  m_Text: Families welcome! The first aquarium featuring aquatic mammals from Mars!
 --- !u!1 &3782162120506018165
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,11 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9af4fbef3d84840a929dcd8a2f1460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfo: {fileID: 0}
+  cardData: {fileID: 0}
   cardNameText: {fileID: 3843282580765711347}
   cardDescriptionText: {fileID: 4065074218208200043}
   cardCostText: {fileID: 16359418488657584}
   cardImage: {fileID: 7773828352398534720}
+  cardInfoDisplayPrefab: {fileID: 0}
 --- !u!1 &6063218902467228142
 GameObject:
   m_ObjectHideFlags: 0

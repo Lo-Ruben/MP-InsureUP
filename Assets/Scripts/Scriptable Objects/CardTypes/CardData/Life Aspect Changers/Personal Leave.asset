@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: Personal Leave
-  cardDescription: WorkNeeds -1 Personal needs +1
+  cardDescription: You take a leave, to enjoy a day of fun for yourself.
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: -338701998, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: 0

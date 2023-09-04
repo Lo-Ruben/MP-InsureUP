@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: FoodPoisoning
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Bad
   cardName: Food Poisoning
   cardDescription: -1 Health
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: -1
-  moneyIntChange: 100
+  moneyIntChange: -600
   cardEffectDuration: 0
   insuranceCounter: Health
   animatorController: {fileID: 9100000, guid: 6811329a869ac49469f29ff47dfff989, type: 2}

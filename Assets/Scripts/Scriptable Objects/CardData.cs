@@ -11,6 +11,7 @@ public class CardData : ScriptableObject
     // Text Info
     public string cardName;
     public string cardDescription;
+    public string cardEffect;
 
     // Card Cost (If any)
     public int cardCost;

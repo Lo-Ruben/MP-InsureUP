@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: Business Trip
-  cardDescription: 'Family Needs -1 Work Needs +1 '
+  cardDescription: You go on a business trip to Uranus!
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: -1276562114, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: -1

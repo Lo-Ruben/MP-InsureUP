@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
-  m_Name: Retrench
+  m_Name: Family Time
   m_EditorClassIdentifier: 
-  cardType: Bad
-  cardName: Retrenchment
-  cardDescription: Set Work Level to 1
-  familyIntChange: 0
+  cardType: Good
+  cardName: Family Time
+  cardDescription: +2 Family Needs
+  familyIntChange: 2
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: 100
+  moneyIntChange: 0
   cardEffectDuration: 0
   insuranceCounter: 
-  animatorController: {fileID: 9100000, guid: 865e570a5f140e24d887f8877507044c, type: 2}
+  animatorController: {fileID: 9100000, guid: a11a9ec0fe0ad934a97102d88c1c7ed7, type: 2}

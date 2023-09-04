@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Bonus
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Good
   cardName: Bonus
   cardDescription: Gain $5000
   familyIntChange: 0

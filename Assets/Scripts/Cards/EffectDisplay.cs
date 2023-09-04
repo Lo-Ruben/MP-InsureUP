@@ -38,11 +38,11 @@ public class EffectDisplay : MonoBehaviour
         }
         if(cardInfo.cardType == "Hand Cycler")
         {
-            cardDescriptionText.text = cardInfo.cardDescription;
+            cardDescriptionText.text = cardInfo.cardEffect;
         }
         if(cardInfo.cardType == "Discounter")
         {
-            cardDescriptionText.text = cardInfo.cardDescription + "\n\nEffect Duration : " + cardInfo.cardEffectDuration + "\n\nCost : $" + cardInfo.cardCost;
+            cardDescriptionText.text = cardInfo.cardEffect + "\n\nEffect Duration : " + cardInfo.cardEffectDuration + "\n\nCost : $" + cardInfo.cardCost;
         }
     }
 }

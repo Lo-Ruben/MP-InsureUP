@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: Take a break
-  cardDescription: Personal Needs + 1
+  cardDescription: You take a short, well-deserved break.
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: -535379480, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: 0

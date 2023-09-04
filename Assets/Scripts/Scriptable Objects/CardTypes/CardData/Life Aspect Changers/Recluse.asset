@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: Recluse
-  cardDescription: 'Family Needs -1 Personal Needs +1 '
+  cardDescription: Playing FFLX in your room till dawn sounds fun!
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: -721810842, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: -1

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Health3
   m_EditorClassIdentifier: 
   cardName: Health Insurance T3
-  cardDescription: Gives some health
-  cardCost: 500
+  cardDescription: Buying this insurance returns you $2,250, upon a health related
+    crisis.
+  cardCost: 1500
+  originalCardCost: 1500
   cardImage: {fileID: 1177941670, guid: f133b96bf535b9045ac8402bfeb9c222, type: 3}
-  returnMoney: 5
+  returnMoney: 2250
   insuranceCategory: Health

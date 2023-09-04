@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Life Aspect
   cardName: Overtime
-  cardDescription: Personal Needs -1 Work need +1
+  cardDescription: At least you're getting extra pay, right?!
+  cardEffect: 
   cardCost: 0
   cardImage: {fileID: -198872988, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: -1

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Accident3
   m_EditorClassIdentifier: 
   cardName: Accident Insurance T3
-  cardDescription: 
-  cardCost: 0
+  cardDescription: Buying this insurance returns you $2,250, upon a accident related
+    crisis.
+  cardCost: 1500
+  originalCardCost: 1500
   cardImage: {fileID: 1881989938, guid: a0e03ba234dd0d244931839180cfb2aa, type: 3}
-  returnMoney: 0
+  returnMoney: 2250
   insuranceCategory: Accident

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CheckUp
   m_EditorClassIdentifier: 
   cardName: Medical Check Up
-  cardDescription: 
-  cardCost: 50
-  originalCardCost: 50
+  cardDescription: Buying this item increases your current health by 1
+  cardCost: 3000
+  originalCardCost: 3000
   cardImage: {fileID: 21300000, guid: cdb76cf4f7287e942af46f6f2b339525, type: 3}
   returnMoney: 0
   insuranceCategory: 

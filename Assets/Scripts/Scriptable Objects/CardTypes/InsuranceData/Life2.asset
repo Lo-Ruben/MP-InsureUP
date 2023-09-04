@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Life2
   m_EditorClassIdentifier: 
   cardName: Life Insurance T2
-  cardDescription: 
-  cardCost: 0
+  cardDescription: Buying this insurance returns you $4,500 upon a life related crisis.
+  cardCost: 3000
+  originalCardCost: 3000
   cardImage: {fileID: 829364748, guid: a0e03ba234dd0d244931839180cfb2aa, type: 3}
-  returnMoney: 0
+  returnMoney: 4500
   insuranceCategory: Life

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Devastating Diagnosis
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Bad
   cardName: Devastating Diagnosis
   cardDescription: -3 HP
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: -3
-  moneyIntChange: 100
+  moneyIntChange: 0
   cardEffectDuration: 0
-  insuranceCounter: 
+  insuranceCounter: Life
   animatorController: {fileID: 9100000, guid: 1540a3e71e320544082758e2e86e3840, type: 2}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5963c96fbba929840b8c315e1ce4e516, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
-  cardCounter: Counter
+  cardCounter: Used when encountered with a food poisoning crisis, helps to absorb
+    the cost of the crisis.
   cardName: Health Insurance
   cardImage: {fileID: -402378873, guid: 52a06d7b94470e449a57f9f629225250, type: 3}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Discounter
   cardName: Coupon Book
-  cardDescription: Draw Cost -25%, 1 turn
+  cardDescription: We should feature you on Extreme Couponing!
+  cardEffect: Draw Cost -25%, 1 turn
   cardCost: 0
   cardImage: {fileID: -121858635, guid: 1678aa88f5dd6c94ba6cd53231f39eb0, type: 3}
   familyIncrease: 0

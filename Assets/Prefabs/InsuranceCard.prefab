@@ -132,6 +132,8 @@ MonoBehaviour:
   otherInsurance1: {fileID: 0}
   otherInsurance2: {fileID: 0}
   inventory: {fileID: 0}
+  MinusAnimator: {fileID: 0}
+  moneyText: {fileID: 0}
   insuranceBoughtCountCategory: 0
   resetInt: 0
 --- !u!1 &2539421315740212972
@@ -202,7 +204,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e4726e73cf9f9fd408adcfe62dda1849, type: 3}
-    m_FontSize: 12
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -212,8 +214,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: Protects from ....
+    m_LineSpacing: 1.5
+  m_Text: Buying this insurance returns you $11,250, upon a critical illness related
+    crisis.
 --- !u!1 &4769131461816658639
 GameObject:
   m_ObjectHideFlags: 0

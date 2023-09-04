@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb5cde0a6fae2447af3cfafda154d49, type: 3}
   m_Name: Nothing
   m_EditorClassIdentifier: 
-  cardType: 
+  cardType: Good
   cardName: Nothing
-  cardDescription: ...
+  cardDescription: Nothing happens...
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
