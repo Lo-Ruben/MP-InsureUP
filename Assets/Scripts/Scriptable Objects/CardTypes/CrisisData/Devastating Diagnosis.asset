@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Devastating Diagnosis
-  cardDescription: -3 HP
+  cardDescription: You decided to suntan directly at the source and now have a tumor,
+    dummy! -3 Health points
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0

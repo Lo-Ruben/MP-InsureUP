@@ -19,7 +19,7 @@ MonoBehaviour:
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: 100
+  moneyIntChange: 0
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 4e56aa4916e61294a9f9f0faec63e40a, type: 2}

@@ -12,6 +12,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject tutorialScreen;
     bool opened = false;
 
+    public AudioSource audioSource;
+    public AudioClip click;
+    public AudioClip select;
+
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -33,6 +37,8 @@ public class PauseMenu : MonoBehaviour
     public void OpenMenu()
     {
         pauseMenu.SetActive(true);
+        audioSource.clip = select;
+        audioSource.Play();
     }
 
     public void Resume()
@@ -40,12 +46,16 @@ public class PauseMenu : MonoBehaviour
         animator.SetTrigger("close");  
         buttons.SetActive(false);
         Time.timeScale = 1f;
+        audioSource.clip = click;
+        audioSource.Play();
     }
  
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+        audioSource.clip = click;
+        audioSource.Play();
     }
     public void tutorial()
     {
@@ -54,7 +64,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void tutorialBack()
     {
-        OpenMenu();
+        pauseMenu.SetActive(true);
         tutorialScreen.SetActive(false);
+        OpenMenu();
     }
 }

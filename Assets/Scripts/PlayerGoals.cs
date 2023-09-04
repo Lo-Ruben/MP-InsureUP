@@ -18,7 +18,10 @@ public class PlayerGoals : MonoBehaviour
 
     public GameObject nextButton;
     public GameObject previousButton;
-    
+    public AudioSource audioSource;
+    public AudioClip click;
+    public AudioClip select;
+
 
     [SerializeField]
     private int goalGroup = 1;
@@ -60,30 +63,39 @@ public class PlayerGoals : MonoBehaviour
         TestGoalGroup();
 
         SceneManager.LoadScene("TableScene");
+        audioSource.clip = select;
+        audioSource.Play();
     }
 
     public void NextGoalGroup()
     {
         goalGroup += 1;
         EnableGoalGroups();
-  
+        audioSource.clip = click;
+        audioSource.Play();
     }
     public void PreviousGoalGroup()
     {
         goalGroup -= 1;
         EnableGoalGroups();
+        audioSource.clip = click;
+        audioSource.Play();
     }
 
     public void ShowGoals()
     {
         
         goalCards[(goalGroup - 1)].SetActive(true);
+        audioSource.clip = select;
+        audioSource.Play();
     }
 
     public void Back()
     {
         
         goalCards[(goalGroup - 1)].SetActive(false);
+        audioSource.clip = click;
+        audioSource.Play();
     }
 
     void EnableGoalGroups()

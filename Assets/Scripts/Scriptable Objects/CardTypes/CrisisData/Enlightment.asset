@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Enlightment
-  cardDescription: +2 Personal Needs
+  cardDescription: As you take a sip of that Martian tea, you start to appreciate
+    the smaller things in life. +2 Personal needs.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 2

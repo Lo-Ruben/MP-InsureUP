@@ -152,6 +152,14 @@ public class GameManager : MonoBehaviour
     public int boughtTurn; //here
     public bool healthInsuranceBool; //here
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip nextPhaseClick;
+    public AudioClip useCard;
+    public AudioClip buyCard;
+    public AudioClip eventSound;
+
+
     private void Awake()
     {
         money = 500;
@@ -351,6 +359,8 @@ public class GameManager : MonoBehaviour
         CheckDiscount();
         cardPlayed = discardArea.cardData;
         HighScoreSingleton.instance.AddScore(10);
+        audioSource.clip = useCard;
+        audioSource.Play();
     }
 
     public void CheckDiscount()
@@ -626,6 +636,14 @@ public class GameManager : MonoBehaviour
     public void NextPhase()
     {
         phaseInt += 1;
+        audioSource.clip = nextPhaseClick;
+        audioSource.Play();
+    }
+    public void NextPhaseDoneButton()
+    {
+        phaseInt += 1;
+        audioSource.clip = buyCard;
+        audioSource.Play();
     }
 
     void ActivateCrisis()
@@ -633,6 +651,8 @@ public class GameManager : MonoBehaviour
         if (crisisDisplay.CrisisInfo != null)
         {
             CrisisCardArea.SetActive(true);
+            audioSource.clip = eventSound;
+            audioSource.Play();
         }
         if (crisisDisplay.CrisisInfo == null)
         {

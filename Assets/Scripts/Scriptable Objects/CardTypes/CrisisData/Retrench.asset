@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Retrenchment
-  cardDescription: Set Work Level to 1
+  cardDescription: You forgot your crew back on Saturn. yout boss fires you resulting
+    in you work needs going down to 1.
   familyIntChange: 0
-  jobIntChange: 0
+  jobIntChange: -9
   personalIntChange: 0
   healthIntChange: 0
-  moneyIntChange: 100
+  moneyIntChange: 0
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 865e570a5f140e24d887f8877507044c, type: 2}

@@ -25,6 +25,8 @@ public class AddPlayerCards : MonoBehaviour
 
     public int drawCost;
 
+    public AudioClip drawSound;
+    public AudioSource audioSource;
     void Start()
     {
         drawCost = 4;
@@ -55,6 +57,8 @@ public class AddPlayerCards : MonoBehaviour
             GameObject temp = Instantiate(card, transform.position, transform.rotation);
             temp.transform.SetParent(this.transform);
             spawnCardCounter++;
+            audioSource.clip = drawSound;
+            audioSource.Play();
         }
     }
 }

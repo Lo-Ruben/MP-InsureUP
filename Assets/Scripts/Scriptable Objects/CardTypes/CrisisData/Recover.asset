@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Miraculous Recovery
-  cardDescription: +2 Health
+  cardDescription: Its a miracle your recoverd! 2 Health points added!
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: 2
-  moneyIntChange: 100
+  moneyIntChange: 0
   cardEffectDuration: 0
   insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 7bdce87ef8f435948b3bd31bcfad29b8, type: 2}

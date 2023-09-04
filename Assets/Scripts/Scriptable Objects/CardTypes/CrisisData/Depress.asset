@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Depress
-  cardDescription: Set Personal Level to 1
+  cardDescription: The crushing weight of reality sets in and you are now devastated.
+    Personal needs set to 1
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: -9

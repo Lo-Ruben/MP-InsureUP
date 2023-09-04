@@ -12,6 +12,10 @@ public class Inventory : MonoBehaviour
 
     public List<InsuranceData> boughtInsrData = new List<InsuranceData>();
 
+    public AudioSource audioSource;
+    public AudioClip openInvt;
+    public AudioClip click;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +41,15 @@ public class Inventory : MonoBehaviour
     {
         DisplayInventory();
         inventory.SetActive(true);
+        audioSource.clip = openInvt;
+        audioSource.Play();
     }
 
     public void CloseInventory()
     {
         inventory.SetActive(false);
+        audioSource.clip = click;
+        audioSource.Play();
     }
 
     public void ConditionalDisplay()

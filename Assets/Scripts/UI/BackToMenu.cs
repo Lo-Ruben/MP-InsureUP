@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenu : MonoBehaviour
 {
+    public AudioSource audioSource;
     public void Back()
     {
+        audioSource.Play();
         SceneManager.LoadScene(0);
     }
 }

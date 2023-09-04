@@ -11,6 +11,9 @@ public class ShowInventory : MonoBehaviour, IPointerDownHandler
     public InventoryData accidentInsurance;
     public InventoryData criticalInsurance;
     public InventoryData lifeInsurance;
+
+    public AudioClip buyInsurance;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,8 @@ public class ShowInventory : MonoBehaviour, IPointerDownHandler
     {
         Debug.Log(getInsuranceDisplay.InsuranceData.insuranceCategory);
         showInfo();
+        audioSource.clip = buyInsurance;
+        audioSource.Play();
     }
     void showInfo()
     {

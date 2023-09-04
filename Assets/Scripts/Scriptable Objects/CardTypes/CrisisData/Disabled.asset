@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Permanantly Disabled
-  cardDescription: Set Personal Level to 1
+  cardDescription: You space out and stuck your arm into the dematerializer, ouch!
+    Personal needs set to 1.
   familyIntChange: 0
   jobIntChange: 0
-  personalIntChange: 0
+  personalIntChange: -1
   healthIntChange: 0
   moneyIntChange: 0
   cardEffectDuration: 0

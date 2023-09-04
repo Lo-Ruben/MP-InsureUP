@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Family Time
-  cardDescription: +2 Family Needs
+  cardDescription: You spend a good weekend with your family at a planet observatory
+    or something. +2 Family needs.
   familyIntChange: 2
   jobIntChange: 0
   personalIntChange: 0

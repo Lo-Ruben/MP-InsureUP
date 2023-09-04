@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Bonus
-  cardDescription: Gain $5000
+  cardDescription: Perks of working in a big company. Gain $5000!!!
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0

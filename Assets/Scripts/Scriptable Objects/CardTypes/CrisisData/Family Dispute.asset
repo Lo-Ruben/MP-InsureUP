@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Family Dispute
-  cardDescription: Set Family Level to 1
+  cardDescription: Someone replaced your shampoo with jet fuel. Family needs back
+    down to 1.
   familyIntChange: -9
   jobIntChange: 0
   personalIntChange: 0

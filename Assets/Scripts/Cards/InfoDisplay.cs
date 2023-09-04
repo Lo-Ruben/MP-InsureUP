@@ -24,6 +24,8 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
     Image cardImage;
     [SerializeField]
     GameObject cardInfoDisplayPrefab;
+    public AudioSource audioSource;
+    public AudioClip click;
     private void Awake()
     {
         effectDisplay = cardInfoDisplayPrefab.GetComponent<EffectDisplay>();
@@ -34,6 +36,8 @@ public class InfoDisplay : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        audioSource.clip = click;
+        audioSource.Play();
         effectDisplay.CardInfo = cardData;
     }
     void DisplayInfo() //name and cost of card

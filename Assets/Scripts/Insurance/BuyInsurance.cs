@@ -16,6 +16,8 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Inventory inventory;
     [SerializeField]
     Animator MinusAnimator;
+    public AudioSource audioSource;
+    public AudioClip buySound;
     public Text moneyText;
 
     int cardCost;
@@ -162,6 +164,9 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 otherInsurance2.insuranceBoughtCountCategory++;
 
                 resetInt = false;
+
+                audioSource.clip = buySound;
+                audioSource.Play();
 
                 //for health insurance
                 if (getInsuranceInfo.InsuranceData.insuranceCategory == "Health")

@@ -24,6 +24,9 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
 
     public GameObject canvas; //here (drag it into both cards in inspector)
 
+    public AudioSource audioSource;
+    public AudioClip buySound;
+
     private void OnEnable()
     {
         string cardName = getInsuranceInfo.InsuranceData.cardName;
@@ -82,6 +85,8 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         BuyInsuranceItems();
+        audioSource.clip = buySound;
+        audioSource.Play();
     }
 
     private void BuyInsuranceItems()

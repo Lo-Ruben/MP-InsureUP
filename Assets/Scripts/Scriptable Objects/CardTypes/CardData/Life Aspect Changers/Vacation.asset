@@ -17,7 +17,7 @@ MonoBehaviour:
   cardDescription: Families welcome! The first aquarium featuring aquatic mammals
     from Mars!
   cardEffect: 
-  cardCost: 3000
+  cardCost: 10000
   cardImage: {fileID: -1971582514, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: 2
   jobIncrease: -1
