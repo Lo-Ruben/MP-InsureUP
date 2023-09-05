@@ -35,7 +35,6 @@ public class AddPlayerCards : MonoBehaviour
     void Update()
     {
         childCount = this.transform.childCount;
-
         costToDraw.text = "Cost to draw: " + drawCost;
         if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
         {
@@ -51,12 +50,15 @@ public class AddPlayerCards : MonoBehaviour
     // It is also attached to a button 
     public void SpawnCard()
     {
-        if (this.transform.childCount < m_playerManager.MaxPlayerHand && m_playerManager.PhaseInt == 1)
+        
+        if (childCount < m_playerManager.MaxPlayerHand)
         {
+            Debug.Log("CardSpawned");
             m_playerManager.money -= drawCost;
             GameObject temp = Instantiate(card, transform.position, transform.rotation);
             temp.transform.SetParent(this.transform);
             spawnCardCounter++;
+            
             audioSource.clip = drawSound;
             audioSource.Play();
         }

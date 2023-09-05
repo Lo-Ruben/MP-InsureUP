@@ -215,7 +215,6 @@ public class GameManager : MonoBehaviour
             InventoryDisplay noData = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
             noData.InventoryData = noDataFound;
         }
-        Debug.Log("lol");
     }
    
     void UpdateTextInfo()
@@ -591,8 +590,10 @@ public class GameManager : MonoBehaviour
                     Destroy(childHand.gameObject);
                 }
                 //draw back up to same amount for free
+                addPlayerCards.childCount = 0;
                 for (int i = 0; i < handCount; i++)
                 {
+                    Debug.Log(i);
                     addPlayerCards.SpawnCard();
                     money++;
                 }

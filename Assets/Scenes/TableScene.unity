@@ -15175,7 +15175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
@@ -15233,15 +15233,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-  - {fileID: 11400000, guid: 93665cab94babd14abd22b6f81b779f0, type: 2}
+  deck: []
   existingCards:
   - {fileID: 11400000, guid: 24d1c344262c3874289530c5192bde70, type: 2}
+  - {fileID: 11400000, guid: 261da2d40f1bfcf47acc178ef5c6272a, type: 2}
+  - {fileID: 11400000, guid: 63ca1124c676d074e841dc7f7e5a1b3b, type: 2}
+  - {fileID: 11400000, guid: b73018e765dd7bb4dac0fb009edc93a4, type: 2}
   cardInDeck1: {fileID: 590028513}
   cardInDeck2: {fileID: 40713218}
   cardInDeck3: {fileID: 1957994884}
