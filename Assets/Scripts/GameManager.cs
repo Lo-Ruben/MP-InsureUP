@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> inHand = new List<GameObject>();
     public GameObject discardObj;
     public GameObject handObj;
-    public PlayerDeck playerDeck;
+    public ActionDeck playerDeck;
     public AddPlayerCards addPlayerCards;
     public GameObject toughDecisionPanel;
     public GameObject canvas;
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
 
         discardObj = GameObject.Find("Discard Area");
         handObj = GameObject.Find("PlayerHand");
-        playerDeck = GameObject.Find("ActionDeckManager").GetComponent<PlayerDeck>();
+        playerDeck = GameObject.Find("ActionDeckManager").GetComponent<ActionDeck>();
         addPlayerCards = handObj.GetComponent<AddPlayerCards>();
         cardPlayed = null;
 

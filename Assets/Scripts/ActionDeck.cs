@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerDeck : MonoBehaviour
+public class ActionDeck : MonoBehaviour
 {
     // Script is attached to PlayerDeckManager
     // Script handles the generation of card data and order

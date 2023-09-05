@@ -1687,7 +1687,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1635265978}
         m_TargetAssemblyTypeName: AddPlayerCards, Assembly-CSharp
-        m_MethodName: SpawnCard
+        m_MethodName: SpawnCardButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15175,7 +15175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
@@ -15233,7 +15233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228666115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca9a43fc9f396f4d8963d39c6cc52ab, type: 3}
   m_Name: 
@@ -19381,8 +19381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costToDraw: {fileID: 867951789}
   card: {fileID: 5810304387013886296, guid: 4ea2fe1cb7305f848911aa2d4883a532, type: 3}
-  m_playerManager: {fileID: 827282913}
-  m_crisisDeck: {fileID: 1613521332}
+  m_GameManager: {fileID: 0}
+  DeckButton: {fileID: 0}
   spawnCardCounter: 0
   childCount: 0
   drawCost: 0

@@ -13,6 +13,13 @@ public class CardDisplay : MonoBehaviour
         get { return cardInfo; }
         set { cardInfo = value; }
     }
+    [SerializeField]
+    bool staticCardBack = false;
+
+    public GameObject cardBack;
+
+    [SerializeField]
+    static int numberOfCardsInDeck;
 
     [SerializeField]
     Text cardNameText;
@@ -22,12 +29,7 @@ public class CardDisplay : MonoBehaviour
     Text cardCostText;
     [SerializeField]
     Image cardImage;
-    [SerializeField]
-    bool staticCardBack = false;
 
-    public GameObject cardBack;
-    [SerializeField]
-    static int numberOfCardsInDeck;
     private void Awake()
     {
         cardNameText.text = null;
@@ -43,7 +45,7 @@ public class CardDisplay : MonoBehaviour
 
     private void Update()
     {
-        numberOfCardsInDeck = PlayerDeck.deckSize;
+        numberOfCardsInDeck = ActionDeck.deckSize;
 
         if (staticCardBack == true)
         {
@@ -54,17 +56,17 @@ public class CardDisplay : MonoBehaviour
             cardBack.SetActive(false);
         }
 
-        // If card appears in player's hand, reduce PlayerDeck
+        // If card appears in player's hand, reduce ActionDeck
         if (this.tag == "Clone")
         {
-            CardInfo = PlayerDeck.staticDeck[numberOfCardsInDeck - 1];
+            CardInfo = ActionDeck.staticDeck[numberOfCardsInDeck - 1];
             //Debug.Log(numberOfCardsInDeck - 1);
 
             //DisplayInfo();
             staticCardBack = false;
             this.tag = "Untagged";
 
-            PlayerDeck.ReduceDeck();
+            ActionDeck.ReduceDeck();
 
         }
     }

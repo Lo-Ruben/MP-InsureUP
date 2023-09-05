@@ -31,7 +31,7 @@ public class InsuranceDisplay : MonoBehaviour
 
     private void Start()
     {
-        numberOfCardsInDeck = PlayerDeck.deckSize;
+        numberOfCardsInDeck = ActionDeck.deckSize;
         staticCardBack = false;
         DisplayInfo();
     }

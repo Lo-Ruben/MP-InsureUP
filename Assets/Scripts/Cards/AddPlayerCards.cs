@@ -6,18 +6,17 @@ using UnityEngine.UI;
 public class AddPlayerCards : MonoBehaviour
 {
     // Add player cards adds cards onto the player's hand in the scene
-    // Press w to instantiate a card
-    // Player's hand limit may change
+
     public Text costToDraw;
     [Header("Insert Card Prefab Here")]
     public GameObject card;
 
     [Header("Insert GameManagers Here")]
     [SerializeField]
-    GameManager m_playerManager;
+    GameManager m_GameManager;
 
-    [SerializeField]
-    CrisisDeck m_crisisDeck;
+    [SerializeField] 
+    Button DeckButton;
 
     public int spawnCardCounter;
 
@@ -27,38 +26,51 @@ public class AddPlayerCards : MonoBehaviour
 
     public AudioClip drawSound;
     public AudioSource audioSource;
+
     void Start()
     {
         drawCost = 4;
-        m_playerManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+
     void Update()
     {
         childCount = this.transform.childCount;
         costToDraw.text = "Cost to draw: " + drawCost;
-        if (m_playerManager.PhaseInt == 1 && PlayerDeck.deckSize > 0)
+        if (m_GameManager.PhaseInt == 1 && ActionDeck.deckSize > 0)
         {
-            if (childCount >= m_playerManager.MaxPlayerHand)
+            if (childCount >= m_GameManager.MaxPlayerHand)
             {
                 Debug.Log("Player's hand is full");
-                m_playerManager.PhaseInt += 1;
+                m_GameManager.PhaseInt += 1;
             }
         }
     }
 
     // Instantiate a card in PlayerHand
-    // It is also attached to a button 
     public void SpawnCard()
     {
-        
-        if (childCount < m_playerManager.MaxPlayerHand)
+        if (childCount < m_GameManager.MaxPlayerHand)
         {
-            Debug.Log("CardSpawned");
-            m_playerManager.money -= drawCost;
+                m_GameManager.money -= drawCost;
+                GameObject temp = Instantiate(card, transform.position, transform.rotation);
+                temp.transform.SetParent(this.transform);
+                spawnCardCounter++;
+
+                audioSource.clip = drawSound;
+                audioSource.Play();
+        }
+    }
+
+    public void SpawnCardButton()
+    {
+        if (m_GameManager.PhaseInt == 1)
+        {
+            m_GameManager.money -= drawCost;
             GameObject temp = Instantiate(card, transform.position, transform.rotation);
             temp.transform.SetParent(this.transform);
             spawnCardCounter++;
-            
+
             audioSource.clip = drawSound;
             audioSource.Play();
         }

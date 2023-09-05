@@ -13,7 +13,7 @@ public class ToughDecision : MonoBehaviour
 
     public AddPlayerCards addPlayerCards;
     public GameManager gameManager;
-    public PlayerDeck playerDeck;
+    public ActionDeck playerDeck;
 
     // List of 3 cards for the player to choose
     public List<GameObject> choiceCards = new List<GameObject>();
