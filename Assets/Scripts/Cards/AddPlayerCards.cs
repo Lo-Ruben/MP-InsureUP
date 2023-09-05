@@ -8,15 +8,13 @@ public class AddPlayerCards : MonoBehaviour
     // Add player cards adds cards onto the player's hand in the scene
 
     public Text costToDraw;
+
     [Header("Insert Card Prefab Here")]
     public GameObject card;
 
     [Header("Insert GameManagers Here")]
     [SerializeField]
     GameManager m_GameManager;
-
-    [SerializeField] 
-    Button DeckButton;
 
     public int spawnCardCounter;
 

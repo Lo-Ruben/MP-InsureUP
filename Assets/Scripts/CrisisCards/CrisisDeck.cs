@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class CrisisDeck : MonoBehaviour
 {
-    public static int deckSize;
     int cardTypeAmount = 2;
 
     public List<CrisisData> crisisDeck = new List<CrisisData>();
     public static List<CrisisData> staticDeck = new List<CrisisData>();
     public List<CrisisData> existingCards = new List<CrisisData>();
-
-    [Header("Adjust Crisis chance of appearing")]
-    [SerializeField]
-    int minDisasterCardChance;
-    [SerializeField]
-    int maxDisasterCardChance;
 
     [Header("Reference CrisisDisplay")]
     [SerializeField]
@@ -37,7 +30,6 @@ public class CrisisDeck : MonoBehaviour
             }
 
         }
-        deckSize = crisisDeck.Count;
         Shuffle();
 
         staticDeck = crisisDeck;
@@ -81,7 +73,6 @@ public class CrisisDeck : MonoBehaviour
         {
             crisisDisplay.CrisisInfo = staticDeck[staticDeck.Count - 1];
             staticDeck.RemoveAt(staticDeck.Count - 1);
-            deckSize -= 1;
         }
         else
         {
