@@ -339,7 +339,6 @@ public class GameManager : MonoBehaviour
                 phaseInt = 1;
                 inventory.renewCount = 0;
                 CrisisCardArea.SetActive(false);
-                insuranceBoughtDictionary.Clear();
                 if (crisisDisplay.CrisisInfo != null)
                 {
                     crisisDisplay.CrisisInfo = null;
@@ -687,7 +686,7 @@ public class GameManager : MonoBehaviour
 
     void MoneyDisplay(int moneyDifference)
     {
-        Debug.Log(moneyDifference);
+        //Debug.Log(moneyDifference);
         if (moneyDifference < 0)
         {
             sign = "-";
@@ -738,8 +737,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Estimated Renewal Cost: " + estCost);
-        Debug.Log("Current money: " + money);
+        //Debug.Log("Estimated Renewal Cost: " + estCost);
+        //Debug.Log("Current money: " + money);
 
         if (money <= estCost)
         {

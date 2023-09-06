@@ -11897,7 +11897,7 @@ MonoBehaviour:
   m_addPlayerCards: {fileID: 1635265978}
   m_dropArea: {fileID: 1165469892}
   buyInsuranceHealth: {fileID: 623641728}
-  buyInsuranceAccident: {fileID: 0}
+  buyInsuranceAccident: {fileID: 699369856}
   buyInsuranceCritical: {fileID: 1738325170}
   buyInsuranceLife: {fileID: 1993976942}
 --- !u!1 &911205168

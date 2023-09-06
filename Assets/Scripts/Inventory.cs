@@ -69,7 +69,7 @@ public class Inventory : MonoBehaviour
 
     public void RenewalPayment()
     {
-        Debug.Log("Renewal deducted");
+        //Debug.Log("Renewal deducted");
 
         int cost = 0;
         if (renewCount < 1)
@@ -79,9 +79,9 @@ public class Inventory : MonoBehaviour
                 if (individualInsurance.boughtTurn < gameManager.roundCounter)
                 {
                     cost += individualInsurance.cardCost;
-                    Debug.Log("Renewal cost: " + cost);
+                    //Debug.Log("Renewal cost: " + cost);
                 }
-                Debug.Log("Money Left: " + (gameManager.money - cost));
+                //Debug.Log("Money Left: " + (gameManager.money - cost));
             }
 
             gameManager.money -= cost;

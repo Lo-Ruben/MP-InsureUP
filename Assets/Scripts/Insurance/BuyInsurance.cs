@@ -34,48 +34,26 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
+        UpdateCounts();
         cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
         discountedCardCost = cardCost / 2;
         newCardCost = m_GameManager.InsuranceCostChange(discountedCardCost, cardCost);
         getInsuranceInfo.InsuranceData.cardCost = newCardCost;
 
         resetInt = true;
-        /*
-        int remainingMoney = m_GameManager.money - getInsuranceInfo.InsuranceData.cardCost;
 
-        if (otherInsurance1.getInsuranceInfo != null && otherInsurance2.getInsuranceInfo != null)
+        if (otherInsurance1.getInsuranceInfo.staticCardBack == true && otherInsurance2.getInsuranceInfo.staticCardBack == true)
         {
-            if (otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack)
-            {
-                if(remainingMoney <= 0)
-                {
-                    otherInsurance1.getInsuranceInfo.staticCardBack = false;
-                    otherInsurance2.getInsuranceInfo.staticCardBack = false;
-                    
-                }
-                else
-                {
-                    //m_GameManager.money -= cardCost;
-                }
-                
-            }
-            else
-            {
-                //Debug.Log("Both cards dont show back");
-            }
+            Debug.Log("Enable Add");
+            insuranceBoughtCountCategory += 1;
         }
         else
         {
-            //Debug.Log("One or more insurance references are null.");
+            insuranceBoughtCountCategory = 0;
         }
-        */
     }
     private void OnDisable()
     {
-        if (resetInt && otherInsurance1.resetInt && otherInsurance2.resetInt)
-        {
-            insuranceBoughtCountCategory = 0;
-        }
         getInsuranceInfo.InsuranceData.cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
         
     }
