@@ -268,12 +268,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardInfo: {fileID: 0}
+  staticCardBack: 0
+  cardBack: {fileID: 7056561463520700737}
   cardNameText: {fileID: 3843282580765711347}
   cardDescriptionText: {fileID: 4065074218208200043}
   cardCostText: {fileID: 16359418488657584}
   cardImage: {fileID: 7773828352398534720}
-  staticCardBack: 0
-  cardBack: {fileID: 7056561463520700737}
 --- !u!95 &3635694151282175773
 Animator:
   serializedVersion: 5
@@ -575,8 +575,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.865, y: -36.9}
-  m_SizeDelta: {x: 76.2704, y: 56.9254}
+  m_AnchoredPosition: {x: -65.68934, y: -36.899994}
+  m_SizeDelta: {x: 151.247, y: 56.9254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5695797296597781968
 CanvasRenderer:
@@ -619,6 +619,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '00
-
-'
+  m_Text: 
