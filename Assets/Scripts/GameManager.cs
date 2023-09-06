@@ -66,6 +66,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject phaseButton;
 
+    [SerializeField]
+    public BuyInsurance buyInsurance;
+
+    public GameObject warningText;
 
     //Debugging
     public Text phaseText;
@@ -149,7 +153,7 @@ public class GameManager : MonoBehaviour
     public bool discountedProstheticsCost = false;
     public bool discountedMedCheckCost = false;
 
-    public int boughtTurn; //here
+    //public int boughtTurn; //here
     public bool healthInsuranceBool; //here
 
     [Header("Audio")]
@@ -159,6 +163,7 @@ public class GameManager : MonoBehaviour
     public AudioClip buyCard;
     public AudioClip eventSound;
 
+    private Inventory inventory;
 
     private void Awake()
     {
@@ -170,7 +175,7 @@ public class GameManager : MonoBehaviour
         PersonalLevel = 5;
         phaseInt = 1;
         roundCounter = 1;
-        boughtTurn = 0; //here
+        //boughtTurn = 0; //here
         healthInsuranceBool = false; //here
 }
 
@@ -185,6 +190,7 @@ public class GameManager : MonoBehaviour
         playerDeck = GameObject.Find("ActionDeckManager").GetComponent<ActionDeck>();
         addPlayerCards = handObj.GetComponent<AddPlayerCards>();
         cardPlayed = null;
+        inventory = canvas.GetComponent<Inventory>();
 
     }
     void Update()
@@ -291,10 +297,12 @@ public class GameManager : MonoBehaviour
                 phaseText.text = "Current Phase: Buy";
                 discardArea.enabled = false;
                 ShopGameObject.SetActive(true);
+                RenewalCheck();
                 break;
             case 4:
                 phaseText.text = "Current Phase: Event";
                 ShopGameObject.SetActive(false);
+                inventory.RenewalPayment();
                 ActivateCrisis();
                 //Handle insurance interaction with crisis
                 if (hasHealthBeenModified)
@@ -329,6 +337,7 @@ public class GameManager : MonoBehaviour
             // Reset
             case 5:
                 phaseInt = 1;
+                inventory.renewCount = 0;
                 CrisisCardArea.SetActive(false);
                 insuranceBoughtDictionary.Clear();
                 if (crisisDisplay.CrisisInfo != null)
@@ -715,6 +724,30 @@ public class GameManager : MonoBehaviour
             {
                 inHand.Add(hand.gameObject);
             }
+        }
+    }
+
+    public void RenewalCheck()
+    {
+        int estCost = 0;
+        foreach (var individualInsurance in inventory.boughtInsrData)
+        {
+            if (individualInsurance.boughtTurn < roundCounter)
+            {
+                estCost += individualInsurance.cardCost;
+            }
+        }
+
+        Debug.Log("Estimated Renewal Cost: " + estCost);
+        Debug.Log("Current money: " + money);
+
+        if (money <= estCost)
+        {
+            warningText.SetActive(true);
+        }
+        else
+        {
+            warningText.SetActive(false);
         }
     }
 }

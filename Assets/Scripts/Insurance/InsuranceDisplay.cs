@@ -27,11 +27,11 @@ public class InsuranceDisplay : MonoBehaviour
 
     public GameObject cardBack;
     [SerializeField]
-    static int numberOfCardsInDeck;
+    //static int numberOfCardsInDeck;
 
     private void Start()
     {
-        numberOfCardsInDeck = ActionDeck.deckSize;
+        //numberOfCardsInDeck = ActionDeck.deckSize;
         staticCardBack = false;
         DisplayInfo();
     }

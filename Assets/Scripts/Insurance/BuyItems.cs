@@ -136,7 +136,7 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
         foreach (InsuranceData insurance in inventory.boughtInsrData)
         {
             if (insurance.insuranceCategory == "Health" 
-                && gameManager.roundCounter > gameManager.boughtTurn
+                && gameManager.roundCounter > insurance.boughtTurn
                 && gameManager.healthInsuranceBool == false)
             {
                 gameManager.money += insurance.returnMoney;

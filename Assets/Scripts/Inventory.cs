@@ -16,10 +16,12 @@ public class Inventory : MonoBehaviour
     public AudioClip openInvt;
     public AudioClip click;
 
+    public int renewCount;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        renewCount = 0;
     }
 
     // Update is called once per frame
@@ -63,5 +65,30 @@ public class Inventory : MonoBehaviour
             invCards[o].GetComponent<InsuranceDisplay>().DisplayInfo();
             invCards[o].SetActive(true);
         }
+    }
+
+    public void RenewalPayment()
+    {
+        Debug.Log("Renewal deducted");
+
+        int cost = 0;
+        if (renewCount < 1)
+        {
+            foreach (InsuranceData individualInsurance in boughtInsrData)
+            {
+                if (individualInsurance.boughtTurn < gameManager.roundCounter)
+                {
+                    cost += individualInsurance.cardCost;
+                    Debug.Log("Renewal cost: " + cost);
+                }
+                Debug.Log("Money Left: " + (gameManager.money - cost));
+            }
+
+            gameManager.money -= cost;
+
+            renewCount++;
+        }
+        
+
     }
 }

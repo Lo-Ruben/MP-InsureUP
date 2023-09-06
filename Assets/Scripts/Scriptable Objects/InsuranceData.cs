@@ -19,6 +19,8 @@ public class InsuranceData : ScriptableObject
 
     public string insuranceCategory;
 
+    public int boughtTurn;
+
     void Awake()
     {
         originalCardCost = cardCost;

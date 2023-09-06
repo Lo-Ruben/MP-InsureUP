@@ -34,13 +34,13 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
-        RenewalPayment();
         cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
         discountedCardCost = cardCost / 2;
         newCardCost = m_GameManager.InsuranceCostChange(discountedCardCost, cardCost);
         getInsuranceInfo.InsuranceData.cardCost = newCardCost;
 
         resetInt = true;
+        /*
         int remainingMoney = m_GameManager.money - getInsuranceInfo.InsuranceData.cardCost;
 
         if (otherInsurance1.getInsuranceInfo != null && otherInsurance2.getInsuranceInfo != null)
@@ -68,6 +68,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
         {
             //Debug.Log("One or more insurance references are null.");
         }
+        */
     }
     private void OnDisable()
     {
@@ -76,6 +77,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             insuranceBoughtCountCategory = 0;
         }
         getInsuranceInfo.InsuranceData.cardCost = getInsuranceInfo.InsuranceData.originalCardCost;
+        
     }
 
     private void GetGameManager()
@@ -147,6 +149,7 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             else
             {
                 m_GameManager.money -= getInsuranceInfo.InsuranceData.cardCost;
+                getInsuranceInfo.InsuranceData.boughtTurn = m_GameManager.roundCounter;
                 moneyText.text = "-$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
                 MinusAnimator.SetTrigger("minus");
                 getInsuranceInfo.staticCardBack = false;
@@ -169,15 +172,24 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
                 audioSource.Play();
 
                 //for health insurance
+                /*
                 if (getInsuranceInfo.InsuranceData.insuranceCategory == "Health")
                 {
                     m_GameManager.boughtTurn = m_GameManager.roundCounter;
                 }
+                */
             }
         }
         else
         {
-            m_GameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+            foreach (InsuranceData insuranceData in inventory.boughtInsrData)
+            {
+                if (getInsuranceInfo.InsuranceData == insuranceData && getInsuranceInfo.InsuranceData.boughtTurn == m_GameManager.roundCounter)
+                {
+                    m_GameManager.money += getInsuranceInfo.InsuranceData.cardCost;
+                }
+            }
+
             moneyText.text = "+$" + getInsuranceInfo.InsuranceData.cardCost.ToString();
             MinusAnimator.SetTrigger("minus");
             getInsuranceInfo.staticCardBack = false;
@@ -208,15 +220,5 @@ public class BuyInsurance : MonoBehaviour, IPointerDownHandler
             getInsuranceInfo.staticCardBack = false;
         }
     }
-    public void RenewalPayment()
-    {
-        if(otherInsurance1.getInsuranceInfo.staticCardBack && otherInsurance2.getInsuranceInfo.staticCardBack)
-        {
-            foreach (var individualInsurance in inventory.boughtInsrData)
-            {
-                m_GameManager.money -= individualInsurance.cardCost;
-                Debug.Log(m_GameManager.money);
-            }
-        }
-    }
+    
 }
