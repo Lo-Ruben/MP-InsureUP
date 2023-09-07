@@ -11848,7 +11848,7 @@ GameObject:
   - component: {fileID: 899772528}
   - component: {fileID: 899772527}
   m_Layer: 0
-  m_Name: GoalEventlManager
+  m_Name: GoalEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
