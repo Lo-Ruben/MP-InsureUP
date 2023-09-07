@@ -7,7 +7,6 @@ public class LifeAspectUI : MonoBehaviour
 {
     // Script manages the bar progression for Job, Personal and Life levels
 
-    public GameManager gameManager;
     public List<Sprite> numberSprites;
 
     private Image imageComponent;
@@ -18,7 +17,7 @@ public class LifeAspectUI : MonoBehaviour
     }
     public void UpdateImage(int spriteIndex)
     {
-        if (gameManager != null && spriteIndex >= 0 && spriteIndex < numberSprites.Count)
+        if (spriteIndex >= 0 && spriteIndex < numberSprites.Count)
         {
             imageComponent.sprite = numberSprites[spriteIndex];
         }

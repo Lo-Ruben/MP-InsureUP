@@ -43,12 +43,6 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
         audioSource.Play();
     }
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-        audioSource.clip = select;
-        audioSource.Play();
-    }
     public void tutorial()
     {
         tutorialScreen.SetActive(true);
