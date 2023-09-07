@@ -2781,7 +2781,7 @@ MonoBehaviour:
   accidentInsurance: {fileID: 11400000, guid: 3f77a8683e186f5409e0c7dc6bd768dd, type: 2}
   criticalInsurance: {fileID: 11400000, guid: 4ad45a9cf0c6edc449c5c383cb0ccef3, type: 2}
   lifeInsurance: {fileID: 11400000, guid: 282495852274f5b42906eccb241e2cf1, type: 2}
-  buyInsurance: {fileID: 8300000, guid: 07c7e467629cd824baacd7f7ec352b74, type: 3}
+  select: {fileID: 0}
   audioSource: {fileID: 269535727}
 --- !u!82 &269535727 stripped
 AudioSource:
@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 276940877}
   - component: {fileID: 276940878}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: Pause Menu Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3672,7 +3672,7 @@ GameObject:
   - component: {fileID: 328161341}
   - component: {fileID: 328161344}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: Pause Menu Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14363,7 +14363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac68e4f7364ad124e82a391c9521097f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 827282913}
   numberSprites:
   - {fileID: 799257720, guid: 16783ae24103bb54497252196d75abb6, type: 3}
   - {fileID: -2051785304, guid: 16783ae24103bb54497252196d75abb6, type: 3}
@@ -16199,7 +16198,7 @@ MonoBehaviour:
   accidentInsurance: {fileID: 11400000, guid: 3f77a8683e186f5409e0c7dc6bd768dd, type: 2}
   criticalInsurance: {fileID: 11400000, guid: 4ad45a9cf0c6edc449c5c383cb0ccef3, type: 2}
   lifeInsurance: {fileID: 11400000, guid: 282495852274f5b42906eccb241e2cf1, type: 2}
-  buyInsurance: {fileID: 8300000, guid: 07c7e467629cd824baacd7f7ec352b74, type: 3}
+  select: {fileID: 0}
   audioSource: {fileID: 1358878877}
 --- !u!82 &1358878877 stripped
 AudioSource:
@@ -16379,7 +16378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac68e4f7364ad124e82a391c9521097f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 827282913}
   numberSprites:
   - {fileID: 799257720, guid: 16783ae24103bb54497252196d75abb6, type: 3}
   - {fileID: -2051785304, guid: 16783ae24103bb54497252196d75abb6, type: 3}
@@ -21457,7 +21455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac68e4f7364ad124e82a391c9521097f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 827282913}
   numberSprites:
   - {fileID: 799257720, guid: 16783ae24103bb54497252196d75abb6, type: 3}
   - {fileID: -2051785304, guid: 16783ae24103bb54497252196d75abb6, type: 3}
@@ -22078,7 +22075,7 @@ MonoBehaviour:
   accidentInsurance: {fileID: 11400000, guid: 3f77a8683e186f5409e0c7dc6bd768dd, type: 2}
   criticalInsurance: {fileID: 11400000, guid: 4ad45a9cf0c6edc449c5c383cb0ccef3, type: 2}
   lifeInsurance: {fileID: 11400000, guid: 282495852274f5b42906eccb241e2cf1, type: 2}
-  buyInsurance: {fileID: 8300000, guid: 07c7e467629cd824baacd7f7ec352b74, type: 3}
+  select: {fileID: 0}
   audioSource: {fileID: 1857045587}
 --- !u!82 &1857045587 stripped
 AudioSource:
@@ -23152,7 +23149,7 @@ MonoBehaviour:
   accidentInsurance: {fileID: 11400000, guid: 3f77a8683e186f5409e0c7dc6bd768dd, type: 2}
   criticalInsurance: {fileID: 11400000, guid: 4ad45a9cf0c6edc449c5c383cb0ccef3, type: 2}
   lifeInsurance: {fileID: 11400000, guid: 282495852274f5b42906eccb241e2cf1, type: 2}
-  buyInsurance: {fileID: 8300000, guid: 07c7e467629cd824baacd7f7ec352b74, type: 3}
+  select: {fileID: 0}
   audioSource: {fileID: 1971333098}
 --- !u!82 &1971333098 stripped
 AudioSource:
