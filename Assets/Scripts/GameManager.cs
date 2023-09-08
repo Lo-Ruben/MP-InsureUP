@@ -273,7 +273,7 @@ public class GameManager : MonoBehaviour
                 phaseText.text = "Current Phase: Action";
                 if (hasCardCostBeenModified)
                 {
-                    addPlayerCards.drawCost = 4;
+                    addPlayerCards.drawCost = 500;
                     hasCardCostBeenModified = false;
                 }
                 if (hasInsuranceCostBeenModified)
@@ -375,7 +375,7 @@ public class GameManager : MonoBehaviour
         if (discardArea.cardData.drawDiscount == true)
         {
             Debug.Log("Discounted card has been placed");
-            addPlayerCards.drawCost = 3;
+            addPlayerCards.drawCost = 375;
             discountedDraw = true;
         }
         if (discardArea.cardData.insurancePurchaseDiscount == true)
