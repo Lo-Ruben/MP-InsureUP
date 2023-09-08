@@ -34,13 +34,13 @@ public class BuyItems : MonoBehaviour, IPointerDownHandler
         {
             case "Medical Check Up":
                 cardCostMedCheck = getInsuranceInfo.InsuranceData.originalCardCost;
-                discountedCardCostMedCheck = cardCostMedCheck / 2;
+                discountedCardCostMedCheck = 2250;
                 newCardCostMedCheck = gameManager.MedCheckCostChange(discountedCardCostMedCheck, cardCostMedCheck);
                 getInsuranceInfo.InsuranceData.cardCost = newCardCostMedCheck;
                 break;
             case "Prosthetic":
                 cardCostProsthetics = getInsuranceInfo.InsuranceData.originalCardCost;
-                discountedCardCostProsthetics = cardCostProsthetics / 2;
+                discountedCardCostProsthetics = 11250;
                 newCardCostProsthetics = gameManager.ProstheticsCostChange(discountedCardCostProsthetics, cardCostProsthetics);
                 getInsuranceInfo.InsuranceData.cardCost = newCardCostProsthetics;
                 
