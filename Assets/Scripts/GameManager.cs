@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        money = 20000;
+        money = 25000;
         maxHealth = 5;
         health = maxHealth;
         JobLevel = 5;
@@ -677,7 +677,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver: Lose");
             SceneManager.LoadScene(3);
         }
-        if (money >= 100000)
+        if (money >= 50000)
         {
             Debug.Log("GameOver: Win");
             SceneManager.LoadScene(3);
