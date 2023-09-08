@@ -10970,11 +10970,11 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   increasedHealth: 0
-  money: 2000
+  money: 20000
   spentMoney: 0
   timesProtected: 0
   ShopGameObject: {fileID: 1991985548}
-  baseIncome: 600
+  baseIncome: 500
   maxPlayerHand: 100
   healthText: {fileID: 174529756}
   moneyText: {fileID: 1446368490}
@@ -15284,9 +15284,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63ca1124c676d074e841dc7f7e5a1b3b, type: 2}
   - {fileID: 11400000, guid: 33eafff521216454290d10d0747f3755, type: 2}
   - {fileID: 11400000, guid: f8d8baf8c0a3c694ebd7861e896a27eb, type: 2}
-  - {fileID: 11400000, guid: b5fe0f23502582444a8a653def27ec27, type: 2}
   - {fileID: 11400000, guid: 93665cab94babd14abd22b6f81b779f0, type: 2}
-  - {fileID: 11400000, guid: 5f13694400f54144a945a3811920721b, type: 2}
   - {fileID: 11400000, guid: 00e2811bb85214c4fbacc81ea73b4d4f, type: 2}
   - {fileID: 11400000, guid: 24d1c344262c3874289530c5192bde70, type: 2}
   - {fileID: 11400000, guid: 5014b4637904fa240b002c874ef81af8, type: 2}

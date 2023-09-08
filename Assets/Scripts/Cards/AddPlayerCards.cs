@@ -27,7 +27,7 @@ public class AddPlayerCards : MonoBehaviour
 
     void Start()
     {
-        drawCost = 4;
+        drawCost = 500;
         m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 

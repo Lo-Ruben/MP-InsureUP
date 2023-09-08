@@ -15,12 +15,12 @@ MonoBehaviour:
   cardType: Bad
   cardName: Devastating Diagnosis
   cardDescription: You decided to suntan directly at the source and now have a tumor,
-    dummy! -3 Health points
+    dummy! -3 Health points.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: -3
   moneyIntChange: 0
   cardEffectDuration: 0
-  insuranceCounter: Life
+  insuranceCounter: Critical Illness
   animatorController: {fileID: 9100000, guid: 1540a3e71e320544082758e2e86e3840, type: 2}

@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        money = 500;
+        money = 20000;
         maxHealth = 5;
         health = maxHealth;
         JobLevel = 5;
@@ -307,7 +307,7 @@ public class GameManager : MonoBehaviour
                 //Handle insurance interaction with crisis
                 if (hasHealthBeenModified)
                 {
-                    if (PersonalLevel > 5)
+                    if (PersonalLevel > 7)
                     {
                         if (health < 5)
                         {
@@ -322,7 +322,7 @@ public class GameManager : MonoBehaviour
                         HighScoreSingleton.instance.AddScore(100);
 
                     }
-                    if (PersonalLevel < 5)
+                    if (PersonalLevel < 3)
                     {
                         health -= 1;
 
@@ -677,7 +677,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver: Lose");
             SceneManager.LoadScene(3);
         }
-        if (money >= 50000)
+        if (money >= 100000)
         {
             Debug.Log("GameOver: Win");
             SceneManager.LoadScene(3);

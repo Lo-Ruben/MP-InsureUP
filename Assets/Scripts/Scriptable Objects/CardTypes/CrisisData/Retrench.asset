@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Retrenchment
-  cardDescription: You forgot your crew back on Saturn. yout boss fires you resulting
-    in you work needs going down to 1.
+  cardDescription: You forgot your crew back on Saturn. yout boss fires you.  Job
+    needs back down to 1.
   familyIntChange: 0
   jobIntChange: -9
   personalIntChange: 0

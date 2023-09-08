@@ -20,7 +20,7 @@ MonoBehaviour:
   cardCost: 10000
   cardImage: {fileID: -1971582514, guid: d8097340aca9f31418a5bc50c60ec262, type: 3}
   familyIncrease: 2
-  jobIncrease: -1
+  jobIncrease: -2
   personalIncrease: 2
   cardEffectDuration: 0
   drawDiscount: 0

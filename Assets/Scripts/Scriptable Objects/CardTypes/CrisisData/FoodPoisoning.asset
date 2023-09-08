@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Bad
   cardName: Food Poisoning
-  cardDescription: You add a spoilt space food! YUCK! -1 Health Point.
+  cardDescription: You had spoilt space food! YUCK! -1 Health Point.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
   healthIntChange: -1
   moneyIntChange: 0
   cardEffectDuration: 0
-  insuranceCounter: Health
+  insuranceCounter: Accident
   animatorController: {fileID: 9100000, guid: 6811329a869ac49469f29ff47dfff989, type: 2}

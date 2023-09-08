@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Promotion
-  cardDescription: Your boss loved your attitude and gave u a promotion. +2 Work
-    needs.
+  cardDescription: I was so good at it that, it got me a promotion. +2 Work needs.
   familyIntChange: 0
   jobIntChange: 2
   personalIntChange: 0

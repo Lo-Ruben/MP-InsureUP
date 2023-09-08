@@ -15,12 +15,12 @@ MonoBehaviour:
   cardType: Bad
   cardName: Depress
   cardDescription: The crushing weight of reality sets in and you are now devastated.
-    Personal needs set to 1
+    Personal needs set to 1.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: -9
   healthIntChange: 0
   moneyIntChange: 0
   cardEffectDuration: 0
-  insuranceCounter: Critical Illness
+  insuranceCounter: 
   animatorController: {fileID: 9100000, guid: 9b3071efa9584bb4982be20f08764d68, type: 2}

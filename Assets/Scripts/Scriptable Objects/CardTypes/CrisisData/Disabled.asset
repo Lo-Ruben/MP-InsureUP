@@ -15,12 +15,12 @@ MonoBehaviour:
   cardType: Bad
   cardName: Permanantly Disabled
   cardDescription: You space out and stuck your arm into the dematerializer, ouch!
-    Personal needs set to 1.
+    Max HP - 1.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: -1
   healthIntChange: 0
   moneyIntChange: 0
   cardEffectDuration: 0
-  insuranceCounter: Accident
+  insuranceCounter: Life
   animatorController: {fileID: 9100000, guid: ddad65deccce54b43b6c19fff779099f, type: 2}

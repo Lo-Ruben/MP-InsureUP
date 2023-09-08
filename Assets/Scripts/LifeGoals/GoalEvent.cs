@@ -201,7 +201,7 @@ public class GoalEvent : MonoBehaviour
     bool Goal7(GoalData goalData)
     {
         // ADJUST MONEY
-        int MaxGoal = 50;
+        int MaxGoal = 50000;
         SetGoalInt(goalData, m_gameManager.spentMoney, MaxGoal);
 
         //Spend $ on insurance

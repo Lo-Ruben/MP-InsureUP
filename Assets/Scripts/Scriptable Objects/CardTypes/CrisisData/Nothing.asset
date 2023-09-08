@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Nothing
   m_EditorClassIdentifier: 
   cardType: Good
-  cardName: Nothing
-  cardDescription: Nothing happens...
+  cardName: Nothingness
+  cardDescription: You go about your days peacefully and without incident.
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0

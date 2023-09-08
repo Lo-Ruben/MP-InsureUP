@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: Good
   cardName: Miraculous Recovery
-  cardDescription: Its a miracle your recoverd! 2 Health points added!
+  cardDescription: Its a miracle your recoverd! +2 Health points added!
   familyIntChange: 0
   jobIntChange: 0
   personalIntChange: 0
