@@ -10964,7 +10964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c1c3765c0745d4190d16f02698dc00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invt: {fileID: 819967115}
   insuranceInfoPrefab: {fileID: 4085894641182417773}
   noDataFound: {fileID: 11400000, guid: 8b92563b2b2fe3e4f906858c486cee71, type: 2}
   health: 0
@@ -11005,11 +11004,6 @@ MonoBehaviour:
   coinAnimation: {fileID: 462980006}
   crisisDisplay: {fileID: 390038040}
   CrisisCardArea: {fileID: 623603999}
-  hasHealthBeenModified: 1
-  hasCardCostBeenModified: 1
-  hasInsuranceCostBeenModified: 0
-  hasProstheticsCostBeenModified: 0
-  hasMedCheckCostBeenModified: 0
   JobLifeAspect: {fileID: 1396418241}
   FamilyLifeAspect: {fileID: 1810295277}
   PersonalLifeAspect: {fileID: 1121811908}
@@ -11027,6 +11021,11 @@ MonoBehaviour:
   discountedInsuranceCost: 0
   discountedProstheticsCost: 0
   discountedMedCheckCost: 0
+  hasHealthBeenModified: 1
+  hasCardCostBeenModified: 1
+  hasInsuranceCostBeenModified: 0
+  hasProstheticsCostBeenModified: 0
+  hasMedCheckCostBeenModified: 0
   healthInsuranceBool: 0
   audioSource: {fileID: 827282914}
   nextPhaseClick: {fileID: 8300000, guid: 8004b95a66863d142aca009e931d60c4, type: 3}
@@ -21287,7 +21286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4057362400860952412, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4806000184512578005, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_AnchorMax.y
