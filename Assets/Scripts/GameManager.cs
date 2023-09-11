@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Inventory Update")]
     //inventory display
-    public Inventory invt;
+    private Inventory inventory;
     public GameObject insuranceInfoPrefab;
     public InventoryData noDataFound;
 
@@ -66,12 +66,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject phaseButton;
 
-    [SerializeField]
-    public BuyInsurance buyInsurance;
-
     public GameObject warningText;
 
-    //Debugging
     public Text phaseText;
 
     [Header("Game Life Aspect Levels")]
@@ -111,7 +107,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Discard Area
-    [Header("Crisis Card")]
+    [Header("Discard Area")]
     [SerializeField]
     DropArea discardArea;
     private string sign;
@@ -119,25 +115,23 @@ public class GameManager : MonoBehaviour
     public Animator coinAnimation;
 
     // Crisis cards
+    [Header("Crisis Display")]
     [SerializeField]
     CrisisDisplay crisisDisplay;
 
     public GameObject CrisisCardArea;
 
-    public bool hasHealthBeenModified = true;
-    public bool hasCardCostBeenModified = true;
-    public bool hasInsuranceCostBeenModified = false;
-    public bool hasProstheticsCostBeenModified = false;
-    public bool hasMedCheckCostBeenModified = false;
-
+    [Header("LifeGoal HUD change")]
     public LifeAspectUI JobLifeAspect;
     public LifeAspectUI FamilyLifeAspect;
     public LifeAspectUI PersonalLifeAspect;
+
     // Organize goals into an Array
     GoalData[] goalDataArray = { PlayerGoals.goalDataSaved1, PlayerGoals.goalDataSaved2, PlayerGoals.goalDataSaved3 };
 
     public CardData cardData;
 
+    [Header("Handle change of player's hand")]
     public List<GameObject> discarded = new List<GameObject>();
     public List<GameObject> inHand = new List<GameObject>();
     public GameObject discardObj;
@@ -148,10 +142,18 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
     public CardData cardPlayed;
 
+    [Header("Shop Cost discount")]
     public bool discountedDraw = false;
     public bool discountedInsuranceCost = false;
     public bool discountedProstheticsCost = false;
     public bool discountedMedCheckCost = false;
+
+    [Header("Checks if Shop prices been modified")]
+    public bool hasHealthBeenModified = true;
+    public bool hasCardCostBeenModified = true;
+    public bool hasInsuranceCostBeenModified = false;
+    public bool hasProstheticsCostBeenModified = false;
+    public bool hasMedCheckCostBeenModified = false;
 
     //public int boughtTurn; //here
     public bool healthInsuranceBool; //here
@@ -162,8 +164,6 @@ public class GameManager : MonoBehaviour
     public AudioClip useCard;
     public AudioClip buyCard;
     public AudioClip eventSound;
-
-    private Inventory inventory;
 
     private void Awake()
     {
@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
     }
     void noInsuranceBought()
     {
-        if (invt.boughtInsrData.Count == 0)
+        if (inventory.boughtInsrData.Count == 0)
         {
             InventoryDisplay noData = insuranceInfoPrefab.GetComponent<InventoryDisplay>();
             noData.InventoryData = noDataFound;

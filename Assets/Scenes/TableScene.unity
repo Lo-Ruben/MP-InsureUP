@@ -10993,7 +10993,6 @@ MonoBehaviour:
   slider3: {fileID: 422230645}
   moneyChangedText: {fileID: 287372546}
   phaseButton: {fileID: 1444420108}
-  buyInsurance: {fileID: 623641728}
   warningText: {fileID: 381468467}
   phaseText: {fileID: 1357580059}
   JobLevel: 0
@@ -14607,7 +14606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppedCardInt: 0
-  playerManager: {fileID: 827282913}
+  gameManager: {fileID: 827282913}
 --- !u!1 &1165506758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1085360275541385765, guid: 0bf67241385ca394e80a49a720b8f8be, type: 3}

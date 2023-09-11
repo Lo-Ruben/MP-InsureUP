@@ -10,23 +10,23 @@ public class DropArea : MonoBehaviour, IDropHandler
 
     [Header("Insert GameManagers Here")]
     [SerializeField]
-    GameManager playerManager;
+    GameManager gameManager;
 
     public void OnDrop(PointerEventData eventData)
     {
         Draggable draggable = eventData.pointerDrag.GetComponent<Draggable>();
-        if (draggable != null && playerManager != null)
+        if (draggable != null && gameManager != null)
         {
             draggable.parentToReturnTo = this.transform;
             cardData = draggable.GetComponent<CardDisplay>().CardInfo;
-            playerManager.PlayCard();
+            gameManager.PlayCard();
             draggable.isDraggingStop = true;
         }
         if (draggable == null)
         {
             Debug.Log("Please put a card in the discard pile");
         }
-        if (playerManager == null)
+        if (gameManager == null)
         {
             Debug.Log("PlayerManager is not referened in DropArea");
         }
