@@ -2655,7 +2655,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085360275541385765, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Name
-      value: InsuranceCard (1)
+      value: InsuranceCard3
       objectReference: {fileID: 0}
     - target: {fileID: 5903927749636392865, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Pivot.x
@@ -16070,7 +16070,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085360275541385765, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Name
-      value: InsuranceCard
+      value: InsuranceCard4
       objectReference: {fileID: 0}
     - target: {fileID: 5903927749636392865, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Pivot.x
@@ -21222,6 +21222,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819967112}
     m_Modifications:
+    - target: {fileID: 776488743813329035, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350122521850375294, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350122521850375294, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350122521850375294, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350122521850375294, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002970103166779954, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016829157663540492, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2703606700983538654, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21237,11 +21265,55 @@ PrefabInstance:
     - target: {fileID: 2719460488905120684, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DecideCardButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063664904356244011, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285032320418438327, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844444748721233408, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_Name
+      value: Header
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844444748721233408, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4057362400860952412, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_Name
       value: ToughDecisionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4057362400860952412, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806000184512578005, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806000184512578005, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806000184512578005, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806000184512578005, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670701261646799506, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519333568609862645, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6611010786869887782, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21249,6 +21321,42 @@ PrefabInstance:
     - target: {fileID: 6611010786869887782, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DecideCardButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140342884498824778, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824926998640972842, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824926998640972842, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824926998640972842, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824926998640972842, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041180110877340448, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041180110877340448, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041180110877340448, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041180110877340448, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8969272679483587649, guid: d372e1166f5ab934b9da8a7c9929d43f, type: 3}
       propertyPath: m_Pivot.x
@@ -21947,7 +22055,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085360275541385765, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Name
-      value: InsuranceCard
+      value: InsuranceCard1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539421315740212972, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606705191291479129, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5903927749636392865, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Pivot.x
@@ -22032,6 +22148,14 @@ PrefabInstance:
     - target: {fileID: 5903927749636392865, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280285375628363931, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394052914111536216, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8929542110636636468, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: insuranceData
@@ -23021,7 +23145,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085360275541385765, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Name
-      value: InsuranceCard (1)
+      value: InsuranceCard2
       objectReference: {fileID: 0}
     - target: {fileID: 5903927749636392865, guid: 36cd0031248e83b49a2f7a50c50fef4f, type: 3}
       propertyPath: m_Pivot.x
@@ -25551,6 +25675,14 @@ PrefabInstance:
     - target: {fileID: 5373462916512253427, guid: beea9534f62c82849979bd1c5a87f35b, type: 3}
       propertyPath: m_Name
       value: Insurance Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373462916512253427, guid: beea9534f62c82849979bd1c5a87f35b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136901850031143742, guid: beea9534f62c82849979bd1c5a87f35b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
