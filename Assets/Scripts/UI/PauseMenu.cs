@@ -23,12 +23,12 @@ public class PauseMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) && opened == false)
+        if (Input.GetKeyUp(KeyCode.Escape) && opened == false)
         {
             OpenMenu();
             opened = true;
         }
-        if(Input.GetKey(KeyCode.Escape) )
+        if (Input.GetKeyDown(KeyCode.Escape) && opened == true)
         {
             Resume();
             opened = false;
